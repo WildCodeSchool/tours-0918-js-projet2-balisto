@@ -1,0 +1,14 @@
+
+<ngb-carousel #carousel="ngbCarousel" *ngIf="images">
+  <ng-template ngbSlide *ngFor="let image of images; let i =  index">
+    <img [src]="image">
+    <div class="carousel-caption">
+      <h3>Slinde n° {{i}}</h3>
+      <p>
+        <button type="button" class="btn btn-light" (click)="carousel.prev()">Prev</button>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae libero ut velit ullamcorper semper at non nulla.
+        <button type="button" class="btn btn-light" (click)="carousel.next()">Next</button>
+      </p>
+    </div>
+  </ng-template>
+</ngb-carousel>
