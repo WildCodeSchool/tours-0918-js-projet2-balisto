@@ -6,22 +6,51 @@
           <figcaption class="figcaption">
             <p>Emmener partout notre application !</p>
           </figcaption>
-          <a href='#'><img src='../../../Images/logo apple.png' class="figure-img img-fluid rounded logo" alt='#'> </a>
-          <a href='#'> <img src='../../../Images/logo android.png' class="figure-img img-fluid rounded logo" alt='#'>
-          </a>
+          <div class='d-flex justify-content-around'>
+            <a href='#'><img src='../../../Images/logo apple.png' class="figure-img img-fluid rounded logo" alt='#'>
+            </a>
+            <a href='#'> <img src='../../../Images/logo android.png' class="figure-img img-fluid rounded logo" alt='#'>
+            </a>
+          </div>
         </figure>
       </div>
       <div class="align-self-center">
-        <a href=''>Pour nous contacter</a>
+        <button class="btn btn-lg btn-light" (click)="open(content)">Pour nous contacter</button>
       </div>
+      <ng-template #content let-modal>
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Pour nous contacter</h5>
+            <button type="button" class="close" (click)="modal.dismiss('erreur modal dismiss')" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="email">
+              <h6>Votre Email</h6>
+              <input type="text" [(ngModel)]="media.filename" id="iemail" />
+            </div>
+            <div id="message">
+              <h6>Votre message</h6>
+              <textarea rows="3"></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="modal.dismiss('erreur modal dismiss')">Close</button>
+            <button type="button" class="btn btn-primary" (click)="modal.close(mediaInput)">Save changes</button>
+          </div>
+        </div>
+      </ng-template>
       <div>
         <figure class="figure">
           <figcaption class="figcaption">
             <p>Suivez-nous sur nos réseaux sociaux !</p>
           </figcaption>
-          <a href='#'> <img src='../../../Images/logo facebook.png' class="logo" alt='#'> </a> <a href="#"> <img src='../../../Images/logo twitter.png'
-              class="logo" alt='#'> </a> <a href='#'><img src='../../../Images/logo instagram.png' class="logo" alt='#'>
-          </a>
+          <div class='d-flex justify-content-around'>
+            <a href='#'> <img src='../../../Images/logo facebook.png' class="logo" alt='#'> </a> <a href="#"> <img src='../../../Images/logo twitter.png'
+                class="logo" alt='#'> </a> <a href='#'><img src='../../../Images/logo instagram.png' class="logo" alt='#'>
+            </a>
+          </div>
         </figure>
       </div>
     </div>
@@ -33,4 +62,6 @@
       </div>
     </div>
   </div>
+
+
 </footer>
