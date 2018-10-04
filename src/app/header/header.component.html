@@ -1,4 +1,4 @@
-<div class= "container-fluid" class="sticky-top">
+<div class= "sticky-top">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">
       <img src="https://marspresscenter.com/assets_multimedia/logos/Mars_Wrigley_Confectionery/chocolate-balisto_280.png" width="30" height="30" class="d-inline-block align-top" alt="">
@@ -8,20 +8,25 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse justify-content-between btn-group" id="navbarSupportedContent">
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
+          <div class="btn-group">
+              <button class="btn btn-outline-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span class="sr-only">Toggle Dropdown</span>
+                  </button>
+                  <div class="container-fluid">
+                  <div class="dropdown-menu">
+                      <button type="button" class="btn btn-success">Recherche avancée</button>
+                      </div>
+                  </div>
+                  </div>
         </form>
-        <div class="menu d-flex">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Page d'acceuil <span class="sr-only">(current)</span></a>
-            </li>
-          </ul>
-      </div>
+        <div class="Rav">
+        </div>
       <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Connexion Admin
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
