@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+
+.logo{
+height: 50px;
+width: 50px;
+}
+
+footer{
+  background-color: rgb(57, 114, 35);
+  font-family: 'Poppins';
+}
+
+p{
+  color: beige;
+}
+
+a{
+  color: beige;
+  text-decoration: underline;
+}
+
+#message
+{
+margin-top: 10px;
+}
+
+#iemail
+{
+  width: 100%;
+}
+
+textarea
+{
+  width: 100%;
+}
