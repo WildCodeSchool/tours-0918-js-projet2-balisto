@@ -6,13 +6,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./slideshow.component.css']
 })
 export class SlideshowComponent implements OnInit {
-  images: string[];
+  products: { 'nom': string, 'image': string} [];
 
   constructor() { }
 
+
   ngOnInit() {
-    this.images = [1, 2, 3].map(() => `https://picsum.photos/1600/500?random&t=${Math.random()}`);
+    this.products = [{
+      nom: 'Balisto',
+      image: `https://static.openfoodfacts.org/images/products/500/015/941/9291/front_fr.26.full.jpg`,
+    },
+    {
+      nom: 'Balisto raisins et noisettes',
+      image: `https://static.openfoodfacts.org/images/products/500/015/941/8546/front_fr.6.full.jpg`,
+    },
+    {
+      nom: 'Balisto fruits des bois',
+      image: `https://static.openfoodfacts.org/images/products/500/015/941/8003/front_fr.22.full.jpg`,
+    }];
+
   }
-
-
 }

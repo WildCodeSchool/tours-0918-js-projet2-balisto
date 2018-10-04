@@ -1,7 +1,7 @@
 
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SlideshowComponent } from './caroussel.component';
+import { SlideshowComponent } from './slideshow.component';
 
 describe('SlideshowComponent', () => {
   let component: SlideshowComponent;
