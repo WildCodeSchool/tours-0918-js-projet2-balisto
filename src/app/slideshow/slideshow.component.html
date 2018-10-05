@@ -1,0 +1,12 @@
+<div class="height: 80% width:80%" style= "margin-top:2em; margin-bottom:2em">
+<ngb-carousel #carousel="ngbCarousel" *ngIf="products" background-color: grey>
+  <ng-template ngbSlide *ngFor="let product of products">
+    <img [src]="product.image" style= "width: 100%; max-height:300px; margin:0 auto ">
+    <div class="carousel-caption">
+      <h3>{{product.nom}}</h3>
+      <p>
+      </p>
+    </div>
+  </ng-template>
+</ngb-carousel>
+</div>
