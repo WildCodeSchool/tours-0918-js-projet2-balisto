@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <title>Balisto</title>
+    </head>
+    <body>
+        <h1 class="my-4 d-flex justify-content-center">Les produits</h1>
+        <div class="container">
+            <div class="row">
+                <div class="card m-1 col-12 col-sm-6 col-lg-4 col-xl-3"  style="max-width: 270px;" *ngFor="let produit of produits">
+                  <div *ngIf="produit.images; then image else imageerreur"></div>
+                  <ng-template #image>
+                    <div class="card-body">
+                        <img class="card-img-top" src="https://static.openfoodfacts.org/images/products/{{produit.id}}/1.400.jpg" alt="Card image cap Responsive image" style="max-height: 250px;">
+                    </div>
+                  </ng-template>
+                  <ng-template #imageerreur>
+                      <div class="card-body">
+                          <img class="card-img-top" src="https://via.placeholder.com/300x400" alt="Card image cap Responsive image" style="max-height: 250px;">
+                      </div>
+                  </ng-template>
+                    <div class="card-header">
+                      <h5 class="card-title">{{produit.product_name}}</h5>
+                    </div>
+                    <div class="card-body">
+                        <a href="#" class="mx-2 btn btn-outline-primary btn-lg btn-block">Voir</a>
+                        <a href="#" class="mx-2 btn btn-outline-primary btn-lg btn-block">Comparer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="my-4">
+            <ngb-pagination class="d-flex justify-content-center" [collectionSize]="70" [(page)]="page" [boundaryLinks]="true"></ngb-pagination>
+            <hr>
+            <pre class="d-flex justify-content-center">Current page: {{page}}</pre>
+        </div>
+    </body>
+</html>
+<app-media-modal></app-media-modal>
