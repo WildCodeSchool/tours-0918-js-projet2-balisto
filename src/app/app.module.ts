@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';;
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -14,8 +14,8 @@ import { OutiltriComponent } from './outiltri/outiltri.component';
   declarations: [
     AppComponent,
     GalerieComponent,
-    MediaModalComponent
-    SlideshowComponent
+    MediaModalComponent,
+    SlideshowComponent,
     FooterComponent,
     OutiltriComponent
   ],
