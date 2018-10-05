@@ -25,8 +25,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": ["../tours-0918-js-projet2-balisto/node_modules/jquery/dist/jquery.min.js",
-              "../tours-0918-js-projet2-balisto/node_modules/bootstrap/dist/js/bootstrap.js"]
+            "scripts": []
           },
           "configurations": {
             "production": {
