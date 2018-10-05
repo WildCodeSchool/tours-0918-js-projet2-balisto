@@ -5,18 +5,17 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { GalerieComponent } from './galerie/galerie.component';
-import { MediaModalComponent } from './media-modal/media-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GalerieComponent,
-    MediaModalComponent
   ],
   imports: [
     BrowserModule,
     NgbModule,
     FormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
