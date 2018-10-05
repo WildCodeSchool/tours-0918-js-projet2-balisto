@@ -1,0 +1,16 @@
+nav {
+  display:flex;
+  background-color: rgba(255,255,255, 0.3);
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+.menu{
+  float: right;
+}
+
+.Rav{
+  margin-left: 1%;
+}
+
+

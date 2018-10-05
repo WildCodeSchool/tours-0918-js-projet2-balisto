@@ -1,21 +1,28 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
 import { GalerieComponent } from './galerie/galerie.component';
+import { SlideshowComponent } from './slideshow/slideshow.component';
+import { FooterComponent } from './footer/footer.component';
+import { OutiltriComponent } from './outiltri/outiltri.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent
     GalerieComponent,
+    SlideshowComponent,
+    FooterComponent,
+    OutiltriComponent
   ],
   imports: [
     BrowserModule,
     NgbModule,
     FormsModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]
