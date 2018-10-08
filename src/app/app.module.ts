@@ -10,16 +10,18 @@ import { MediaModalComponent } from './media-modal/media-modal.component';
 import { SlideshowComponent } from './slideshow/slideshow.component';
 import { FooterComponent } from './footer/footer.component';
 import { OutiltriComponent } from './outiltri/outiltri.component';
+import { PagetriComponent } from './pagetri/pagetri.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
     GalerieComponent,
     MediaModalComponent,
     SlideshowComponent,
     FooterComponent,
-    OutiltriComponent
+    OutiltriComponent,
+    PagetriComponent
   ],
   imports: [
     BrowserModule,
