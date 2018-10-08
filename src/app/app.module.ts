@@ -13,7 +13,7 @@ import { OutiltriComponent } from './outiltri/outiltri.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
     GalerieComponent,
     SlideshowComponent,
     FooterComponent,
