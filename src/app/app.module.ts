@@ -1,11 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { GalerieComponent } from './galerie/galerie.component';
+import { PageProduitsComponent } from './page-produits/page-produits.component';
 import { SlideshowComponent } from './slideshow/slideshow.component';
 import { FooterComponent } from './footer/footer.component';
 import { OutiltriComponent } from './outiltri/outiltri.component';
@@ -15,6 +17,7 @@ import { OutiltriComponent } from './outiltri/outiltri.component';
     AppComponent,
     HeaderComponent
     GalerieComponent,
+    PageProduitsComponent
     SlideshowComponent,
     FooterComponent,
     OutiltriComponent
@@ -22,7 +25,8 @@ import { OutiltriComponent } from './outiltri/outiltri.component';
   imports: [
     BrowserModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
