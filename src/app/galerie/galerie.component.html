@@ -1,6 +1,6 @@
         <div class="container">
             <div class="row">
-                <div class="card m-1 col-12 col-sm-6 col-lg-4 col-xl-3"  style="max-width: 270px;" *ngFor="let produit of produits">
+                <div class="card m-1 col-12 col-sm-6 col-lg-4 col-xl-3"  style="max-width: 270px;" *ngFor="let produit of produits | paginate:{itemsPerPage:8, currentPage: page}">
                   <div *ngIf="produit.images; then image else imageerreur"></div>
                   <ng-template #image>
                     <div class="card-body">
@@ -16,13 +16,13 @@
                       <h5 class="card-title">{{produit.product_name}}</h5>
                     </div>
                     <div class="card-body">
-                        <a href="#" class="mx-2 btn btn-outline-primary btn-lg btn-block">Voir</a>
-                        <a href="#" class="mx-2 btn btn-outline-primary btn-lg btn-block">Comparer</a>
+                        <a routerLink="/Produits" class="mx-2 btn btn-outline-primary btn-lg btn-block">Voir</a>
+                        <a routerLink="/Comparateur" class="mx-2 btn btn-outline-primary btn-lg btn-block">Comparer</a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="my-4">
-            <ngb-pagination class="d-flex justify-content-center" [collectionSize]="70" [(page)]="page" [boundaryLinks]="true"></ngb-pagination>
+        <div class="my-4 d-flex justify-content-center">
+            <pagination-controls (pageChange)="page = $event"></pagination-controls>
         </div>
