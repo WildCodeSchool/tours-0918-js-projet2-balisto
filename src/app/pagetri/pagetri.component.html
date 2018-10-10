@@ -7,8 +7,9 @@
   <div class="row">
     <p>XX critère</p>
   </div>
-  <div class="container-fluid">
-    Liste des critères
-  </div>
+  <ul>
+    <li *ngFor=' let critere of categories'><a href='pagetri/{{critere}}'> {{critere}} </a></li>
+  </ul>
+
 </div>
 <app-footer></app-footer>
