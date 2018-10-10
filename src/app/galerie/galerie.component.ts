@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class GalerieComponent implements OnInit {
 
   produits: any;
-  page: any;
+  page = 1;
 
   constructor() {
 
