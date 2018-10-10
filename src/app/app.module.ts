@@ -9,6 +9,7 @@ import { GalerieComponent } from './galerie/galerie.component';
 import { SlideshowComponent } from './slideshow/slideshow.component';
 import { FooterComponent } from './footer/footer.component';
 import { OutiltriComponent } from './outiltri/outiltri.component';
+import { PagetriComponent } from './pagetri/pagetri.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { OutiltriComponent } from './outiltri/outiltri.component';
     GalerieComponent,
     SlideshowComponent,
     FooterComponent,
-    OutiltriComponent
+    OutiltriComponent,
+    PagetriComponent
   ],
   imports: [
     BrowserModule,
