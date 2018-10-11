@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TriService } from '../tri.service';
+import products from '../products';
+
 
 @Component({
   selector: 'app-pagetri',
@@ -8,9 +9,18 @@ import { TriService } from '../tri.service';
 })
 export class PagetriComponent implements OnInit {
 
+  products: any;
+  prodTri: any[];
   constructor() { }
 
   ngOnInit() {
+    this.products = products;
   }
-
+  triByCategory(category) {
+    this.prodTri = products.filter(product => {
+      if (product.categories && product.categories.toLowerCase().split(',').includes(category.toLowerCase())) {
+        return product;
+      }
+    });
+  }
 }

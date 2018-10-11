@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-
 @Component({
   selector: 'app-galerie',
   templateUrl: './galerie.component.html',
@@ -113,7 +112,7 @@ export class GalerieComponent implements OnInit {
             '100': {
               'h': 100,
               'w': 75
-             },
+            },
             '400': {
               'h': 400,
               'w': 300
@@ -1927,7 +1926,7 @@ export class GalerieComponent implements OnInit {
       'id': '9120070960019',
       'additives_tags': []
     },
-  ];
+    ];
 
   }
 
