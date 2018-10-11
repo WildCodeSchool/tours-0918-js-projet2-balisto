@@ -2,21 +2,31 @@
 <app-slideshow></app-slideshow>
 <div class="container-fluid">
   <div class="row">
-    <div ngbDropdown class="d-inline-block">
+    <div ngbDropdown class="col-2 d-inline-block">
       <button class="btn btn-outline-secondary" id="dropdownBasic1" ngbDropdownToggle>Explorer les produits par</button>
       <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-        <button class="dropdown-item"  id='Boissons' (click)="triByCategory('boissons')" (click)="title = true"> Boissons</button>
-        <button class="dropdown-item" id='Produits de la mer' (click)="triByCategory('produits de la mer')" (click)="title = true"> Produits de la mer</button>
-        <button class="dropdown-item" id='Vins' (click)="triByCategory('vins')" (click)="title = true"> Vins</button>
-        <button class="dropdown-item" id='Compléments alimentaires' (click)="triByCategory('compléments alimentaires')" (click)="title = true">Compléments alimentaires</button>
-        <button class="dropdown-item" id='Farines' (click)="triByCategory('farines')" (click)="title = true"> Farines</button>
-        <button class="dropdown-item" id='Barres protéinées' (click)="triByCategory('barres protéinées')" (click)="title = true"> Barres protéinées</button>
-        <button class="dropdown-item" id='Epicerie' (click)="triByCategory('epicerie')" (click)="title = true"> Epicerie</button>
-        <button class="dropdown-item" id= 'Tartes à la noix' (click)="triByCategory('tartes à la noix de coco')" (click)="title = true"> Tartes à la noix de coco</button>
-        <button class="dropdown-item" id='Compotes de poire' (click)="triByCategory('compotes de poire')" (click)="title = true"> Compotes de poire</button>
+        <button class="dropdown-item" (click)="prodTri=''" (click)="title =''">All</button>
+        <button class="dropdown-item" (click)="triByCategory('boissons')" (click)="title = 'Boissons'">
+          Boissons</button>
+        <button class="dropdown-item" (click)="triByCategory('produits de la mer')" (click)="title = 'Produits de la mer'">
+          Produits de la mer</button>
+        <button class="dropdown-item" (click)="triByCategory('vins')" (click)="title = 'Vins'"> Vins</button>
+        <button class="dropdown-item" (click)="triByCategory('compléments alimentaires')" (click)="title = 'Compléments alimentaires'">Compléments
+          alimentaires</button>
+        <button class="dropdown-item" (click)="triByCategory('farines')" (click)="title = 'Farines'"> Farines</button>
+        <button class="dropdown-item" (click)="triByCategory('barres protéinées')" (click)="title = 'Barres protéinées'">
+          Barres protéinées</button>
+        <button class="dropdown-item" (click)="triByCategory('epicerie')" (click)="title = 'Epicerie'">
+          Epicerie</button>
+        <button class="dropdown-item" (click)="triByCategory('tartes à la noix de coco')" (click)="title = 'Tartes à la noix'">
+          Tartes à la noix de coco</button>
+        <button class="dropdown-item" (click)="triByCategory('compotes de poire')" (click)="title = 'Compotes de poire'">
+          Compotes de poire</button>
       </div>
     </div>
-    <h5 *ngIf='title'></h5>
+    <div class='col-2 offset-3'>
+      <h2 *ngIf='title'>{{title}}</h2>
+    </div>
   </div>
   <div *ngIf="prodTri" class='row'>
     <div class="card m-1 col-12 col-sm-6 col-lg-4 col-xl-3 mx-auto" style="max-width: 270px;" *ngFor="let product of prodTri">

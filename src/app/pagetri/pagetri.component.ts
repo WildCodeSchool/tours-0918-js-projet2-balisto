@@ -24,4 +24,8 @@ export class PagetriComponent implements OnInit {
       }
     });
   }
+
+  onChange($event) {
+    console.log($event);
+  }
 }
