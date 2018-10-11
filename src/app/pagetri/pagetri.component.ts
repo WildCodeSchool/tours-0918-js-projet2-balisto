@@ -11,6 +11,7 @@ export class PagetriComponent implements OnInit {
 
   products: any;
   prodTri: any[];
+  title: boolean;
   constructor() { }
 
   ngOnInit() {
