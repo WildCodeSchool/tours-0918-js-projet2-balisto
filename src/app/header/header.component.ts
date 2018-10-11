@@ -7,16 +7,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-search: string;
-resultat: string;
+  search: any;
   constructor(public router: Router) {
-    this.resultat = this.search;
   }
 
   ngOnInit() {
-
   }
-send() {
-this.router.navigate(['resultat', this.search]);
+  send() {
+    this.router.navigate(['resultat', this.search]);
   }
 }

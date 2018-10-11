@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/index', pathMatch: 'full' },
   { path: 'Produits', component: PageProduitsComponent },
   { path: 'Comparateur', component: ComparateurComponent },
-  { path: 'search-page/resultat', component: SearchPageComponent}
+  { path: 'search-page/resultat/:search', component: SearchPageComponent}
 ];
 
 @NgModule({
