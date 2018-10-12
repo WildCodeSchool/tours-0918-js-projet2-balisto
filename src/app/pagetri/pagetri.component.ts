@@ -8,10 +8,17 @@ import { TriService } from '../tri.service';
   styleUrls: ['./pagetri.component.css']
 })
 export class PagetriComponent implements OnInit {
+  prodTri: any;
+  title: any;
+  products: any;
 
-  constructor() { }
+  constructor(private service: TriService) { }
 
   ngOnInit() {
+    this.products =  this.service.products;
   }
 
+  triByCategory(category) {
+    this.prodTri = this.service.triByCategory(category);
+  }
 }

@@ -1,8 +1,9 @@
+<h1 class="my-4 d-flex justify-content-center">Les produits</h1>
 <div class="container">
 --> {{loginService.isLogin}}
   <div class="row">
-    <div class="card m-1 col-12 col-sm-6 col-lg-4 col-xl-3" style="max-width: 270px;" *ngFor="let produit of tab | paginate:{itemsPerPage:8, currentPage: page}">
-      <div *ngIf="produit.image; then image else imageerreur"></div>
+    <div class="card m-1 col-12 col-sm-6 col-lg-4 col-xl-3" style="max-width: 270px;" *ngFor="let produit of produits">
+      <div *ngIf="produit.images; then image else imageerreur"></div>
       <ng-template #image>
         <div class="card-body">
           <img class="card-img-top" src="https://static.openfoodfacts.org/images/products/{{produit.id}}/1.400.jpg" alt="Card image cap Responsive image"
@@ -16,16 +17,18 @@
         </div>
       </ng-template>
       <div class="card-header">
-        <h5 class="card-title">{{produit.name}}</h5>
+        <h5 class="card-title">{{produit.product_name}}</h5>
       </div>
       <div class="card-body">
-        <a routerLink="/Produits" class="mx-2 btn btn-outline-primary btn-lg btn-block">Voir</a>
-        <a routerLink="/Comparateur" class="mx-2 btn btn-outline-primary btn-lg btn-block">Comparer</a>
+        <a href="#" class="mx-2 btn btn-outline-primary btn-lg btn-block">Voir</a>
+        <a href="#" class="mx-2 btn btn-outline-primary btn-lg btn-block">Comparer</a>
       </div>
     </div>
   </div>
 </div>
 
-<div class="my-4 d-flex justify-content-center">
-  <pagination-controls (pageChange)="page = $event"></pagination-controls>
+<div class="my-4">
+  <ngb-pagination class="d-flex justify-content-center" [collectionSize]="70" [(page)]="page" [boundaryLinks]="true"></ngb-pagination>
+  <hr>
+  <pre class="d-flex justify-content-center">Current page: {{page}}</pre>
 </div>

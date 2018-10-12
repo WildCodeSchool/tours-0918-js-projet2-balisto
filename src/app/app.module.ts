@@ -10,11 +10,6 @@ import { HeaderComponent } from './header/header.component';
 import { GalerieComponent } from './galerie/galerie.component';
 import { SlideshowComponent } from './slideshow/slideshow.component';
 import { FooterComponent } from './footer/footer.component';
-import { OutiltriComponent } from './outiltri/outiltri.component';
-import { PageProduitsComponent } from './page-produits/page-produits.component';
-import { AppRoutingModule } from './app-routing.module';
-import { ComparateurComponent } from './comparateur/comparateur.component';
-import { IndexComposantsComponent } from './index-composants/index-composants.component';
 import { PagetriComponent } from './pagetri/pagetri.component';
 import { AdminModule } from './admin/admin.module';
 
@@ -25,10 +20,6 @@ import { AdminModule } from './admin/admin.module';
     GalerieComponent,
     SlideshowComponent,
     FooterComponent,
-    OutiltriComponent,
-    PageProduitsComponent,
-    ComparateurComponent,
-    IndexComposantsComponent,
     PagetriComponent
   ],
   imports: [

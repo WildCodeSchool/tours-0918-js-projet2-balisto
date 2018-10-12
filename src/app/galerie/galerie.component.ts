@@ -3,7 +3,6 @@ import { Produit } from '../common/produit';
 import { ProduitService } from '../common/produit.service';
 import { LoginService } from '../common/login.service';
 
-
 @Component({
   selector: 'app-galerie',
   templateUrl: './galerie.component.html',
