@@ -1,9 +1,9 @@
 <div class="height: 80% width:80%" style= "margin-top:2em; margin-bottom:2em">
 <ngb-carousel #carousel="ngbCarousel" *ngIf="products" background-color: grey>
-  <ng-template ngbSlide *ngFor="let product of products">
-    <img [src]="product.image">
+  <ng-template ngbSlide *ngFor="let produit of products">
+    <img [src]="produit.image">
     <div class="carousel-caption">
-      <h3>{{product.nom}}</h3>
+      <h3>{{produit.nom}}</h3>
       <p>
       </p>
     </div>
