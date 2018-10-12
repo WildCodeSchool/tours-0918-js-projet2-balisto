@@ -5,8 +5,10 @@ import products from './products';
   providedIn: 'root'
 })
 export class TriService {
-
-  constructor() { }
+  products: any[];
+  constructor() {
+    this.products = products;
+  }
   triByCategory(category): any[] {
     const prodTri = products.filter(product => {
       if (product.categories && product.categories.toLowerCase().split(',').includes(category.toLowerCase())) {
