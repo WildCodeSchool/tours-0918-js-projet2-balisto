@@ -1,8 +1,8 @@
-<h1 > Page de recherche </h1>
+<h1 > Vous avez recherché {{search}} </h1>
 
 <div class="container">
   <div class="row">
-    <div class="card m-1 col-12 col-sm-6 col-lg-4 col-xl-3" style="max-width: 270px;" *ngFor="let produit of produits | paginate:{itemsPerPage:8, currentPage: page}">
+    <div class="card m-1 col-12 col-sm-6 col-lg-4 col-xl-3" style="max-width: 270px;">
       <div *ngIf="produit.images; then image else imageerreur"></div>
       <ng-template #image>
         <div class="card-body">

@@ -19,6 +19,7 @@ const products = [
       "max_imgid": "1",
       "ingredients_text_fr": "thé vert.petales de tournesol.petales de bleuets.arome nature",
       "additives_prev_n": 0,
+      // tslint:disable-next-line:quotemark
       "product_name": "the vert Grey detox",
       "product_quantity": 100,
       "ingredients_n": 1,
