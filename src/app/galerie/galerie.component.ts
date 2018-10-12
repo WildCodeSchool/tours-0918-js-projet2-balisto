@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Produit } from '../common/produit';
 import { ProduitService } from '../common/produit.service';
 
-
 @Component({
   selector: 'app-galerie',
   templateUrl: './galerie.component.html',

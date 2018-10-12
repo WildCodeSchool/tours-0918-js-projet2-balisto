@@ -9,11 +9,6 @@ import { HeaderComponent } from './header/header.component';
 import { GalerieComponent } from './galerie/galerie.component';
 import { SlideshowComponent } from './slideshow/slideshow.component';
 import { FooterComponent } from './footer/footer.component';
-import { OutiltriComponent } from './outiltri/outiltri.component';
-import { PageProduitsComponent } from './page-produits/page-produits.component';
-import { AppRoutingModule } from './app-routing.module';
-import { ComparateurComponent } from './comparateur/comparateur.component';
-import { IndexComposantsComponent } from './index-composants/index-composants.component';
 import { PagetriComponent } from './pagetri/pagetri.component';
 import { SearchPageComponent } from './search-page/search-page.component';
 
@@ -24,12 +19,16 @@ import { SearchPageComponent } from './search-page/search-page.component';
     GalerieComponent,
     SlideshowComponent,
     FooterComponent,
+<<<<<<< HEAD
     OutiltriComponent,
     PageProduitsComponent,
     ComparateurComponent,
     IndexComposantsComponent,
     PagetriComponent,
     SearchPageComponent
+=======
+    PagetriComponent
+>>>>>>> 57a280f46688378629ca7e6e08cf13b12f89cb6e
   ],
   imports: [
     BrowserModule,
