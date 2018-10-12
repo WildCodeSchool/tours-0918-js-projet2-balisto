@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ComparateurComponent } from './comparateur/comparateur.component';
 import { IndexComposantsComponent } from './index-composants/index-composants.component';
 import { PagetriComponent } from './pagetri/pagetri.component';
+import { SearchPageComponent } from './search-page/search-page.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { PagetriComponent } from './pagetri/pagetri.component';
     PageProduitsComponent,
     ComparateurComponent,
     IndexComposantsComponent,
-    PagetriComponent
+    PagetriComponent,
+    SearchPageComponent
   ],
   imports: [
     BrowserModule,
