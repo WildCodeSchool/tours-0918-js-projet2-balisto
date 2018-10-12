@@ -10,27 +10,37 @@ import products from '../../products';
 export class SearchPageComponent implements OnInit {
 
   resultat: string;
-  products: any;
-  prodTri: any[];
-  product_name: any;
+  products: any[];
   produit: any;
   search: any;
+  prods: any[];
 
   constructor(private route: ActivatedRoute) {
+    this.products = products;
    }
 
   ngOnInit() {
-    this.products = products;
+
     this.search = this.route.snapshot.params['search'];
 
     console.log(this.search);
 
-    this.getById(this.search);
+    this.prods = this.getBySearch(this.search);
   }
 
-  getById(id) {
-    this.produit = this.products.find(x => x._id == id);
-  }
+  getBySearch(search) {
+    return products.filter((product) => {
+      if (product._id && product._id.toString().includes(search)) {
+        return product;
+      }
+      if (product.brands && product.brands.toString().includes(search)) {
+        return product;
+      }
+      if (product.product_name && product.product_name.toString().includes(search)) {
+        return product;
+      }
 
+    });
   }
+}
 
