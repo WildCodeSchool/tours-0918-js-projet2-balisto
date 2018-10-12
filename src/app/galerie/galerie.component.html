@@ -1,4 +1,5 @@
 <div class="container">
+--> {{loginService.isLogin}}
   <div class="row">
     <div class="card m-1 col-12 col-sm-6 col-lg-4 col-xl-3" style="max-width: 270px;" *ngFor="let produit of produits | paginate:{itemsPerPage:8, currentPage: page}">
       <div *ngIf="produit.images; then image else imageerreur"></div>

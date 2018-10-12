@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../common/login.service';
 
 
 @Component({
@@ -11,7 +12,7 @@ export class GalerieComponent implements OnInit {
   produits: any;
   page = 1;
 
-  constructor() {
+  constructor(public loginService: LoginService) {
 
   }
 
