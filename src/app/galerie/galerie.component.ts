@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Produit } from '../common/produit';
 import { ProduitService } from '../common/produit.service';
+import { LoginService } from '../common/login.service';
 
 
 @Component({
@@ -14,7 +15,8 @@ export class GalerieComponent implements OnInit {
 tab: Produit[];
 page = 1;
 
-  constructor(private servicegalerie: ProduitService) { }
+  constructor(private servicegalerie: ProduitService, public loginService: LoginService) { }
+
 
   ngOnInit() {
     this.tab = this.servicegalerie.get();
