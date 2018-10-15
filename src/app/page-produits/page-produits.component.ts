@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Produit } from '../common/produit';
+import { ProduitService } from '../common/produit.service';
 
 @Component({
   selector: 'app-page-produits',
@@ -6,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./page-produits.component.css']
 })
 export class PageProduitsComponent implements OnInit {
-
-  constructor() { }
+  produit: Produit = new Produit();
+  constructor(private produitService: ProduitService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-  }
+      const id = this.activatedRoute.snapshot.paramMap.get('id');
+      this.getProduitById(id);
+}
 
+  getProduitById(id): void {
+    this.produit = this.produitService.getProduitById(id);
+    }
 }

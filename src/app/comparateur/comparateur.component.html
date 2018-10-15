@@ -1,30 +1,17 @@
 <!--comparateur-->
 <h1 class="d-flex justify-content-center">Comparateur : </h1>
-<h3 class="d-flex justify-content-center">Nom produit</h3>
-<div class="row m-2">
-    <div class="col input-group mb-3">
-        <div class="input-group-prepend">
-            <div class="input-group-text">
-                <input type="checkbox" aria-label="Checkbox for following text input">
+<h3 class="d-flex justify-content-center">{{produit.name}}</h3>
+<h5 class="d-flex justify-content-center">Comparaison avec les valeurs moyennes des produits de même catégorie :</h5>
+<div class="row m-2 d-flex justify-content-center">
+    <div *ngFor="let item of produit.categories">
+        <div class="col input-group mb-3">
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <input type="checkbox" aria-label="Checkbox for following text input">
+                </div>
             </div>
+            <p class="form-control">{{produit.categories.item}}</p>
         </div>
-        <input type="text" class="form-control" aria-label="Text input with checkbox">
-    </div>
-    <div class="col input-group mb-3">
-        <div class="input-group-prepend">
-            <div class="input-group-text">
-                <input type="checkbox" aria-label="Checkbox for following text input">
-            </div>
-        </div>
-        <input type="text" class="form-control" aria-label="Text input with checkbox">
-    </div>
-    <div class="col input-group mb-3">
-        <div class="input-group-prepend">
-            <div class="input-group-text">
-                <input type="checkbox" aria-label="Checkbox for following text input">
-            </div>
-        </div>
-        <input type="text" class="form-control" aria-label="Text input with checkbox">
     </div>
 </div>
 <!-- tableau -->
@@ -34,57 +21,46 @@
         <tr>
             <th>Informations nutritionnelles</th>
             <th>Tel que vendu pour 100 g / 100 ml</th>
-            <th>Tel que vendu par portion (100 g)</th>
         </tr>
         <tr>
             <td class="table-active">Energie</td>
-            <td class="table-primary">test</td>
-            <td class="table-secondary">test</td>
+            <td class="table-primary">{{produit.valeure_nutritionnelle.energy}}</td>
         </tr>
         <tr>
             <td class="table-active">Matières grasses / Lipides</td>
-            <td class="table-primary">test</td>
-            <td class="table-secondary">test</td>
+            <td class="table-primary">{{produit.valeure_nutritionnelle.lipides}}</td>
         </tr>
         <tr>
             <td class="table-active">  dont Acides gras saturés</td>
-            <td class="table-primary">test</td>
-            <td class="table-secondary">test</td>
+            <td class="table-primary">{{produit.valeure_nutritionnelle.saturated_fat}}</td>
         </tr>
         <tr>
             <td class="table-active">Glucides</td>
-            <td class="table-primary">test</td>
-            <td class="table-secondary">test</td>
+            <td class="table-primary">{{produit.valeure_nutritionnelle.glucides}}</td>
         </tr>
         <tr>
             <td class="table-active">  dont Sucres</td>
-            <td class="table-primary">test</td>
-            <td class="table-secondary">test</td>
+            <td class="table-primary">{{produit.valeure_nutritionnelle.sugar}}</td>
         </tr>
         <tr>
             <td class="table-active">Fibres alimentaires</td>
-            <td class="table-primary">test</td>
-            <td class="table-secondary">test</td>
+            <td class="table-primary">{{produit.valeure_nutritionnelle.fibres_alimentaires}}</td>
         </tr>
         <tr>
             <td class="table-active">Protéines</td>
-            <td class="table-primary">test</td>
-            <td class="table-secondary">test</td>
+            <td class="table-primary">{{produit.valeure_nutritionnelle.proteines}}</td>
         </tr>
         <tr>
             <td class="table-active">Sel</td>
-            <td class="table-primary">test</td>
-            <td class="table-secondary">test</td>
+            <td class="table-primary">{{produit.valeure_nutritionnelle.salt}}</td>
         </tr>
         <tr>
             <td class="table-active">  Sodium</td>
-            <td class="table-primary">test</td>
-            <td class="table-secondary">test</td>
+            <td class="table-primary">{{produit.valeure_nutritionnelle.sodium}}</td>
         </tr>
         <tr>
             <td class="table-active">Score nutritionnel expérimental - France</td>
-            <td class="table-primary">test</td>
-            <td class="table-secondary">test</td>
+            <td class="table-primary"></td>
         </tr>
     </table>
 </div>

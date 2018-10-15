@@ -8,8 +8,8 @@ import { ComparateurComponent } from './comparateur/comparateur.component';
 const routes: Routes = [
   { path: 'index', component: IndexComposantsComponent  },
   { path: '', redirectTo: '/index', pathMatch: 'full' },
-  { path: 'Produits', component: PageProduitsComponent },
-  { path: 'Comparateur', component: ComparateurComponent },
+  { path: 'Produits/:id', component: PageProduitsComponent },
+  { path: 'Comparateur/:id', component: ComparateurComponent },
 ];
 
 @NgModule({

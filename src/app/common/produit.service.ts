@@ -16,9 +16,20 @@ export class ProduitService {
 // Initialisation du local storage et du tableau produits
     this.tab = products.map((x) => {
       const produit = new Produit();
-      produit.id = x['_id'];
+      produit.id = x['id'];
       produit.name = x['product_name'];
-      produit.image = x['images'];
+      produit.image = x['image'];
+      produit.categories = x['categories'];
+      produit.marque = x['brand'];
+      produit.quantite = x['quantity'];
+      produit.conditionnement = x['packaging'];
+      produit.label = x['labels'];
+      produit.pays = x['country'];
+      produit.ingredients = x['ingredients'];
+      produit.allergenes = x['allergenes'];
+      produit.nova = x['nova'];
+      produit.nutriscore = x['nutriscore'];
+      produit.valeure_nutritionnelle = x['nutritional_value'];
       return produit;
  });
     this.saveToLocalStorage([this.tab]);
@@ -41,5 +52,9 @@ get(): Produit[] {
   }
 
 // iteration sur tableau avec id
+getProduitById(id: string) {
+  return this.tab.find(produit => produit.id === id);
+
+}
 
 }
