@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TriService } from '../tri.service';
+import { Produit } from '../common/produit';
 
 
 
@@ -12,6 +13,7 @@ export class PagetriComponent implements OnInit {
   prodTri: any;
   title: any;
   products: any;
+  page = 1;
 
   constructor(private service: TriService) { }
 
