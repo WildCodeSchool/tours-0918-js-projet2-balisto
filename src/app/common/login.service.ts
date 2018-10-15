@@ -14,6 +14,7 @@ export class LoginService {
       this.isLogin = true;
     } else {
       this.isLogin = false;
+      alert('Mauvais mot de passe');
     }
     return this.isLogin;
   }

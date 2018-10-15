@@ -9,28 +9,29 @@
     </button>
 
     <div class="collapse navbar-collapse justify-content-between btn-group" id="navbarSupportedContent" [ngbCollapse]="!isCollapsed">
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search">
-          <button class="btn btn-info my-2 my-sm-0" type="submit">Rechercher</button>
-          <div class="btn-group" ngbDropdown [autoClose]="'outside'">
-              <button class="btn btn-info dropdown-toggle dropdown-toggle-split" type="button" ngbDropdownToggle aria-haspopup="true" aria-expanded="false">
-                  <span class="sr-only" >Toggle Dropdown</span>
-                  </button>
-                  <div class="container-fluid">
-                  <div class="dropdown-menu" ngbDropdownMenu>
-                      <a class="dropdown-item">Recherche avancée</a>
-                      </div>
-                  </div>
-                  </div>
-        </form>
-        <div class="Rav">
-        </div>
-      <div class="dropdown" ngbDropdown [autoClose]="'outside'">
-          <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" ngbDropdownToggle aria-haspopup="true" aria-expanded="false">
-            Connexion Admin
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search">
+        <button class="btn btn-info my-2 my-sm-0" type="submit">Rechercher</button>
+        <div class="btn-group" ngbDropdown [autoClose]="'outside'">
+          <button class="btn btn-info dropdown-toggle dropdown-toggle-split" type="button" ngbDropdownToggle aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only" >Toggle Dropdown</span>
           </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" ngbDropdownMenu>
-            <div class="container-fluid">
+          <div class="container-fluid">
+            <div class="dropdown-menu" ngbDropdownMenu>
+              <a class="dropdown-item">Recherche avancée</a>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="Rav">
+      </div>
+      <div class="dropdown" ngbDropdown [autoClose]="'outside'">
+        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" ngbDropdownToggle aria-haspopup="true" aria-expanded="false">
+          Connexion Admin
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" ngbDropdownMenu>
+          <div class="container-fluid">
+            <div *ngIf="!loginService.isLogin">
               <form>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Mot de passe</label>
@@ -43,7 +44,11 @@
                 <button type="submit" class="btn btn-primary" (click)="login()">Connexion</button>
               </form>
             </div>
+            <div *ngIf="loginService.isLogin">
+              <button (click)="logout()" btn btn-primary btn-lg>Se déconnécter</button>
+            </div>
           </div>
+        </div>
       </div>
     </div>
   </nav>
