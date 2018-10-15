@@ -16,9 +16,9 @@ export class ProduitService {
 // Initialisation du local storage et du tableau produits
     this.tab = products.map((x) => {
       const produit = new Produit();
-      produit.id = x['_id'];
+      produit.id = x['id'];
       produit.name = x['product_name'];
-      produit.image = x['images'];
+      produit.image = x['image'];
       return produit;
  });
     this.saveToLocalStorage([this.tab]);
