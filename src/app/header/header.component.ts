@@ -9,10 +9,10 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   password: string;
-  result: boolean;
+  result;
 
 
-  constructor(private service: LoginService, private router: Router) { }
+  constructor(private service: LoginService, private router: Router, public loginService: LoginService) { }
 
   ngOnInit() {
   }
@@ -25,6 +25,13 @@ export class HeaderComponent implements OnInit {
       return false;
     }
 
+  }
+  logout() {
+    this.result = this.service.logout();
+
+    if (this.result) {
+      this.router.navigate(['/index']);
+    }
   }
 
 
