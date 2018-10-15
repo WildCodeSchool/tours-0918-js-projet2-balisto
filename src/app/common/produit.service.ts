@@ -19,6 +19,17 @@ export class ProduitService {
       produit.id = x['id'];
       produit.name = x['product_name'];
       produit.image = x['image'];
+      produit.categories = x['categories'];
+      produit.marque = x['brand'];
+      produit.quantite = x['quantity'];
+      produit.conditionnement = x['packaging'];
+      produit.label = x['labels'];
+      produit.pays = x['country'];
+      produit.ingredients = x['ingredients'];
+      produit.allergenes = x['allergenes'];
+      produit.nova = x['nova'];
+      produit.nutriscore = x['nutriscore'];
+      produit.valeure_nutritionnelle = x['nutritional_value'];
       return produit;
  });
     this.saveToLocalStorage([this.tab]);
@@ -41,7 +52,15 @@ get(): Produit[] {
   }
 
 // iteration sur tableau avec id
+<<<<<<< HEAD
 getProduitByID(id: string) {
   return this.tab.find(produit => produit.id ===id);
 }
+=======
+getProduitById(id: string) {
+  return this.tab.find(produit => produit.id === id);
+
+}
+
+>>>>>>> 1c8a424a1c6829cfd0b221bdc0f9261b45211fa2
 }
