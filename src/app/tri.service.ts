@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import products from './products';
+import products from 'src/app/common/tableau_produits';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,7 @@ export class TriService {
   }
   triByCategory(category): any[] {
     const prodTri = products.filter(product => {
-      if (product.categories && product.categories.toLowerCase().split(',').includes(category.toLowerCase())) {
+      if (product.categories && product.categories.includes(category)) {
         return product;
       }
     });

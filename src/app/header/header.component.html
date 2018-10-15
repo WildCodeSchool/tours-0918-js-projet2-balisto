@@ -7,11 +7,10 @@
     <button class="navbar-toggler" type="button"  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse justify-content-between btn-group" id="navbarSupportedContent" [ngbCollapse]="!isCollapsed">
       <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search">
-        <button class="btn btn-info my-2 my-sm-0" type="submit">Rechercher</button>
+        <input class="form-control mr-sm-2" type="search" name="search" [(ngModel)]="search" placeholder="Rechercher" aria-label="Search">
+        <button [routerLink]="['/search-page/', 'resultat', search]" class="btn btn-info my-2 my-sm-0" type="button">Rechercher</button>
         <div class="btn-group" ngbDropdown [autoClose]="'outside'">
           <button class="btn btn-info dropdown-toggle dropdown-toggle-split" type="button" ngbDropdownToggle aria-haspopup="true" aria-expanded="false">
             <span class="sr-only" >Toggle Dropdown</span>
@@ -19,10 +18,13 @@
           <div class="container-fluid">
             <div class="dropdown-menu" ngbDropdownMenu>
               <a class="dropdown-item">Recherche avancée</a>
+              <a class="dropdown-item">Nous contacter</a>
             </div>
           </div>
         </div>
       </form>
+      <div class="Rav">
+      </div>
       <div class="Rav">
       </div>
       <div class="dropdown" ngbDropdown [autoClose]="'outside'">

@@ -10,12 +10,18 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
   password: string;
   result;
+  search: any;
 
 
-  constructor(private service: LoginService, private router: Router, public loginService: LoginService) { }
+  constructor(private service: LoginService, public router: Router, public loginService: LoginService) { }
 
   ngOnInit() {
   }
+
+  send() {
+    this.router.navigate(['resultat', this.search]);
+  }
+
   login() {
     this.result = this.service.login(this.password);
 
@@ -35,4 +41,7 @@ export class HeaderComponent implements OnInit {
   }
 
 
-}
+
+  }
+
+

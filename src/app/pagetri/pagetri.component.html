@@ -1,27 +1,21 @@
-<app-header></app-header>
-<app-slideshow></app-slideshow>
 <div class="container-fluid">
   <div class="row">
     <div ngbDropdown class="col-2 d-inline-block">
       <button class="btn btn-outline-secondary" id="dropdownBasic1" ngbDropdownToggle>Explorer les produits par</button>
       <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
         <button class="dropdown-item" (click)="prodTri=''" (click)="title =''">All</button>
-        <button class="dropdown-item" (click)="triByCategory('boissons')" (click)="title = 'Boissons'">
+        <button class="dropdown-item" (click)="triByCategory('Boissons')" (click)="title = 'Boissons'">
           Boissons</button>
-        <button class="dropdown-item" (click)="triByCategory('produits de la mer')" (click)="title = 'Produits de la mer'">
-          Produits de la mer</button>
-        <button class="dropdown-item" (click)="triByCategory('vins')" (click)="title = 'Vins'"> Vins</button>
-        <button class="dropdown-item" (click)="triByCategory('compléments alimentaires')" (click)="title = 'Compléments alimentaires'">Compléments
-          alimentaires</button>
-        <button class="dropdown-item" (click)="triByCategory('farines')" (click)="title = 'Farines'"> Farines</button>
-        <button class="dropdown-item" (click)="triByCategory('barres protéinées')" (click)="title = 'Barres protéinées'">
-          Barres protéinées</button>
-        <button class="dropdown-item" (click)="triByCategory('epicerie')" (click)="title = 'Epicerie'">
-          Epicerie</button>
-        <button class="dropdown-item" (click)="triByCategory('tartes à la noix de coco')" (click)="title = 'Tartes à la noix'">
-          Tartes à la noix de coco</button>
-        <button class="dropdown-item" (click)="triByCategory('compotes de poire')" (click)="title = 'Compotes de poire'">
-          Compotes de poire</button>
+        <button class="dropdown-item" (click)="triByCategory('Plats préparés')" (click)="title = 'Plats préparés'">
+          Plats préparés</button>
+        <button class="dropdown-item" (click)="triByCategory('Produits laitiers')" (click)="title = 'Produits laitiers'">
+          Produits laitiers</button>
+        <button class="dropdown-item" (click)="triByCategory('Petit-déjeuners')" (click)="title = 'Petit déjeuners'">
+          Petit déjeuners</button>
+        <button class="dropdown-item" (click)="triByCategory('snacks sucrés')" (click)="title = 'snacks sucrés'">
+          snacks sucrés</button>
+        <button class="dropdown-item" (click)="triByCategory('Viandes')" (click)="title = 'Viandes'">
+          Viandes</button>
       </div>
     </div>
     <div class='col-2 offset-3'>
@@ -29,8 +23,8 @@
     </div>
   </div>
   <div *ngIf="prodTri" class='row'>
-    <div class="card m-1 col-12 col-sm-6 col-lg-4 col-xl-3 mx-auto" style="max-width: 270px;" *ngFor="let product of prodTri">
-      <div *ngIf="product.images; then image else imageerreur"></div>
+    <div class="card m-1 col-12 col-sm-6 col-lg-4 col-xl-3 mx-auto" style="max-width: 270px;" *ngFor="let product of prodTri | paginate:{itemsPerPage:8, currentPage: page }">
+      <div *ngIf="product.image; then image else imageerreur"></div>
       <ng-template #image>
         <div class="card-body">
           <img class="card-img-top" src="https://static.openfoodfacts.org/images/products/{{product.id}}/1.400.jpg" alt="Card image cap Responsive image"
@@ -47,14 +41,14 @@
         <h5 class="card-title">{{product.product_name}}</h5>
       </div>
       <div class="card-body">
-        <a href="#" class="mx-2 btn btn-outline-primary btn-lg btn-block">Voir</a>
-        <a href="#" class="mx-2 btn btn-outline-primary btn-lg btn-block">Comparer</a>
+        <a href="/Produits/{{product.id}}" class="mx-2 btn btn-outline-primary btn-lg btn-block">Voir</a>
+        <a href="/Comparateur/{{product.id}}" class="mx-2 btn btn-outline-primary btn-lg btn-block">Comparer</a>
       </div>
     </div>
   </div>
   <div *ngIf="!prodTri" class="row">
-    <div class="card m-1 col-12 col-sm-6 col-lg-4 col-xl-3 mx-auto" style="max-width: 270px;" *ngFor="let product of products">
-      <div *ngIf="product.images; then image else imageerreur"></div>
+    <div class="card m-1 col-12 col-sm-6 col-lg-4 col-xl-3 mx-auto" style="max-width: 270px;" *ngFor="let product of products | paginate:{itemsPerPage:8, currentPage: page }">
+      <div *ngIf="product.image; then image else imageerreur"></div>
       <ng-template #image>
         <div class="card-body">
           <img class="card-img-top" src="https://static.openfoodfacts.org/images/products/{{product.id}}/1.400.jpg" alt="Card image cap Responsive image"
@@ -71,10 +65,12 @@
         <h5 class="card-title">{{product.product_name}}</h5>
       </div>
       <div class="card-body">
-        <a href="#" class="mx-2 btn btn-outline-primary btn-lg btn-block">Voir</a>
-        <a href="#" class="mx-2 btn btn-outline-primary btn-lg btn-block">Comparer</a>
+        <a href="/Produits/{{product.id}}" class="mx-2 btn btn-outline-primary btn-lg btn-block">Voir</a>
+        <a href="/Comparateur/{{product.id}}" class="mx-2 btn btn-outline-primary btn-lg btn-block">Comparer</a>
       </div>
     </div>
   </div>
+  <div class="my-4">
+    <ngb-pagination class="d-flex justify-content-center" [collectionSize]="70" [(page)]="page" [boundaryLinks]="true"></ngb-pagination>
+  </div>
 </div>
-<app-footer></app-footer>

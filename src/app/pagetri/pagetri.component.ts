@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TriService } from '../tri.service';
-
+import { Produit } from '../common/produit';
+import { LoginService } from '../common/login.service';
 
 @Component({
   selector: 'app-pagetri',
@@ -11,8 +12,9 @@ export class PagetriComponent implements OnInit {
   prodTri: any;
   title: any;
   products: any;
+  page = 1;
 
-  constructor(private service: TriService) { }
+  constructor(private service: TriService, public loginService: LoginService) { }
 
   ngOnInit() {
     this.products =  this.service.products;
