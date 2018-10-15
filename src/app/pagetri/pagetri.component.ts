@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TriService } from '../tri.service';
 import { Produit } from '../common/produit';
+import { ProduitService } from '../common/produit.service';
 
 
 
@@ -10,18 +10,19 @@ import { Produit } from '../common/produit';
   styleUrls: ['./pagetri.component.css']
 })
 export class PagetriComponent implements OnInit {
-  prodTri: any;
-  title: any;
-  products: any;
-  page = 1;
 
-  constructor(private service: TriService) { }
+tab: Produit[];
+tabTri: Produit[];
+page = 1;
+title: string;
+
+  constructor(private servicegalerie: ProduitService) { }
 
   ngOnInit() {
-    this.products =  this.service.products;
+    this.tab = this.servicegalerie.get();
+  }
+  triByCategory(categories) {
+    this.tabTri = this.servicegalerie.triByCategory(categories);
   }
 
-  triByCategory(category) {
-    this.prodTri = this.service.triByCategory(category);
-  }
 }
