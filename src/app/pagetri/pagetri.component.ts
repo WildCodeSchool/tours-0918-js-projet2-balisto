@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TriService } from '../tri.service';
-import { Produit } from '../common/produit';
+
 
 
 @Component({

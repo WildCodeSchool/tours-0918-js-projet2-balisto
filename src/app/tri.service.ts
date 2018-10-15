@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import products from 'src/app/common/tableau_produits';
+import products from './common/tableau_produits';
 
 @Injectable({
   providedIn: 'root'
