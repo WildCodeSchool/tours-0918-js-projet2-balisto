@@ -18,7 +18,6 @@
           <div class="container-fluid">
             <div class="dropdown-menu" ngbDropdownMenu>
               <a class="dropdown-item">Recherche avancée</a>
-              <a class="dropdown-item">Nous contacter</a>
             </div>
           </div>
         </div>
@@ -47,6 +46,7 @@
               </form>
             </div>
             <div *ngIf="loginService.isLogin">
+              <span>Vous êtes connécté en tant qu'Administrateur</span>
               <button (click)="logout()" btn btn-primary btn-lg>Se déconnécter</button>
             </div>
           </div>
