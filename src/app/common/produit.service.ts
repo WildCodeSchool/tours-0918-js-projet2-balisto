@@ -52,15 +52,9 @@ get(): Produit[] {
   }
 
 // iteration sur tableau avec id
-<<<<<<< HEAD
-getProduitByID(id: string) {
-  return this.tab.find(produit => produit.id ===id);
-}
-=======
 getProduitById(id: string) {
   return this.tab.find(produit => produit.id === id);
 
 }
 
->>>>>>> 1c8a424a1c6829cfd0b221bdc0f9261b45211fa2
 }
