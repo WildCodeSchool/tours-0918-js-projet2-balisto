@@ -41,5 +41,7 @@ get(): Produit[] {
   }
 
 // iteration sur tableau avec id
-
+getProduitByID(id: string) {
+  return this.tab.find(produit => produit.id ===id);
+}
 }
