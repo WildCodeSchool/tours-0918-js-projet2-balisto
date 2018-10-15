@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxPaginationModule } from 'ngx-pagination';
-
+import { IndexComposantsComponent  } from './index-composants/index-composants.component';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { GalerieComponent } from './galerie/galerie.component';
@@ -11,6 +11,9 @@ import { SlideshowComponent } from './slideshow/slideshow.component';
 import { FooterComponent } from './footer/footer.component';
 import { PagetriComponent } from './pagetri/pagetri.component';
 import { SearchPageComponent } from './search-page/search-page.component';
+import { AppRoutingModule } from './app-routing.module';
+import { PageProduitsComponent } from './page-produits/page-produits.component';
+import { ComparateurComponent } from './comparateur/comparateur.component';
 
 @NgModule({
   declarations: [
@@ -19,16 +22,11 @@ import { SearchPageComponent } from './search-page/search-page.component';
     GalerieComponent,
     SlideshowComponent,
     FooterComponent,
-<<<<<<< HEAD
-    OutiltriComponent,
+    PagetriComponent,
+    IndexComposantsComponent,
     PageProduitsComponent,
     ComparateurComponent,
-    IndexComposantsComponent,
-    PagetriComponent,
     SearchPageComponent
-=======
-    PagetriComponent
->>>>>>> 57a280f46688378629ca7e6e08cf13b12f89cb6e
   ],
   imports: [
     BrowserModule,
