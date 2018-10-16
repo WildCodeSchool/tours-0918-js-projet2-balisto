@@ -1,50 +1,56 @@
 <div class= "sticky-top">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" routerLink="/index">
       <img src="https://marspresscenter.com/assets_multimedia/logos/Mars_Wrigley_Confectionery/chocolate-balisto_280.png" width="30" height="30" class="d-inline-block align-top" alt="">
       BalistoProject
     </a>
     <button class="navbar-toggler" type="button"  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse justify-content-between btn-group" id="navbarSupportedContent" [ngbCollapse]="!isCollapsed">
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" name="search" [(ngModel)]="search" placeholder="Rechercher" aria-label="Search">
-          <button [routerLink]="['/search-page/', 'resultat', search]" class="btn btn-info my-2 my-sm-0" type="button">Rechercher</button>
-          <div class="btn-group" ngbDropdown [autoClose]="'outside'">
-              <button class="btn btn-info dropdown-toggle dropdown-toggle-split" type="button" ngbDropdownToggle aria-haspopup="true" aria-expanded="false">
-                  <span class="sr-only" >Toggle Dropdown</span>
-                  </button>
-                  <div class="container-fluid">
-                  <div class="dropdown-menu" ngbDropdownMenu>
-                      <a class="dropdown-item">Recherche avancée</a>
-                      <a class="dropdown-item">Nous contacter</a>
-                      </div>
-                  </div>
-                  </div>
-        </form>
-        <div class="Rav">
-        </div>
-      <div class="dropdown" ngbDropdown [autoClose]="'outside'">
-          <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" ngbDropdownToggle aria-haspopup="true" aria-expanded="false">
-            Connexion Admin
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" name="search" [(ngModel)]="search" placeholder="Rechercher" aria-label="Search">
+        <button [routerLink]="['/search-page/', 'resultat', search]" class="btn btn-info my-2 my-sm-0" type="button">Rechercher</button>
+        <div class="btn-group" ngbDropdown [autoClose]="'outside'">
+          <button class="btn btn-info dropdown-toggle dropdown-toggle-split" type="button" ngbDropdownToggle aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only" >Toggle Dropdown</span>
           </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" ngbDropdownMenu>
-            <div class="container-fluid">
+          <div class="container-fluid">
+            <div class="dropdown-menu" ngbDropdownMenu>
+              <a class="dropdown-item">Recherche avancée</a>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="Rav">
+      </div>
+      <div class="Rav">
+      </div>
+      <div class="dropdown" ngbDropdown [autoClose]="'outside'">
+        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" ngbDropdownToggle aria-haspopup="true" aria-expanded="false">
+          Connexion Admin
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" ngbDropdownMenu>
+          <div class="container-fluid">
+            <div *ngIf="!loginService.isLogin">
               <form>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Mot de passe</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Mot de passe">
+                  <input type="password" class="form-control" id="exampleInputPassword1" name = 'password' placeholder="******" [(ngModel)]="password">
                 </div>
                 <div class="form-check">
                   <input type="checkbox" class="form-check-input" id="exampleCheck1">
                   <label class="form-check-label" for="exampleCheck1">Rester connecté</label>
                 </div>
-                <button type="submit" class="btn btn-primary">Connexion</button>
+                <button type="submit" class="btn btn-primary" (click)="login()">Connexion</button>
               </form>
             </div>
+            <div *ngIf="loginService.isLogin">
+              <span>Vous êtes connécté en tant qu'Administrateur</span>
+              <button (click)="logout()" btn btn-primary btn-lg>Se déconnécter</button>
+            </div>
           </div>
+        </div>
       </div>
     </div>
   </nav>

@@ -1,34 +1,29 @@
-<div class="container-fluid">
-  <div class="row">
-    <div ngbDropdown class="col-2 d-inline-block">
-      <button class="btn btn-outline-secondary" id="dropdownBasic1" ngbDropdownToggle>Explorer les produits par</button>
-      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-        <button class="dropdown-item" (click)="prodTri=''" (click)="title =''">All</button>
-        <button class="dropdown-item" (click)="triByCategory('Boissons')" (click)="title = 'Boissons'">
-          Boissons</button>
-        <button class="dropdown-item" (click)="triByCategory('Plats préparés')" (click)="title = 'Plats préparés'">
-          Plats préparés</button>
-        <button class="dropdown-item" (click)="triByCategory('Produits laitiers')" (click)="title = 'Produits laitiers'">
-          Produits laitiers</button>
-        <button class="dropdown-item" (click)="triByCategory('Petit-déjeuners')" (click)="title = 'Petit déjeuners'">
-          Petit déjeuners</button>
-        <button class="dropdown-item" (click)="triByCategory('snacks sucrés')" (click)="title = 'snacks sucrés'">
-          snacks sucrés</button>
-        <button class="dropdown-item" (click)="triByCategory('Viandes')" (click)="title = 'Viandes'">
-          Viandes</button>
-      </div>
-    </div>
-    <div class='col-2 offset-3'>
-      <h2 *ngIf='title'>{{title}}</h2>
-    </div>
+<div ngbDropdown class="col-2 d-inline-block">
+  <button class="btn btn-outline-secondary" id="dropdownBasic1" ngbDropdownToggle>Explorer les produits par</button>
+  <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+    <button class="dropdown-item" (click)="tabTri=''" (click)="title =''">All</button>
+    <button class="dropdown-item" (click)="triByCategory('Boissons')" (click)="title = 'Boissons'">Boissons</button>
+    <button class="dropdown-item" (click)="triByCategory('Plats préparés')" (click)="title = 'Plats préparés'">Plats
+      préparés</button>
+    <button class="dropdown-item" (click)="triByCategory('Produits laitiers')" (click)="title = 'Produits laitiers'">Produits
+      laitiers</button>
+    <button class="dropdown-item" (click)="triByCategory('Petit-déjeuners')" (click)="title = 'Petit déjeuners'">Petit
+      déjeuners</button>
+    <button class="dropdown-item" (click)="triByCategory('snacks sucrés')" (click)="title = 'snacks sucrés'">snacks
+      sucrés</button>
+    <button class="dropdown-item" (click)="triByCategory('Viandes')" (click)="title = 'Viandes'">Viandes</button>
   </div>
-  <div *ngIf="prodTri" class='row'>
-    <div class="card m-1 col-12 col-sm-6 col-lg-4 col-xl-3 mx-auto" style="max-width: 270px;" *ngFor="let product of prodTri | paginate:{itemsPerPage:8, currentPage: page }">
-      <div *ngIf="product.image; then image else imageerreur"></div>
+</div>
+<div class='col-2 offset-3'>
+  <h2 *ngIf='title'>{{title}}</h2>
+</div>
+<div class="container fluide">
+  <div *ngIf="tabTri" class='row'>
+    <div class="card m-1 col-12 col-sm-6 col-lg-4 col-xl-3" style="max-width: 270px;" *ngFor="let produit of tabTri | paginate:{itemsPerPage:8, currentPage: page}">
+      <div *ngIf="produit.image; then image else imageerreur"></div>
       <ng-template #image>
         <div class="card-body">
-          <img class="card-img-top" src="https://static.openfoodfacts.org/images/products/{{product.id}}/1.400.jpg" alt="Card image cap Responsive image"
-            style="max-height: 250px;">
+          <img class="card-img-top" src="{{ produit.image }}" alt="Card image cap Responsive image" style="max-height: 250px;">
         </div>
       </ng-template>
       <ng-template #imageerreur>
@@ -38,21 +33,20 @@
         </div>
       </ng-template>
       <div class="card-header">
-        <h5 class="card-title">{{product.product_name}}</h5>
+        <h5 class="card-title">{{produit.name}}</h5>
       </div>
       <div class="card-body">
-        <a href="/Produits/{{product.id}}" class="mx-2 btn btn-outline-primary btn-lg btn-block">Voir</a>
-        <a href="/Comparateur/{{product.id}}" class="mx-2 btn btn-outline-primary btn-lg btn-block">Comparer</a>
+        <a routerLink="/Produits/{{produit.id}}" class="mx-2 btn btn-outline-primary btn-lg btn-block">Voir</a>
+        <a routerLink="/Comparateur/{{produit.id}}" class="mx-2 btn btn-outline-primary btn-lg btn-block">Comparer</a>
       </div>
     </div>
   </div>
-  <div *ngIf="!prodTri" class="row">
-    <div class="card m-1 col-12 col-sm-6 col-lg-4 col-xl-3 mx-auto" style="max-width: 270px;" *ngFor="let product of products | paginate:{itemsPerPage:8, currentPage: page }">
-      <div *ngIf="product.image; then image else imageerreur"></div>
+  <div *ngIf="!tabTri" class='row'>
+    <div class="card m-1 col-12 col-sm-6 col-lg-4 col-xl-3" style="max-width: 270px;" *ngFor="let produit of tab | paginate:{itemsPerPage:8, currentPage: page}">
+      <div *ngIf="produit.image; then image else imageerreur"></div>
       <ng-template #image>
         <div class="card-body">
-          <img class="card-img-top" src="https://static.openfoodfacts.org/images/products/{{product.id}}/1.400.jpg" alt="Card image cap Responsive image"
-            style="max-height: 250px;">
+          <img class="card-img-top" src="{{ produit.image }}" alt="Card image cap Responsive image" style="max-height: 250px;">
         </div>
       </ng-template>
       <ng-template #imageerreur>
@@ -62,15 +56,18 @@
         </div>
       </ng-template>
       <div class="card-header">
-        <h5 class="card-title">{{product.product_name}}</h5>
+        <h5 class="card-title">{{produit.name}}</h5>
       </div>
       <div class="card-body">
-        <a href="/Produits/{{product.id}}" class="mx-2 btn btn-outline-primary btn-lg btn-block">Voir</a>
-        <a href="/Comparateur/{{product.id}}" class="mx-2 btn btn-outline-primary btn-lg btn-block">Comparer</a>
+        <a routerLink="/Produits/{{produit.id}}" class="mx-2 btn btn-outline-primary btn-lg btn-block">Voir</a>
+        <a routerLink="/Comparateur/{{produit.id}}" class="mx-2 btn btn-outline-primary btn-lg btn-block">Comparer</a>
       </div>
     </div>
   </div>
-  <div class="my-4">
-    <ngb-pagination class="d-flex justify-content-center" [collectionSize]="40" [(page)]="page" [boundaryLinks]="true"></ngb-pagination>
-  </div>
+</div>
+<div class="my-4">
+  <ngb-pagination class="d-flex justify-content-center" [collectionSize]="40" [(page)]="page" [boundaryLinks]="true"></ngb-pagination>
+</div>
+<div class="my-4 d-flex justify-content-center">
+  <ngb-pagination [collectionSize]="50" [(page)]="page" [boundaryLinks]="true"></ngb-pagination>
 </div>

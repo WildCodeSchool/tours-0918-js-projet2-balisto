@@ -54,7 +54,14 @@ get(): Produit[] {
 // iteration sur tableau avec id
 getProduitById(id: string) {
   return this.tab.find(produit => produit.id === id);
-
-}
+  }
+  triByCategory(categories): Produit[] {
+    const tabTri = this.tab.filter(produit => {
+      if (produit.categories && produit.categories.includes(categories)) {
+        return produit;
+      }
+    });
+    return tabTri;
+  }
 
 }
