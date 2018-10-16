@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import products from '../../products';
+import { ActivatedRoute } from '@angular/router';
+import { Produit } from '../common/produit';
+import {ProduitService} from 'src/app/common/produit.service';
+import { LoginService } from '../common/login.service';
+
 
 @Component({
   selector: 'app-search-page',
@@ -8,38 +11,21 @@ import products from '../../products';
   styleUrls: ['./search-page.component.css']
 })
 export class SearchPageComponent implements OnInit {
-
-  resultat: string;
-  products: any[];
-  produit: any;
+  tab: Produit[];
   search: any;
-  prods: any[];
+  resultat: Produit[];
+  page = 1;
+  title: string;
 
-  constructor(private route: ActivatedRoute) {
-    this.products = products;
-   }
-
-  ngOnInit() {
-
-    this.search = this.route.snapshot.params['search'];
-
-    console.log(this.search);
-
-    this.prods = this.getBySearch(this.search);
+  // tslint:disable-next-line:max-line-length
+  constructor(private servicegalerie: ProduitService, private route: ActivatedRoute, public loginService: LoginService) {
   }
 
-  getBySearch(search) {
-    return products.filter((product) => {
-      if (product._id && product._id.toString().includes(search)) {
-        return product;
-      }
-      if (product.brands && product.brands.toString().includes(search)) {
-        return product;
-      }
-      if (product.product_name && product.product_name.toString().includes(search)) {
-        return product;
-      }
-
+  ngOnInit() {
+    this.tab = this.servicegalerie.get();
+    this.route.params.subscribe(params => {
+      this.search = params['search'];
+      this.resultat = this.servicegalerie.getBySearch(this.search);
     });
   }
 }

@@ -1,34 +1,37 @@
 <div class="container">
---> {{loginService.isLogin}}
+  --> {{loginService.isLogin}}
   <div class="row">
-    <div class="card m-1 col-12 col-sm-6 col-lg-4 col-xl-3" style="max-width: 270px;">
-      <div *ngIf="produit.images; then image else imageerreur"></div>
+    <div class="card m-1 col-12 col-sm-6 col-lg-4 col-xl-3" style="max-width: 270px;" *ngFor="let produit of resultat| paginate:{itemsPerPage:8, currentPage: page}">
+      <div *ngIf="produit.image; then image else imageerreur"></div>
       <ng-template #image>
         <div class="card-body">
-            <div  class='d-flex justify-content-around'>
-                <div *ngIf = "loginService.isLogin" style="position: absolute;">
-                    <button class="btn btn-primary btn-xs btn-inline"><img src='../../../Images/logo modifier.png' class="figure-img img-fluid rounded logo" alt='#'></button>
-                    <button class="btn btn-danger btn-xs btn-inline"><img src='../../../Images/logo corbeille.png' class="figure-img img-fluid rounded logo" alt='#'></button>
-                  </div>
-          <img class="card-img-top" src="https://static.openfoodfacts.org/images/products/{{produit.id}}/1.400.jpg" alt="Card image cap Responsive image"
-            style="max-height: 250px;">
+          <div class='d-flex justify-content-around'>
+            <div *ngIf="loginService.isLogin" style="position: absolute;">
+              <button class="btn btn-primary btn-xs btn-inline"><img src='../../../Images/logo modifier.png' class="figure-img img-fluid rounded logo"
+                  alt='#'></button>
+              <button class="btn btn-danger btn-xs btn-inline"><img src='../../../Images/logo corbeille.png' class="figure-img img-fluid rounded logo"
+                  alt='#'></button>
             </div>
+            <img class="card-img-top" src="{{ produit.image }}" alt="Card image cap Responsive image" style="max-height: 250px;">
+          </div>
         </div>
       </ng-template>
       <ng-template #imageerreur>
         <div class="card-body">
-          <div  class='d-flex justify-content-around'>
-              <div *ngIf = "loginService.isLogin" style="position: absolute;">
-                  <button class="btn btn-primary btn-xs btn-inline"><img src='../../../Images/logo modifier.png' class="figure-img img-fluid rounded logo" alt='#'></button>
-                  <button class="btn btn-danger btn-xs btn-inline"><img src='../../../Images/logo corbeille.png' class="figure-img img-fluid rounded logo" alt='#'></button>
-                </div>
-          <img class="card-img-top" src="https://via.placeholder.com/300x400" alt="Card image cap Responsive image"
-            style="max-height: 250px;">
+          <div class='d-flex justify-content-around'>
+            <div *ngIf="loginService.isLogin" style="position: absolute;">
+              <button class="btn btn-primary btn-xs btn-inline"><img src='../../../Images/logo modifier.png' class="figure-img img-fluid rounded logo"
+                  alt='#'></button>
+              <button class="btn btn-danger btn-xs btn-inline"><img src='../../../Images/logo corbeille.png' class="figure-img img-fluid rounded logo"
+                  alt='#'></button>
+            </div>
+            <img class="card-img-top" src="https://via.placeholder.com/300x400" alt="Card image cap Responsive image"
+              style="max-height: 250px;">
           </div>
         </div>
       </ng-template>
       <div class="card-header">
-        <h5 class="card-title">{{produit.product_name}}</h5>
+        <h5 class="card-title">{{produit.name}}</h5>
       </div>
       <div class="card-body">
         <a routerLink="/Produits" class="mx-2 btn btn-outline-primary btn-lg btn-block">Voir</a>
