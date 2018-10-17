@@ -2,9 +2,10 @@
 <h1 class="d-flex justify-content-center">Comparateur : </h1>
 <!-- tableau -->
 <hr>
-<div class="m-2 d-flex justify-content-center">
-    <table>
-        <tr>
+<div class="d-flex justify-content-center">
+  <div class="row">
+    <table class=" col-12 col-sm-6 col-lg-4 col-xl-3 m-4 d-flex justify-content-center">
+        <tr class="m-4 d-flex justify-content">
             <th>Informations nutritionnelles</th>
         </tr>
         <tr>
@@ -35,88 +36,83 @@
             <td class="table-active">  Sodium</td>
         </tr>
     </table>
-    <table>
-        <tr>
+
+    <table class=" col-12 col-sm-6 col-lg-4 col-xl-3 m-4 d-flex justify-content-center">
+        <tr class="m-4 d-flex justify-content-center">
             <th>{{produit.name}}</th>
         </tr>
-        <tr>
-            <td class="table-primary">{{produit.valeure_nutritionnelle.energy}}</td>
+        <tr class="d-flex justify-content-center">
+            <td>{{produit.valeure_nutritionnelle.energy}}</td>
         </tr>
-        <tr>
-            <td class="table-primary">{{produit.valeure_nutritionnelle.lipides}}</td>
+        <tr class="d-flex justify-content-center">
+            <td>{{produit.valeure_nutritionnelle.lipides}}</td>
         </tr>
-        <tr>
-            <td class="table-primary">{{produit.valeure_nutritionnelle.saturated_fat}}</td>
+        <tr class="d-flex justify-content-center">
+            <td>{{produit.valeure_nutritionnelle.saturated_fat}}</td>
         </tr>
-        <tr>
-            <td class="table-primary">{{produit.valeure_nutritionnelle.glucides}}</td>
+        <tr class="d-flex justify-content-center">
+            <td>{{produit.valeure_nutritionnelle.glucides}}</td>
         </tr>
-        <tr>
-            <td class="table-primary">{{produit.valeure_nutritionnelle.sugar}}</td>
+        <tr class="d-flex justify-content-center">
+            <td>{{produit.valeure_nutritionnelle.sugar}}</td>
         </tr>
-        <tr>
-            <td class="table-primary">{{produit.valeure_nutritionnelle.fibres_alimentaires}}</td>
+        <tr class="d-flex justify-content-center">
+            <td>{{produit.valeure_nutritionnelle.fibres_alimentaires}}</td>
         </tr>
-        <tr>
-            <td class="table-primary">{{produit.valeure_nutritionnelle.proteines}}</td>
+        <tr class="d-flex justify-content-center">
+            <td>{{produit.valeure_nutritionnelle.proteines}}</td>
         </tr>
-        <tr>
-            <td class="table-primary">{{produit.valeure_nutritionnelle.salt}}</td>
+        <tr class="d-flex justify-content-center">
+            <td>{{produit.valeure_nutritionnelle.salt}}</td>
         </tr>
-        <tr>
-            <td class="table-primary">{{produit.valeure_nutritionnelle.sodium}}</td>
+        <tr class="d-flex justify-content-center">
+            <td>{{produit.valeure_nutritionnelle.sodium}}</td>
         </tr>
-        <tr>
-            <td class="table-primary"></td>
+        <tr class="d-flex justify-content-center">
+            <td></td>
         </tr>
     </table>
-    <table>
-        <tr>
+
+    <table class=" col-12 col-sm-6 col-lg-4 col-xl-3 m-4 d-flex justify-content-center">
+        <tr class="m-4 d-flex justify-content-center">
             <th>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Action
-                    </button>
-                    <div class="dropdown-menu">
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Separated link</a>
+                <div ngbDropdown class="d-inline-block">
+                    <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Choisissez un produit</button>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                          <button  (click)="getProduitByName(produit.name)" *ngFor="let produit of tabComp" class="dropdown-item">{{produit.name}}</button>
                     </div>
-                  </div>
+                </div>
             </th>
         </tr>
-        <tr>
-            <td class="table-primary">{{produit.valeure_nutritionnelle.energy}}</td>
+
+        <tr class="d-flex justify-content-center">
+          <td>{{produit.valeure_nutritionnelle.energy}}</td>
         </tr>
-        <tr>
-            <td class="table-primary">{{produit.valeure_nutritionnelle.lipides}}</td>
+        <tr class="d-flex justify-content-center">
+            <td>{{produit.valeure_nutritionnelle.lipides}}</td>
         </tr>
-        <tr>
-            <td class="table-primary">{{produit.valeure_nutritionnelle.saturated_fat}}</td>
+        <tr class="d-flex justify-content-center">
+            <td>{{produit.valeure_nutritionnelle.saturated_fat}}</td>
         </tr>
-        <tr>
-            <td class="table-primary">{{produit.valeure_nutritionnelle.glucides}}</td>
+        <tr class="d-flex justify-content-center">
+            <td>{{produit.valeure_nutritionnelle.glucides}}</td>
         </tr>
-        <tr>
-            <td class="table-primary">{{produit.valeure_nutritionnelle.sugar}}</td>
+        <tr class="d-flex justify-content-center">
+            <td>{{produit.valeure_nutritionnelle.sugar}}</td>
         </tr>
-        <tr>
-            <td class="table-primary">{{produit.valeure_nutritionnelle.fibres_alimentaires}}</td>
+        <tr class="d-flex justify-content-center">
+            <td>{{produit.valeure_nutritionnelle.fibres_alimentaires}}</td>
         </tr>
-        <tr>
-            <td class="table-primary">{{produit.valeure_nutritionnelle.proteines}}</td>
+        <tr class="d-flex justify-content-center">
+            <td>{{produit.valeure_nutritionnelle.proteines}}</td>
         </tr>
-        <tr>
-            <td class="table-primary">{{produit.valeure_nutritionnelle.salt}}</td>
+        <tr class="d-flex justify-content-center">
+            <td>{{produit.valeure_nutritionnelle.salt}}</td>
         </tr>
-        <tr>
-            <td class="table-primary">{{produit.valeure_nutritionnelle.sodium}}</td>
+        <tr class="d-flex justify-content-center">
+            <td>{{produit.valeure_nutritionnelle.sodium}}</td>
         </tr>
-        <tr>
-            <td class="table-primary"></td>
-        </tr>
-    </table>
+      </table>
+    </div>
 </div>
 

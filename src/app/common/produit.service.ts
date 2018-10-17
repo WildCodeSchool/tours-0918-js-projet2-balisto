@@ -7,7 +7,7 @@ import products from './tableau_produits';
   providedIn: 'root'
 })
 export class ProduitService {
-  // déclaration du tableau produits de type Todo
+  // déclaration du tableau produits de type Produit
   tab: Produit[];
   produit: any;
 
@@ -52,10 +52,12 @@ export class ProduitService {
     return this.tab;
   }
 
-  // iteration sur tableau avec id
+  // tableau avec id
   getProduitById(id: string) {
     return this.tab.find(produit => produit.id === id);
   }
+
+  // tableau avec categorie
   triByCategory(categories): Produit[] {
     const tabTri = this.tab.filter(produit => {
       if (produit.categories && produit.categories.includes(categories)) {
@@ -65,7 +67,12 @@ export class ProduitService {
     return tabTri;
   }
 
+// tableau avec comparateur
+  getProduitByName(name: string) {
+    return this.tab.find(produit => produit.name === name);
+  }
 
+  // tableau search
   getBySearch(search): Produit[] {
     const resultat = [];
     for (let i = 0; i < this.tab.length; i++) {
