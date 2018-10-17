@@ -2,35 +2,36 @@
     <div class="row">
         <div class="col-sm m-2">
             <div class="card m-2 col-12 col-sm-6 col-lg-4 col-xl-3" style="max-width: 300px;">
-                <img class="card-img-top" src="https://via.placeholder.com/300x400" alt="Card image cap Responsive image">
+              <p><input name="image" id="ch.image" class="form-control" type="url" [(ngModel)]="produit.image" required/></p>
             </div>
+            <a type="submit" class="m-4 btn btn-outline-primary btn-lg btn-block" (click)="ajouter()" style="max-width: 300px;">Enregistrer</a>
         </div>
         <div class="col-sm m-2">
-            <h1>Nom produit: <input id="typeahead-config" type="text" class="form-control"/></h1>
+            <h1>Nom produit: <input name="nom" id="ch.nom" class="form-control" type="text" [(ngModel)]="produit.name" required/></h1>
   <hr>
             <div>
                 <h3>Caractéristiques du produit:</h3>
                 <ul class="list-group">
-                    <li class="list-group-item">Dénomination générique :
-                      <input id="typeahead-config" type="text" class="form-control"/>
+                    <li class="list-group-item">Id :
+                      <input name="id" id="ch.id" class="form-control" type="number" [(ngModel)]="produit.id" required/>
                     </li>
                     <li class="list-group-item">Quantité :
-                      <input id="typeahead-config" type="text" class="form-control"/>
+                      <input name="quantite" id="ch.quantite" class="form-control" type="text" [(ngModel)]="produit.quantite" required/>
                     </li>
                     <li class="list-group-item">Conditionnement :
-                      <input id="typeahead-config" type="text" class="form-control"/>
+                        <input name="conditionnement" id="ch.conditionnement" class="form-control" type="text" [(ngModel)]="produit.conditionnement" required/>
                     </li>
                     <li class="list-group-item">Marques :
-                      <input id="typeahead-config" type="text" class="form-control"/>
+                      <input name="marques" id="ch.marques" class="form-control" type="text" [(ngModel)]="produit.marque" required/>
                     </li>
                     <li class="list-group-item">Catégories :
-                      <input id="typeahead-config" type="text" class="form-control"/>
+                      <input name="categories" id="ch.categories" class="form-control" type="text" [(ngModel)]="produit.categories" required/>
                     </li>
                     <li class="list-group-item">Labels :
-                      <input id="typeahead-config" type="text" class="form-control"/>
+                        <input name="labels" id="ch.label" class="form-control" type="text" [(ngModel)]="produit.label" required/>
                     </li>
                     <li class="list-group-item">Pays de vente :
-                      <input id="typeahead-config" type="text" class="form-control"/>
+                        <input name="pays" id="ch.pays" class="form-control" type="text" [(ngModel)]="produit.pays" required/>
                     </li>
                 </ul>
             </div>
@@ -40,25 +41,25 @@
     <div class="m-2">
         <h3 class="m-2 d-flex justify-content-center">Ingrédients : </h3>
           <h5>Liste des ingrédients: </h5>
-            <p><input id="typeahead-config" type="text" class="form-control"/></p>
+            <p><input name="ingredients" id="ch.ingredients" class="form-control" type="text" [(ngModel)]="produit.ingredients" required/></p>
           <h5>Allergies et intolérances: </h5>
-            <p><input id="typeahead-config" type="text" class="form-control"/></p>
+            <p><input name="allergenes" id="ch.allergenes" class="form-control" type="text" [(ngModel)]="produit.allergenes" required/></p>
           <h5>Groupe NOVA: </h5>
-            <p><input id="typeahead-config" type="text" class="form-control"/></p>
+            <p><input name="nova" id="ch.nova" class="form-control" type="number" [(ngModel)]="produit.nova" required/></p>
   <hr>
         <h3 class="m-2 d-flex justify-content-center">Informations nutritionnelles : </h3>
           <div class="row m-2">
             <div class="col-sm m-2">
               <h5>Note nutritionnelle:</h5>
-              <p><input id="typeahead-config" type="text" class="form-control"/></p>
+              <p><input name="nutriscore" id="ch.nutriscore" class="form-control" type="text" [(ngModel)]="produit.nutriscore" required/></p>
             </div>
             <div class="col-sm m-2">
               <h5>Repères nutritionnels pour 100 g: </h5>
                 <ul>
-                  <li>Matières grasses / Lipides<input id="typeahead-config" type="text" class="form-control"/></li>
-                  <li>Acides gras saturés<input id="typeahead-config" type="text" class="form-control"/></li>
-                  <li>Sucres<input id="typeahead-config" type="text" class="form-control"/></li>
-                  <li>Sel<input id="typeahead-config" type="text" class="form-control"/></li>
+                  <li>Matières grasses / Lipides<input name="lipides" id="ch.lipides" class="form-control" type="text" [(ngModel)]="produit.valeure_nutritionnelle.lipides" required/></li>
+                  <li>Acides gras saturés<input name="acides" id="ch.acides" class="form-control" type="text" [(ngModel)]="produit.valeure_nutritionnelle.saturated_fat" required/></li>
+                  <li>Sucres<input name="sucres" id="ch.sucres" class="form-control" type="text" [(ngModel)]="produit.valeure_nutritionnelle.sugar" required/></li>
+                  <li>Sel<input name="sel" id="ch.sel" class="form-control" type="text" [(ngModel)]="produit.valeure_nutritionnelle.salt" required/></li>
                 </ul>
             </div>
           </div>

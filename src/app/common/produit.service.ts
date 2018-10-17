@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Produit } from './produit';
 import products from './tableau_produits';
+import { toUnicode } from 'punycode';
 
 
 @Injectable({
@@ -88,5 +89,12 @@ export class ProduitService {
     }
     console.log(resultat);
     return resultat;
+  }
+
+  // ajouter produit
+  ajouter(produit: Produit) {
+    produit.id = this.tab.toString();
+    this.tab.push(produit);
+    this.saveToLocalStorage(this.tab);
   }
 }
