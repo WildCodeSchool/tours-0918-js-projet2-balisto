@@ -10,10 +10,10 @@ import { LoginService } from '../common/login.service';
 })
 export class PagetriComponent implements OnInit {
 
-tab: Produit[];
-tabTri: Produit[];
-page = 1;
-title: string;
+  tab: Produit[];
+  tabTri: Produit[];
+  page = 1;
+  title: string;
 
   constructor(private servicegalerie: ProduitService, public loginService: LoginService) { }
 
@@ -21,8 +21,8 @@ title: string;
   ngOnInit() {
     this.tab = this.servicegalerie.get();
   }
+
   triByCategory(categories) {
     this.tabTri = this.servicegalerie.triByCategory(categories);
   }
-
 }
