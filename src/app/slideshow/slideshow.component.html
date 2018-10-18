@@ -1,17 +1,64 @@
-<div class="height: 80% width:80%" style= "margin-top:2em; margin-bottom:2em">
-<ngb-carousel #carousel="ngbCarousel" *ngIf="products" background-color: grey>
-  <ng-template ngbSlide *ngFor="let product of products">
-      <div  class='d-flex justify-content-around'>
-          <div *ngIf = "loginService.isLogin" style="position: absolute;">
-              <button class="btn btn-primary btn-xs btn-inline"><img src='../../../Images/logo modifier.png' class="figure-img img-fluid rounded logo" alt='#'></button>
-              <button class="btn btn-danger btn-xs btn-inline"><img src='../../../Images/logo corbeille.png' class="figure-img img-fluid rounded logo" alt='#'></button>
+<div class="height: 80% width:80%" style="margin-top:2em; margin-bottom:2em">
+
+  <ngb-carousel #carousel="ngbCarousel" *ngIf="products">
+    <ng-template ngbSlide *ngFor="let product of products">
+      <div class='d-flex justify-content-around'>
+        <div *ngIf="loginService.isLogin" style="position: absolute;">
+          <ng-template #content let-modal>
+            <div class="modal-header">
+              <h4 class="modal-title" id="modal-basic-title">Modifier les images du carroussel</h4>
+              <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
-    <img [src]="product.image" style= "width: 100%; max-height:300px; margin:0 auto ">
-    </div>
-    <div class="carousel-caption">
-      <p>
-      </p>
-    </div>
-  </ng-template>
-</ngb-carousel>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="dateOfBirth">Date of birth</label>
+                  <div class="input-group">
+                    <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+            </div>
+          </ng-template>
+          <button class="btn btn-primary btn-xs btn-inline" (click)="open(content)"><img src='../../../Images/logo modifier.png'
+              class="figure-img img-fluid rounded logo" alt='#'></button>
+
+
+
+          <ng-template #content2 let-modal>
+            <div class="modal-header">
+              <h4 class="modal-title" id="modal-basic-title">Etes vous sûr de vouloir supprimer cette image du carroussel? </h4>
+              <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Oui</button>
+              <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Non</button>
+            </div>
+          </ng-template>
+          <button class="btn btn-danger btn-xs btn-inline" (click)="open(content2)"><img src='../../../Images/logo corbeille.png' class="figure-img img-fluid rounded logo"
+              alt='#'></button>
+        </div>
+
+
+        <img [src]="product.image" style="width: 100%; max-height:300px; margin:0 auto ">
+      </div>
+      <div class="carousel-caption">
+        <p>
+        </p>
+      </div>
+    </ng-template>
+  </ngb-carousel>
 </div>
