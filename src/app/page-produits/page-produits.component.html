@@ -1,53 +1,42 @@
-<div class="container">
-    <div class="row">
-        <div class="col-sm m-2">
-            <div class="card m-2 col-12 col-sm-6 col-lg-4 col-xl-3" style="max-width: 300px;">
-                <img class="card-img-top" src="{{ produit.image }}" alt="Card image cap Responsive image">
-            </div>
-            <a routerLink="/comparateur/{{produit.id}}" class="m-4 btn btn-outline-primary btn-lg btn-block" style="max-width: 300px;">Comparer</a>
+<div class="row">
+    <div class="col-sm m-2">
+        <div class="card col-12 col-sm-6 col-lg-4 col-xl-3" style="max-width: 300px;">
+            <img class="m-2 card-img-top" src="{{ produit.image }}" alt="Card image cap Responsive image">
         </div>
-        <div class="col-sm m-2">
-            <h1>{{produit.name}}</h1>
-  <hr>
-            <div>
-                <h3>Caractéristiques du produit : </h3>
-                <ul class="list-group">
-                    <li class="list-group-item">Dénomination générique : {{produit.name}}</li>
-                    <li class="list-group-item">Quantité : {{ produit.quantite }}</li>
-                    <li class="list-group-item">Conditionnement : {{ produit.conditionnement }}</li>
-                    <li class="list-group-item">Marques : {{ produit.marque }}</li>
-                    <li class="list-group-item">Catégories : {{ produit.categories }} </li>
-                    <li class="list-group-item">Labels : {{ produit.label }}</li>
-                    <li class="list-group-item">Pays de vente : {{ produit.pays }}</li>
-                </ul>
-            </div>
+        <a routerLink="/comparateur/{{produit.id}}" class="m-4 btn btn-outline-secondary btn-lg btn-block" style="max-width: 300px;">Comparer</a>
+    </div>
+    <div class="col-sm m-2">
+        <h1>{{produit.name}}</h1>
+<hr>
+        <div>
+            <h3>Caractéristiques du produit : </h3>
+            <ul class="list-group">
+                <li class="list-group-item">Dénomination générique : {{produit.name}}</li>
+                <li class="list-group-item">Quantité : {{ produit.quantite }}</li>
+                <li class="list-group-item">Conditionnement : {{ produit.conditionnement }}</li>
+                <li class="list-group-item">Marques : {{ produit.marque }}</li>
+                <li class="list-group-item">Catégories : {{ produit.categories }} </li>
+                <li class="list-group-item">Labels : {{ produit.label }}</li>
+                <li class="list-group-item">Pays de vente : {{ produit.pays }}</li>
+            </ul>
         </div>
     </div>
-  <hr>
-    <div class="m-2">
-        <h3 class="m-2 d-flex justify-content-center">Ingrédients : </h3>
-          <h5>Liste des ingrédients: </h5>
-            <p>{{ produit.ingredients }}</p>
-          <h5>Allergies et intolérances: </h5>
-            <p>{{ produit.allergenes }}</p>
-          <h5>Groupe NOVA: </h5>
-            <p>{{ produit.nova }}</p>
-  <hr>
-        <h3 class="m-2 d-flex justify-content-center">Informations nutritionnelles : </h3>
-          <div class="row m-2">
-            <div class="col-sm m-2">
-              <h5>Note nutritionnelle: </h5>
-              <p>{{produit.nutriscore}}</p>
-            </div>
-            <div class="col-sm m-2">
-              <h5>Repères nutritionnels pour 100 g: </h5>
-                <ul>
-                  <li>{{produit.valeure_nutritionnelle.lipides}} Matières grasses / Lipides</li>
-                  <li>{{produit.valeure_nutritionnelle.saturated_fat}} Acides gras saturés</li>
-                  <li>{{produit.valeure_nutritionnelle.sugar}} Sucres</li>
-                  <li>{{produit.valeure_nutritionnelle.salt}} Sel </li>
-                </ul>
-            </div>
-          </div>
+</div>
+<hr>
+<div class="row m-2">
+    <div class="col-sm m-2">
+        <h3 class="m-2">Ingrédients : </h3>
+        <h5>Liste des ingrédients: </h5>
+        <p>{{ produit.ingredients }}</p>
+        <h5>Allergies et intolérances: </h5>
+        <p>{{ produit.allergenes }}</p>
+        <h5>Groupe NOVA: </h5>
+        <p>{{ produit.nova }}</p>
+    </div>
+<hr>
+    <div class="col-sm m-2">
+        <h3 class="m-2">Informations nutritionnelles : </h3>
+            <h5>Note nutritionnelle: </h5>
+            <p>{{produit.nutriscore}}</p>
     </div>
 </div>

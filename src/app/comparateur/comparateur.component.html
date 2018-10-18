@@ -39,7 +39,7 @@
 
     <table class=" col-12 col-sm-6 col-lg-4 col-xl-3 m-4 d-flex justify-content-center">
         <tr class="m-4 d-flex justify-content-center">
-            <th>{{produit.name}}</th>
+            <th>{{produit.name}}*</th>
         </tr>
         <tr class="d-flex justify-content-center">
             <td>{{produit.valeure_nutritionnelle.energy}}</td>
@@ -77,7 +77,7 @@
         <tr class="m-4 d-flex justify-content-center">
             <th>
                 <div ngbDropdown class="d-inline-block">
-                    <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Choisissez un produit</button>
+                    <button class="btn btn-outline-secondary btn-lg btn-block" id="dropdownBasic1" ngbDropdownToggle>Choisissez un produit</button>
                     <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                           <button  (click)="getProduitByName(produit.name)" *ngFor="let produit of tabComp" class="dropdown-item">{{produit.name}}</button>
                     </div>
@@ -115,4 +115,5 @@
       </table>
     </div>
 </div>
+<p>* Tel que vendu pour 100 g / 100 ml</p>
 

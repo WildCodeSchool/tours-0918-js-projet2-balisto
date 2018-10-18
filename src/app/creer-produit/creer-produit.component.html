@@ -1,66 +1,69 @@
-<div class="container">
-    <div class="row">
-        <div class="col-sm m-2">
-            <h1>Image produit: <input name="image" id="ch.image" class="form-control" type="url" [(ngModel)]="produit.image" placeholder="Url image produit" required/></h1>
-  <hr>
-            <a type="submit" class="m-4 btn btn-outline-primary btn-lg btn-block" (click)="ajouter()" style="max-width: 300px;">Enregistrer</a>
-        </div>
-        <div class="col-sm m-2">
-            <h1>Nom produit: <input name="nom" id="ch.nom" class="form-control" type="text" [(ngModel)]="produit.name" placeholder="Nom produit" required/></h1>
-  <hr>
-            <div>
-                <h3>Caractéristiques du produit:</h3>
-                <ul class="list-group">
-                    <li class="list-group-item">Id :
-                      <input name="id" id="ch.id" class="form-control" type="number" [(ngModel)]="produit.id" placeholder="Id produit" required/>
-                    </li>
-                    <li class="list-group-item">Quantité :
-                      <input name="quantite" id="ch.quantite" class="form-control" type="text" [(ngModel)]="produit.quantite" placeholder="quantite" required/>
-                    </li>
-                    <li class="list-group-item">Conditionnement :
-                        <input name="conditionnement" id="ch.conditionnement" class="form-control" type="text" [(ngModel)]="produit.conditionnement" placeholder="Conditionnement" required/>
-                    </li>
-                    <li class="list-group-item">Marques :
-                      <input name="marques" id="ch.marques" class="form-control" type="text" [(ngModel)]="produit.marque" placeholder="Marque"required/>
-                    </li>
-                    <li class="list-group-item">Catégories :
-                      <input name="categories" id="ch.categories" class="form-control" type="text" [(ngModel)]="produit.categories" placeholder="Categorie" required/>
-                    </li>
-                    <li class="list-group-item">Labels :
-                        <input name="labels" id="ch.label" class="form-control" type="text" [(ngModel)]="produit.label" placeholder="label" required/>
-                    </li>
-                    <li class="list-group-item">Pays de vente :
-                        <input name="pays" id="ch.pays" class="form-control" type="text" [(ngModel)]="produit.pays" placeholder="Pays" required/>
-                    </li>
-                </ul>
-            </div>
+<div>
+    <h2 class="my-4 d-flex justify-content-center">Image produit : </h2>
+     <input  class="my-4" name="image" id="ch.image" class="form-control" type="url" [(ngModel)]="produit.image" placeholder="Url image produit"/>
+</div>
+
+<hr>
+
+<div class="row d-flex justify-content-center">
+    <div class="col-sm m-2">
+        <h2 class="m-2 d-flex justify-content-center">Nom produit : </h2>
+        <input name="nom" id="ch.nom" class="form-control" type="text" [(ngModel)]="produit.name" placeholder="Nom produit"/>
+<hr>
+        <div>
+            <h2 class="m-2 d-flex justify-content-center">Caractéristiques du produit : </h2>
+            <ul class="list-group">
+                <li class="list-group-item">Id :
+                  <input name="id" id="ch.id" class="form-control" type="number" [(ngModel)]="produit.id" placeholder="Id produit"/>
+                </li>
+                <li class="list-group-item">Quantité :
+                  <input name="quantite" id="ch.quantite" class="form-control" type="text" [(ngModel)]="produit.quantite" placeholder="quantite"/>
+                </li>
+                <li class="list-group-item">Conditionnement :
+                    <input name="conditionnement" id="ch.conditionnement" class="form-control" type="text" [(ngModel)]="produit.conditionnement" placeholder="Conditionnement"/>
+                </li>
+                <li class="list-group-item">Marques :
+                  <input name="marques" id="ch.marques" class="form-control" type="text" [(ngModel)]="produit.marque" placeholder="Marque"/>
+                </li>
+                <li class="list-group-item">Catégories :
+                  <input name="categories" id="ch.categories" class="form-control" type="text" [(ngModel)]="produit.categories" placeholder="Categorie"/>
+                </li>
+                <li class="list-group-item">Labels :
+                    <input name="labels" id="ch.label" class="form-control" type="text" [(ngModel)]="produit.label" placeholder="label"/>
+                </li>
+                <li class="list-group-item">Pays de vente :
+                    <input name="pays" id="ch.pays" class="form-control" type="text" [(ngModel)]="produit.pays" placeholder="Pays"/>
+                </li>
+            </ul>
         </div>
     </div>
-  <hr>
-    <div class="m-2">
+
+<hr>
+
+    <div class="col-sm m-2">
         <h3 class="m-2 d-flex justify-content-center">Ingrédients : </h3>
-          <h5>Liste des ingrédients: </h5>
-            <p><input name="ingredients" id="ch.ingredients" class="form-control" type="text" [(ngModel)]="produit.ingredients" placeholder="Ingredients" required/></p>
-          <h5>Allergies et intolérances: </h5>
-            <p><input name="allergenes" id="ch.allergenes" class="form-control" type="text" [(ngModel)]="produit.allergenes" placeholder="Allergenes" required/></p>
-          <h5>Groupe NOVA: </h5>
-            <p><input name="nova" id="ch.nova" class="form-control" type="number" [(ngModel)]="produit.nova" placeholder="Nova" required/></p>
-  <hr>
+        <h5>Liste des ingrédients: </h5>
+        <p><input name="ingredients" id="ch.ingredients" class="form-control" type="text" [(ngModel)]="produit.ingredients" placeholder="Ingredients"/></p>
+        <h5>Allergies et intolérances: </h5>
+        <p><input name="allergenes" id="ch.allergenes" class="form-control" type="text" [(ngModel)]="produit.allergenes" placeholder="Allergenes"/></p>
+        <h5>Groupe NOVA: </h5>
+        <p><input name="nova" id="ch.nova" class="form-control" type="number" [(ngModel)]="produit.nova" placeholder="Nova"/></p>
+
+<hr>
+
         <h3 class="m-2 d-flex justify-content-center">Informations nutritionnelles : </h3>
-          <div class="row m-2">
             <div class="col-sm m-2">
-              <h5>Note nutritionnelle:</h5>
-              <p><input name="nutriscore" id="ch.nutriscore" class="form-control" type="text" [(ngModel)]="produit.nutriscore" placeholder="Nutriscore" required/></p>
+                <h5>Note nutritionnelle:</h5>
+                <p><input name="nutriscore" id="ch.nutriscore" class="form-control" type="text" [(ngModel)]="produit.nutriscore" placeholder="Nutriscore"/></p>
+                <h5>Repères nutritionnels pour 100 g : </h5>
             </div>
-            <div class="col-sm m-2">
-              <h5>Repères nutritionnels pour 100 g: </h5>
-                <ul>
-                  <li>Matières grasses / Lipides<input name="lipides" id="ch.lipides" class="form-control" type="text" [(ngModel)]="produit.valeure_nutritionnelle.lipides" placeholder="Lipides" required/></li>
-                  <li>Acides gras saturés<input name="acides" id="ch.acides" class="form-control" type="text" [(ngModel)]="produit.valeure_nutritionnelle.saturated_fat" placeholder="Acides" required/></li>
-                  <li>Sucres<input name="sucres" id="ch.sucres" class="form-control" type="text" [(ngModel)]="produit.valeure_nutritionnelle.sugar" placeholder="Sucre" required/></li>
-                  <li>Sel<input name="sel" id="ch.sel" class="form-control" type="text" [(ngModel)]="produit.valeure_nutritionnelle.salt" placeholder="Sel" required/></li>
-                </ul>
-            </div>
-          </div>
     </div>
 </div>
+
+<hr>
+
+<div class="col-sm m-2 d-flex justify-content-center">
+    <a type="submit" class="m-4 btn btn-outline-secondary btn-lg btn-block" (click)="ajouter()" style="max-width: 300px;">Enregistrer</a>
+    <a type="cancel" routerLink="/index" class="m-4 btn btn-outline-secondary btn-lg btn-block" style="max-width: 300px;">Annuler</a>
+</div>
+
