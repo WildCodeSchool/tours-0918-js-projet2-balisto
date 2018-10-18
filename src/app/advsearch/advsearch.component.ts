@@ -17,6 +17,7 @@ export class AdvsearchComponent implements OnInit {
   tabAller: Produit[];
   tabFinal: Produit[];
   isCollapsed = true;
+  pouet: boolean;
 
   constructor(private servicegalerie: ProduitService) { }
 

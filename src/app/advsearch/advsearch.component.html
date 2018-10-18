@@ -4,12 +4,10 @@
     <h5>Recherche de produits</h5>
     <form>
       <input type="text" class="form-control" id="serchtxt" placeholder="Votre recherche">
-      <small id="serchtxt" class="form-text text-muted">Recherche les mots présents dans le nom du produit, les mots
-        clefs, les
-        ingrédients, les marques, catégories, origines et labels</small>
+      <button class="btn btn-dark btnR" (click)="pouet = !pouet">Go !</button>
     </form>
   </div>
-  <form>
+  <form [hidden]='pouet'>
     <div class='container-fluid'>
       <h5>Marques</h5>
       <div class='row'>
