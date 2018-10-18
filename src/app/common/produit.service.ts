@@ -9,7 +9,6 @@ import products from './tableau_produits';
 export class ProduitService {
   // déclaration du tableau produits de type Todo
   tab: Produit[];
-  crit: [];
 
   constructor() {
     // Si la clé n'éxiste "produits" pas dans le local storage

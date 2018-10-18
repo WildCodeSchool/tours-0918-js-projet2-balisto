@@ -21,6 +21,11 @@ export class AdvsearchComponent implements OnInit {
   constructor(private servicegalerie: ProduitService) { }
 
   ngOnInit() {
+    this.tabM = [];
+    this.tabAller = [];
+    this.tabCondi = [];
+    this.tabPays = [];
+    this.tabNutri = [];
   }
 
   triByMarques(marques) {
