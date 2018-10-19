@@ -15,14 +15,14 @@ export class PagetriComponent implements OnInit {
   page = 1;
   title: string;
 
-  constructor(private servicegalerie: ProduitService, public loginService: LoginService) { }
+  constructor(private produitservice: ProduitService, public loginService: LoginService) { }
 
 
   ngOnInit() {
-    this.tab = this.servicegalerie.get();
+    this.tab = this.produitservice.get();
   }
 
   triByCategory(categories) {
-    this.tabTri = this.servicegalerie.triByCategory(categories);
+    this.tabTri = this.produitservice.triByCategory(categories);
   }
 }

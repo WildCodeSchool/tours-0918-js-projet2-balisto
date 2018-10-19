@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Produit } from './produit';
 import products from './tableau_produits';
+import { toUnicode } from 'punycode';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProduitService {
-  // déclaration du tableau produits de type Todo
+  // déclaration du tableau produits de type Produit
   tab: Produit[];
+  produit: any;
 
   constructor() {
     // Si la clé n'éxiste "produits" pas dans le local storage
@@ -51,11 +53,12 @@ export class ProduitService {
     return this.tab;
   }
 
-  // iteration sur tableau avec id
+  // tableau avec id
   getProduitById(id: string) {
     return this.tab.find(produit => produit.id === id);
   }
 
+  // tableau avec categorie
   triByCategory(categories): Produit[] {
     const tabTri = this.tab.filter(produit => {
       if (produit.categories && produit.categories.includes(categories)) {
@@ -128,6 +131,35 @@ export class ProduitService {
       }
     });
     return tabFinal;
+  }
+  // tableau avec comparateur
+  getProduitByName(name: string) {
+    return this.tab.find(produit => produit.name === name);
+  }
+
+  // tableau search
+  getBySearch(search): Produit[] {
+    const resultat = [];
+    for (let i = 0; i < this.tab.length; i++) {
+      if (search.toLowerCase() === this.tab[i].id.toLocaleLowerCase()) {
+        resultat.push(this.tab[i]);
+      }
+      if (search.toLowerCase() === this.tab[i].marque.toLowerCase()) {
+        resultat.push(this.tab[i]);
+      }
+      if (search.toLowerCase() === this.tab[i].name.toLowerCase()) {
+        resultat.push(this.tab[i]);
+      }
+    }
+    console.log(resultat);
+    return resultat;
+  }
+
+  // ajouter produit
+  ajouter(produit: Produit) {
+    produit.id = this.tab.toString();
+    this.tab.push(produit);
+    this.saveToLocalStorage(this.tab);
   }
 }
 

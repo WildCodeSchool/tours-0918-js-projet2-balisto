@@ -17,6 +17,7 @@ import { PageProduitsComponent } from './page-produits/page-produits.component';
 import { ComparateurComponent } from './comparateur/comparateur.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AdvsearchComponent } from './advsearch/advsearch.component';
+import { CreerProduitComponent } from './creer-produit/creer-produit.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AdvsearchComponent } from './advsearch/advsearch.component';
     PageProduitsComponent,
     ComparateurComponent,
     SearchPageComponent,
-    AdvsearchComponent
+    AdvsearchComponent,
+    CreerProduitComponent
   ],
   imports: [
     CommonModule,
