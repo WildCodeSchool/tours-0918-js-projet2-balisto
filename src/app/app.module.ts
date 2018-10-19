@@ -16,6 +16,7 @@ import { SearchPageComponent } from './search-page/search-page.component';
 import { PageProduitsComponent } from './page-produits/page-produits.component';
 import { ComparateurComponent } from './comparateur/comparateur.component';
 import { AppRoutingModule } from './app-routing.module';
+import { CreerProduitComponent } from './creer-produit/creer-produit.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AppRoutingModule } from './app-routing.module';
     IndexComposantsComponent,
     PageProduitsComponent,
     ComparateurComponent,
-    SearchPageComponent
+    SearchPageComponent,
+    CreerProduitComponent
   ],
   imports: [
     CommonModule,

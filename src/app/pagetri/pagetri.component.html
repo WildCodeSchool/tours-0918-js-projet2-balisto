@@ -1,27 +1,34 @@
+<div class='row d-flex justify-content-center'>
 
-<div ngbDropdown class="col-2 d-inline-block">
-  <button class="btn btn-outline-secondary" id="dropdownBasic1" ngbDropdownToggle>Explorer les produits par</button>
-  <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-    <button class="dropdown-item" (click)="tabTri=''" (click)="title =''">All</button>
-    <button class="dropdown-item" (click)="triByCategory('Boissons')" (click)="title = 'Boissons'">Boissons</button>
-    <button class="dropdown-item" (click)="triByCategory('Plats préparés')" (click)="title = 'Plats préparés'">Plats préparés</button>
-    <button class="dropdown-item" (click)="triByCategory('Produits laitiers')" (click)="title = 'Produits laitiers'">Produits laitiers</button>
-    <button class="dropdown-item" (click)="triByCategory('Petit-déjeuners')" (click)="title = 'Petit déjeuners'">Petit déjeuners</button>
-    <button class="dropdown-item" (click)="triByCategory('snacks sucrés')" (click)="title = 'snacks sucrés'">snacks sucrés</button>
-    <button class="dropdown-item" (click)="triByCategory('Viandes')" (click)="title = 'Viandes'">Viandes</button>
-  </div>
+    <div  class='d-flex justify-content-around'>
+        <div *ngIf = "loginService.isLogin" style="position: relative;">
+            <button routerLink="/creer-produit" class="btn btn-outline-success btn-lg btn-inline">Ajouter un produit</button>
+        </div>
+    </div>
+
+    <div>
+        <div ngbDropdown class="col-2 m-1 d-inline-block">
+            <button class="btn btn-outline-secondary" id="dropdownBasic1" ngbDropdownToggle>Explorer les produits par</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <button class="dropdown-item" (click)="tabTri=''" (click)="title =''">All</button>
+                <button class="dropdown-item" (click)="triByCategory('Boissons')" (click)="title = 'Boissons'">Boissons</button>
+                <button class="dropdown-item" (click)="triByCategory('Plats préparés')" (click)="title = 'Plats préparés'">Plats préparés</button>
+                <button class="dropdown-item" (click)="triByCategory('Produits laitiers')" (click)="title = 'Produits laitiers'">Produits laitiers</button>
+                <button class="dropdown-item" (click)="triByCategory('Petit-déjeuners')" (click)="title = 'Petit déjeuners'">Petit déjeuners</button>
+                <button class="dropdown-item" (click)="triByCategory('snacks sucrés')" (click)="title = 'snacks sucrés'">snacks sucrés</button>
+                <button class="dropdown-item" (click)="triByCategory('Viandes')" (click)="title = 'Viandes'">Viandes</button>
+            </div>
+        </div>
+    </div>
+
 </div>
-<div  class='d-flex justify-content-around'>
-    <div *ngIf = "loginService.isLogin" style="position: relative;">
-        <button class="btn btn-outline-success btn-lg btn-inline">Ajouter un produit</button>
-      </div>
-      </div>
-<div class='col-2 offset-3'>
+
+<div class='col-2 offset-5'>
   <h2 *ngIf='title'>{{title}}</h2>
 </div>
 <div class="container fluide">
   <div *ngIf="tabTri" class='row'>
-    <div class="card m-1 col-12 col-sm-6 col-lg-4 col-xl-3" style="max-width: 270px;" *ngFor="let produit of tabTri | paginate:{itemsPerPage:8, currentPage: page}">
+    <div class="card col-12 col-sm-6 col-lg-4 col-xl-3" style="max-width: 270px;" *ngFor="let produit of tabTri | paginate:{itemsPerPage:8, currentPage: page}">
       <div *ngIf="produit.image; then image else imageerreur"></div>
       <ng-template #image>
         <div class="card-body">
@@ -36,7 +43,7 @@
         </div>
       </ng-template>
       <ng-template #imageerreur>
-        <div class="card-body">
+        <div class="card-header">
           <div  class='d-flex justify-content-around'>
             <div *ngIf = "loginService.isLogin" style="position: absolute;">
               <button class="btn btn-primary btn-xs btn-inline"><img src='../../../Images/logo modifier.png' class="figure-img img-fluid rounded logo" alt='#'></button>
@@ -47,12 +54,12 @@
           style="max-height: 250px;">
         </div>
       </ng-template>
-      <div class="card-header">
+      <div class="card-body">
         <h5 class="card-title">{{produit.name}}</h5>
       </div>
-      <div class="card-body">
-        <a routerLink="/Produits/{{produit.id}}" class="mx-2 btn btn-outline-primary btn-lg btn-block">Voir</a>
-        <a routerLink="/Comparateur/{{produit.id}}" class="mx-2 btn btn-outline-primary btn-lg btn-block">Comparer</a>
+      <div class="card-footer">
+        <a routerLink="/produits/{{produit.id}}" class="mx-2 btn btn-outline-secondary btn-lg btn-block">Voir</a>
+        <a routerLink="/comparateur/{{produit.id}}" class="mx-2 btn btn-outline-secondary btn-lg btn-block">Comparer</a>
       </div>
     </div>
   </div>
@@ -60,7 +67,7 @@
     <div class="card m-1 col-12 col-sm-6 col-lg-4 col-xl-3" style="max-width: 270px;" *ngFor="let produit of tab | paginate:{itemsPerPage:8, currentPage: page}">
       <div *ngIf="produit.image; then image else imageerreur"></div>
       <ng-template #image>
-        <div class="card-body">
+        <div class="card-header">
           <div  class='d-flex justify-content-around'>
             <div *ngIf = "loginService.isLogin" style="position: absolute;">
               <button class="btn btn-primary btn-xs btn-inline"><img src='../../../Images/logo modifier.png' class="figure-img img-fluid rounded logo" alt='#'></button>
@@ -72,7 +79,7 @@
         </div>
       </ng-template>
       <ng-template #imageerreur>
-        <div class="card-body">
+        <div class="card-header">
           <div  class='d-flex justify-content-around'>
             <div *ngIf = "loginService.isLogin" style="position: absolute;">
               <button class="btn btn-primary btn-xs btn-inline"><img src='../../../Images/logo modifier.png' class="figure-img img-fluid rounded logo" alt='#'></button>
@@ -83,16 +90,16 @@
           style="max-height: 250px;">
         </div>
       </ng-template>
-      <div class="card-header">
+      <div class="card-body">
         <h5 class="card-title">{{produit.name}}</h5>
       </div>
-      <div class="card-body">
-        <a routerLink="/Produits/{{produit.id}}" class="mx-2 btn btn-outline-primary btn-lg btn-block">Voir</a>
-        <a routerLink="/Comparateur/{{produit.id}}" class="mx-2 btn btn-outline-primary btn-lg btn-block">Comparer</a>
+      <div class="card-footer">
+        <a routerLink="/produits/{{produit.id}}" class="mx-2 btn btn-outline-secondary btn-lg btn-block">Voir</a>
+        <a routerLink="/comparateur/{{produit.id}}" class="mx-2 btn btn-outline-secondary btn-lg btn-block">Comparer</a>
       </div>
     </div>
   </div>
 </div>
-<div class="my-4 d-flex justify-content-center">
-  <ngb-pagination [collectionSize]="50" [(page)]="page" [boundaryLinks]="true"></ngb-pagination>
+<div class="my-1 d-flex justify-content-center">
+    <pagination-controls previousLabel="" nextLabel="" responsive="true" (pageChange)="page = $event"></pagination-controls>
 </div>
