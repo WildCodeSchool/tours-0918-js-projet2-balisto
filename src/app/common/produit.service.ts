@@ -11,6 +11,7 @@ export class ProduitService {
   // déclaration du tableau produits de type Produit
   tab: Produit[];
   produit: any;
+  tabComp: Produit[];
 
   constructor() {
     // Si la clé n'éxiste "produits" pas dans le local storage
@@ -134,7 +135,7 @@ export class ProduitService {
   }
   // tableau avec comparateur
   getProduitByName(name: string) {
-    return this.tab.find(produit => produit.name === name);
+    return this.tabComp.find(produitComp => produitComp.name === name);
   }
 
   // tableau search
