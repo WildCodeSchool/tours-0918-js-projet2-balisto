@@ -109,6 +109,26 @@ export class ProduitService {
     });
     return tabAller;
   }
+
+  triReg(str) {
+    const regex = new RegExp(str, 'i');
+    const tabFinal = this.tab.filter(produit => {
+      if (produit.name.match(regex)) {
+        return produit;
+      } else if (produit.marque && produit.marque.match(regex)) {
+        return produit;
+      } else if (produit.ingredients && produit.ingredients.match(regex)) {
+        return produit;
+      } else if (produit.categories && produit.categories.join().match(regex)) {
+        return produit;
+      } else if (produit.allergenes && produit.allergenes.join().match(regex)) {
+        return produit;
+      } else if (produit.pays && produit.pays.match(regex)) {
+        return produit;
+      }
+    });
+    return tabFinal;
+  }
 }
 
 

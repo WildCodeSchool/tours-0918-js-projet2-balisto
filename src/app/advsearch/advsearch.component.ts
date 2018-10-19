@@ -18,6 +18,7 @@ export class AdvsearchComponent implements OnInit {
   tabFinal: Produit[];
   isCollapsed = true;
   pouet: boolean;
+  searchtxt: String;
 
   constructor(private servicegalerie: ProduitService) { }
 
@@ -51,5 +52,9 @@ export class AdvsearchComponent implements OnInit {
 
   triFinal(tabFinal) {
     this.tabFinal = this.tabM.concat(this.tabNutri, this.tabPays, this.tabCondi, this.tabAller);
+  }
+
+  triReg(str) {
+    this.tabFinal = this.servicegalerie.triReg(str);
   }
 }

@@ -3,8 +3,8 @@
     <!-- Search produits-->
     <h5>Recherche de produits</h5>
     <form>
-      <input type="text" class="form-control" id="serchtxt" placeholder="Votre recherche">
-      <button class="btn btn-dark btnR" (click)="pouet = !pouet">Go !</button>
+      <input type="text" class="form-control" name='stxt'[(ngModel)]="searchtxt" placeholder="Votre recherche">
+      <button class="btn btn-dark btnR" (click)="pouet = !pouet" (click)="triReg(searchtxt)">Go !</button>
     </form>
   </div>
   <form [hidden]='pouet'>
