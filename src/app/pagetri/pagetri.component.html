@@ -35,7 +35,7 @@
           <div  class='d-flex justify-content-around'>
             <div *ngIf = "loginService.isLogin" style="position: absolute;">
               <button class="btn btn-primary btn-xs btn-inline"><img src='../../../Images/logo modifier.png' class="figure-img img-fluid rounded logo" alt='#'></button>
-              <button class="btn btn-danger btn-xs btn-inline"><img src='../../../Images/logo corbeille.png' class="figure-img img-fluid rounded logo" alt='#'></button>
+              <button type="submit" class="btn btn-danger btn-xs btn-inline" (click)="deleteProduittri(produit)"><img src='../../../Images/logo corbeille.png' class="figure-img img-fluid rounded logo" alt='#' ></button>
             </div>
           </div>
           <img class="card-img-top" src="{{ produit.image }}" alt="Card image cap Responsive image"
@@ -47,7 +47,7 @@
           <div  class='d-flex justify-content-around'>
             <div *ngIf = "loginService.isLogin" style="position: absolute;">
               <button class="btn btn-primary btn-xs btn-inline"><img src='../../../Images/logo modifier.png' class="figure-img img-fluid rounded logo" alt='#'></button>
-              <button class="btn btn-danger btn-xs btn-inline"><img src='../../../Images/logo corbeille.png' class="figure-img img-fluid rounded logo" alt='#'></button>
+              <button type ="submit" class="btn btn-danger btn-xs btn-inline"(click)="deleteProduittri(produit)"><img src='../../../Images/logo corbeille.png' class="figure-img img-fluid rounded logo" alt='#'></button>
             </div>
           </div>
           <img class="card-img-top" src="https://via.placeholder.com/300x400" alt="Card image cap Responsive image"
@@ -71,7 +71,7 @@
           <div  class='d-flex justify-content-around'>
             <div *ngIf = "loginService.isLogin" style="position: absolute;">
               <button class="btn btn-primary btn-xs btn-inline"><img src='../../../Images/logo modifier.png' class="figure-img img-fluid rounded logo" alt='#'></button>
-              <button class="btn btn-danger btn-xs btn-inline"><img src='../../../Images/logo corbeille.png' class="figure-img img-fluid rounded logo" alt='#'></button>
+              <button type ="submit" class="btn btn-danger btn-xs btn-inline" (click)="deleteProduit(produit)"><img src='../../../Images/logo corbeille.png' class="figure-img img-fluid rounded logo" alt='#'></button>
             </div>
           </div>
           <img class="card-img-top" src="{{ produit.image }}" alt="Card image cap Responsive image"
@@ -83,7 +83,7 @@
           <div  class='d-flex justify-content-around'>
             <div *ngIf = "loginService.isLogin" style="position: absolute;">
               <button class="btn btn-primary btn-xs btn-inline"><img src='../../../Images/logo modifier.png' class="figure-img img-fluid rounded logo" alt='#'></button>
-              <button class="btn btn-danger btn-xs btn-inline"><img src='../../../Images/logo corbeille.png' class="figure-img img-fluid rounded logo" alt='#'></button>
+              <button type ="submit" class="btn btn-danger btn-xs btn-inline" (click)="deleteProduit(produit)"><img src='../../../Images/logo corbeille.png' class="figure-img img-fluid rounded logo" alt='#'></button>
             </div>
           </div>
           <img class="card-img-top" src="https://via.placeholder.com/300x400" alt="Card image cap Responsive image"
