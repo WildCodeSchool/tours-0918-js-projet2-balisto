@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Produit } from '../common/produit';
 import { ProduitService } from '../common/produit.service';
 import { LoginService } from '../common/login.service';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-pagetri',
@@ -16,8 +17,9 @@ export class PagetriComponent implements OnInit {
   title: string;
   produit: Produit;
   produits: Produit[];
+  closeResult: string;
 
-  constructor(private produitservice: ProduitService, public loginService: LoginService) { }
+  constructor(private produitservice: ProduitService, public loginService: LoginService, private modalService: NgbModal) { }
 
 
   ngOnInit() {
@@ -35,8 +37,8 @@ export class PagetriComponent implements OnInit {
   }
 
   deleteProduittri(produit: Produit) {
-    const indextri = this.tabTri.findIndex( x => x.id === produit.id);
-    this.tabTri.splice(indextri, 1);
+    const index = this.tabTri.findIndex( x => x.id === produit.id);
+    this.tabTri.splice(index, 1);
   }
 
   getFromLocalStorage(): Produit[] {
@@ -44,6 +46,31 @@ export class PagetriComponent implements OnInit {
     const produits: Produit[] = JSON.parse(stringData);
 
     return produits;
+  }
+
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.deleteProduittri(result);
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+  open2(content2) {
+    this.modalService.open(content2, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.deleteProduit(result);
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
   }
 
 }
