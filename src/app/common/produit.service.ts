@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Produit } from './produit';
+import { Nutrients } from './nutrients';
 import products from './tableau_produits';
 import { toUnicode } from 'punycode';
 
@@ -10,12 +11,10 @@ import { toUnicode } from 'punycode';
 export class ProduitService {
   // déclaration du tableau produits de type Produit
   tab: Produit[];
-  produit: any;
-  tabComp: Produit[];
 
   constructor() {
     // Si la clé n'éxiste "produits" pas dans le local storage
-    if (!localStorage.tab) {
+    if (!localStorage.products) {
       // Initialisation du local storage et du tableau produits
       this.tab = products.map((x) => {
         const produit = new Produit();
@@ -32,14 +31,26 @@ export class ProduitService {
         produit.allergenes = x['allergenes'];
         produit.nova = x['nova'];
         produit.nutriscore = x['nutriscore'];
-        produit.valeure_nutritionnelle = x['nutritional_value'];
+
+        produit.nutrients = new Nutrients();
+
+        produit.nutrients.lipids = x.nutritional_value.lipides;
+        produit.nutrients.sugar = x.nutritional_value.sugar;
+        produit.nutrients.saturated = x.nutritional_value.saturated_fat;
+        produit.nutrients.salt = x.nutritional_value.salt;
+        produit.nutrients.energy = x.nutritional_value.energy;
+        produit.nutrients.glucides =  x.nutritional_value.glucides;
+        produit.nutrients.fibres = x.nutritional_value.fibres_alimentaires;
+        produit.nutrients.proteines = x.nutritional_value.proteines;
+        produit.nutrients.sodium = x.nutritional_value.sodium;
+
         return produit;
       });
-      this.saveToLocalStorage([this.tab]);
+      this.saveToLocalStorage(this.tab);
     } else {
       // Si la clé "produits" existe récupération des donnée en conversion
       // en objet javascript (json)
-      const data = JSON.parse(localStorage.tab);
+      const data = JSON.parse(localStorage.products);
       // converte data to Produit model
       this.tab = data;
     }
@@ -47,7 +58,7 @@ export class ProduitService {
 
   saveToLocalStorage(produit) {
     const data = JSON.stringify(produit);
-    localStorage.setItem('produits', data);
+    localStorage.setItem('products', data);
   }
   // retourne le tableau des produits
   get(): Produit[] {
@@ -133,10 +144,6 @@ export class ProduitService {
     });
     return tabFinal;
   }
-  // tableau avec comparateur
-  getProduitByName(name: string) {
-    return this.tabComp.find(produitComp => produitComp.name === name);
-  }
 
   // tableau search
   getBySearch(search): Produit[] {
@@ -162,6 +169,7 @@ export class ProduitService {
     this.tab.push(produit);
     this.saveToLocalStorage(this.tab);
   }
+
 }
 
 

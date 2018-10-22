@@ -1,3 +1,4 @@
+import { Nutrients } from './nutrients';
 export class Produit {
   id: string;
   name: string;
@@ -12,5 +13,5 @@ export class Produit {
   allergenes: any;
   nova: any;
   nutriscore: any;
-  valeure_nutritionnelle: any;
+  nutrients: Nutrients;
 }

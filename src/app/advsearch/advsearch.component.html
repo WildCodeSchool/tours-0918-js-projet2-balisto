@@ -224,7 +224,7 @@
     <div class='container-fluid'>
       <!-- Plus de critères -->
       <p>
-        <button type="button" class="btn btn-outline-primary btnC" (click)="oui = !oui" [attr.aria-expanded]="!isCollapsed"
+        <button type="button" class="btn btn-outline-secondary btnC" (click)="oui = !oui" [attr.aria-expanded]="!isCollapsed"
           aria-controls="collapseExample">
           Plus de critères
         </button>
@@ -300,22 +300,22 @@
       <div class="card m-1 col-12 col-sm-6 col-lg-4 col-xl-3" style="max-width: 270px;" *ngFor="let produit of tabFinal | paginate:{itemsPerPage:8, currentPage: page}">
         <div *ngIf="produit.image; then image else imageerreur"></div>
         <ng-template #image>
-          <div class="card-body">
+          <div class="card-header">
             <img class="card-img-top" src="{{ produit.image }}" alt="Card image cap Responsive image" style="max-height: 250px;">
           </div>
         </ng-template>
         <ng-template #imageerreur>
-          <div class="card-body">
+          <div class="card-header">
             <img class="card-img-top" src="https://via.placeholder.com/300x400" alt="Card image cap Responsive image"
               style="max-height: 250px;">
           </div>
         </ng-template>
-        <div class="card-header">
+        <div class="card-body">
           <h5 class="card-title">{{produit.name}}</h5>
         </div>
-        <div class="card-body">
-          <a routerLink="/Produits/{{produit.id}}" class="mx-2 btn btn-outline-primary btn-lg btn-block">Voir</a>
-          <a routerLink="/Comparateur/{{produit.id}}" class="mx-2 btn btn-outline-primary btn-lg btn-block">Comparer</a>
+        <div class="card-footer">
+          <a routerLink="/Produits/{{produit.id}}" class="mx-2 btn btn-outline-secondary btn-lg btn-block">Voir</a>
+          <a routerLink="/Comparateur/{{produit.id}}" class="mx-2 btn btn-outline-secondary btn-lg btn-block">Comparer</a>
         </div>
       </div>
     </div>
