@@ -47,3 +47,7 @@ export class SlideshowComponent implements OnInit {
     }
   }
 }
+
+function urlImage() {
+  localStorage.setItem('numeroImage', 'url');
+}

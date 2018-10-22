@@ -13,19 +13,11 @@
             </div>
             <div class="modal-body">
               <form>
-                <div class="form-group">
-                  <label for="dateOfBirth">URL des images</label>
+                <div class="form-group" *ngFor="let product of products">
                   <div class="input-group">
-                    <div>
-                      <input id="image1" type="url" class="form-control" name="dp">
-                    </div>
-                    <div>
-                      <input id="image2" type="url" class="form-control" name="dp">
-                    </div>
-                    <div>
-                      <input id="image3" type="url" class="form-control" name="dp">
-                    </div>
-                    <div class="input-group-append">
+                    <div class="col-8">
+                      <p>Images</p>
+                      <input id="image1" type="url" class="form-control" name="dp" value="{{product.image}}">
                     </div>
                   </div>
                 </div>
