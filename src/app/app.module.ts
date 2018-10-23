@@ -33,7 +33,7 @@ import { ModifierProduitComponent } from './modifier-produit/modifier-produit.co
     SearchPageComponent,
     AdvsearchComponent,
     CreerProduitComponent,
-    ModifierProduitComponent
+    ModifierProduitComponent,
   ],
   imports: [
     CommonModule,
