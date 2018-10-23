@@ -2,11 +2,13 @@
 
 #body{
   font-family: 'Poppins';
-  margin-bottom: 25%;
-  margin-top: 5%;
+  background: no-repeat;
+  background-image: url(Images/bienmanger.jpg);
+  background-size: 100%;
+  min-height: 115vh;
 }
 
-.btnR, .btnC, h5, .marques, .condi, .aller{
+.btnR, .btnC, .marques, .condi, .aller{
   margin: 10px;
 }
 
