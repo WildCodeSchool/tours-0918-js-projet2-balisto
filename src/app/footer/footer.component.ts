@@ -9,6 +9,9 @@ export class FooterComponent implements OnInit {
   closeResult: string;
 
   media: any = {};
+  formCache1: boolean;
+  formCache2: boolean;
+  formCache3: boolean;
 
   constructor(private modalService: NgbModal) { }
 
@@ -30,7 +33,16 @@ export class FooterComponent implements OnInit {
     }
   }
 
+  envoi() {
+    const form = [this.media.email, this.media.obj, this.media.msg];
+    const formS = JSON.stringify(form);
+    localStorage.setItem('formContact', formS);
+  }
+
   ngOnInit() {
+    this.formCache1 = false;
+    this.formCache2 = false;
+    this.formCache3 = false;
   }
 
 }

@@ -2,6 +2,8 @@
 
 #body{
   font-family: 'Poppins';
+  margin-bottom: 25%;
+  margin-top: 5%;
 }
 
 .btnR, .btnC, h5, .marques, .condi, .aller{
