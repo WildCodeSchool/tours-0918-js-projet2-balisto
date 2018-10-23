@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Produit } from './produit';
 import { Nutrients } from './nutrients';
 import products from './tableau_produits';
+import productsStub from './tableau_produits';
 
 
 @Injectable({
@@ -10,13 +11,14 @@ import products from './tableau_produits';
 export class ProduitService {
   // déclaration du tableau produits de type Produit
   tab: Produit[];
-  produit: Produit[];
+  produit: any;
+  caroussel: any;
 
   constructor() {
     // Si la clé n'éxiste "produits" pas dans le local storage
     if (!localStorage.products) {
       // Initialisation du local storage et du tableau produits
-      this.tab = products.map((x) => {
+      this.tab = productsStub.map((x) => {
         const produit = new Produit();
         produit.id = x['id'];
         produit.name = x['product_name'];
@@ -54,6 +56,11 @@ export class ProduitService {
       // converte data to Produit model
       this.tab = data;
     }
+  }
+
+  saveSlideShow(products) {
+    const data = JSON.stringify(products);
+    localStorage.setItem('image', data);
   }
 
   saveToLocalStorage(produit) {
