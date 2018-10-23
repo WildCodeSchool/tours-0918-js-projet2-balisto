@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Produit } from '../common/produit';
 import { ProduitService } from '../common/produit.service';
 import { Nutrients } from '../common/nutrients';
+import { LoginService } from '../common/login.service';
 
 @Component({
   selector: 'app-creer-produit',
@@ -12,7 +13,7 @@ export class CreerProduitComponent implements OnInit {
    // produit à créer
   produit: Produit = new Produit();
 
-  constructor(private produitService: ProduitService) { }
+  constructor(private produitService: ProduitService, public loginService: LoginService) { }
 
   ngOnInit() {
     this.produit = new Produit();
@@ -27,5 +28,7 @@ export class CreerProduitComponent implements OnInit {
     this.produit = new Produit();
     this.produit.nutrients = new Nutrients();
   }
+
+
 
 }

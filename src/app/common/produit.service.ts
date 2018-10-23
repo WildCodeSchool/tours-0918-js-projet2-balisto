@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Produit } from './produit';
 import { Nutrients } from './nutrients';
 import products from './tableau_produits';
-import { toUnicode } from 'punycode';
 
 
 @Injectable({
@@ -11,6 +10,7 @@ import { toUnicode } from 'punycode';
 export class ProduitService {
   // déclaration du tableau produits de type Produit
   tab: Produit[];
+  produit: Produit[];
 
   constructor() {
     // Si la clé n'éxiste "produits" pas dans le local storage
@@ -170,6 +170,11 @@ export class ProduitService {
     this.saveToLocalStorage(this.tab);
   }
 
+  update(element) {
+    const index = this.produit.indexOf(element);
+    this.produit[index] = element;
+    this.saveToLocalStorage(this.produit);
+}
 }
 
 
