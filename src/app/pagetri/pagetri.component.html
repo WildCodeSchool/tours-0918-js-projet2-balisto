@@ -1,25 +1,25 @@
 <div class='row d-flex justify-content-center'>
 
-    <div  class='d-flex justify-content-around'>
-        <div *ngIf = "loginService.isLogin" style="position: relative;">
-            <button routerLink="/creer-produit" class="btn btn-outline-success btn-lg btn-inline">Ajouter un produit</button>
-        </div>
+  <div  class='d-flex justify-content-around'>
+    <div *ngIf = "loginService.isLogin" style="position: relative;">
+      <button routerLink="/creer-produit" class="btn btn-outline-success btn-lg btn-inline">Ajouter un produit</button>
     </div>
+  </div>
 
-    <div>
-        <div ngbDropdown class="col-2 m-1 d-inline-block">
-            <button class="btn btn-outline-secondary" id="dropdownBasic1" ngbDropdownToggle>Explorer les produits par</button>
-            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                <button class="dropdown-item" (click)="tabTri=''" (click)="title =''">All</button>
-                <button class="dropdown-item" (click)="triByCategory('Boissons')" (click)="title = 'Boissons'">Boissons</button>
-                <button class="dropdown-item" (click)="triByCategory('Plats préparés')" (click)="title = 'Plats préparés'">Plats préparés</button>
-                <button class="dropdown-item" (click)="triByCategory('Produits laitiers')" (click)="title = 'Produits laitiers'">Produits laitiers</button>
-                <button class="dropdown-item" (click)="triByCategory('Petit-déjeuners')" (click)="title = 'Petit déjeuners'">Petit déjeuners</button>
-                <button class="dropdown-item" (click)="triByCategory('snacks sucrés')" (click)="title = 'snacks sucrés'">snacks sucrés</button>
-                <button class="dropdown-item" (click)="triByCategory('Viandes')" (click)="title = 'Viandes'">Viandes</button>
-            </div>
-        </div>
+  <div>
+    <div ngbDropdown class="col-2 m-1 d-inline-block">
+      <button class="btn btn-outline-secondary" id="dropdownBasic1" ngbDropdownToggle>Explorer les produits par</button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <button class="dropdown-item" (click)="tabTri=''" (click)="title =''">All</button>
+        <button class="dropdown-item" (click)="triByCategory('Boissons')" (click)="title = 'Boissons'">Boissons</button>
+        <button class="dropdown-item" (click)="triByCategory('Plats préparés')" (click)="title = 'Plats préparés'">Plats préparés</button>
+        <button class="dropdown-item" (click)="triByCategory('Produits laitiers')" (click)="title = 'Produits laitiers'">Produits laitiers</button>
+        <button class="dropdown-item" (click)="triByCategory('Petit-déjeuners')" (click)="title = 'Petit déjeuners'">Petit déjeuners</button>
+        <button class="dropdown-item" (click)="triByCategory('snacks sucrés')" (click)="title = 'snacks sucrés'">snacks sucrés</button>
+        <button class="dropdown-item" (click)="triByCategory('Viandes')" (click)="title = 'Viandes'">Viandes</button>
+      </div>
     </div>
+  </div>
 
 </div>
 
@@ -34,7 +34,7 @@
         <div class="card-body">
           <div  class='d-flex justify-content-around'>
             <div *ngIf = "loginService.isLogin" style="position: absolute;">
-              <button class="btn btn-primary btn-xs btn-inline"><img src='../../../Images/logo modifier.png' class="figure-img img-fluid rounded logo" alt='#'></button>
+              <button class="btn btn-primary btn-xs btn-inline" routerLink="/modifier-produit/{{produit.id}}"><img src='../../../Images/logo modifier.png' class="figure-img img-fluid rounded logo" alt='#'></button>
               <ng-template #content let-modal>
                 <div class="modal-header">
                   <h4 class="modal-title" id="modal-basic-title">Suppression de produit</h4>
@@ -64,25 +64,25 @@
         <div class="card-header">
           <div  class='d-flex justify-content-around'>
             <div *ngIf = "loginService.isLogin" style="position: absolute;">
-              <button class="btn btn-primary btn-xs btn-inline"><img src='../../../Images/logo modifier.png' class="figure-img img-fluid rounded logo" alt='#'></button>
+              <button class="btn btn-primary btn-xs btn-inline" routerLink="/modifier-produit/{{produit.id}}"><img src='../../../Images/logo modifier.png' class="figure-img img-fluid rounded logo" alt='#'></button>
               <ng-template #content let-modal>
-                  <div class="modal-header">
-                    <h4 class="modal-title" id="modal-basic-title">Suppression de produit</h4>
-                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <p><strong>Confirmer la suppression du produit: <br/><span style="color: red" class="text-primary">{{produit.name}}</span></strong></p>
-                    <p>Ce produit ainsi que les informations liées à celui-ci seront supprimés.
-                      <span class="text-danger">Cette opération n'est pas réversible.</span>
-                    </p>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Annuler</button>
-                    <button type="button" class="btn btn-danger btn-inline" (click)="modal.close(produit)">Supprimer</button>
-                  </div>
-                </ng-template>
+                <div class="modal-header">
+                  <h4 class="modal-title" id="modal-basic-title">Suppression de produit</h4>
+                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p><strong>Confirmer la suppression du produit: <br/><span style="color: red" class="text-primary">{{produit.name}}</span></strong></p>
+                  <p>Ce produit ainsi que les informations liées à celui-ci seront supprimés.
+                    <span class="text-danger">Cette opération n'est pas réversible.</span>
+                  </p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Annuler</button>
+                  <button type="button" class="btn btn-danger btn-inline" (click)="modal.close(produit)">Supprimer</button>
+                </div>
+              </ng-template>
               <button class="btn btn-danger btn-xs btn-inline"(click)="open(content)"><img src='../../../Images/logo corbeille.png' class="figure-img img-fluid rounded logo" alt='#'></button>
             </div>
           </div>
@@ -106,25 +106,25 @@
         <div class="card-header">
           <div  class='d-flex justify-content-around'>
             <div *ngIf = "loginService.isLogin" style="position: absolute;">
-              <button class="btn btn-primary btn-xs btn-inline"><img src='../../../Images/logo modifier.png' class="figure-img img-fluid rounded logo" alt='#'></button>
+              <button class="btn btn-primary btn-xs btn-inline" routerLink="/modifier-produit/{{produit.id}}"><img src='../../../Images/logo modifier.png' class="figure-img img-fluid rounded logo" alt='#'></button>
               <ng-template #content2 let-modal>
-                  <div class="modal-header">
-                    <h4 class="modal-title" id="modal-basic-title">Suppression de produit</h4>
-                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <p><strong>Confirmer la suppression du produit: <br/><span style="color: red" class="text-primary">{{produit.name}}</span></strong></p>
-                    <p>Ce produit ainsi que les informations liées à celui-ci seront supprimés.
-                      <span class="text-danger">Cette opération n'est pas réversible.</span>
-                    </p>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Annuler</button>
-                    <button type="button" class="btn btn-danger btn-inline" (click)="modal.close(produit)">Supprimer</button>
-                  </div>
-                </ng-template>
+                <div class="modal-header">
+                  <h4 class="modal-title" id="modal-basic-title">Suppression de produit</h4>
+                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p><strong>Confirmer la suppression du produit: <br/><span style="color: red" class="text-primary">{{produit.name}}</span></strong></p>
+                  <p>Ce produit ainsi que les informations liées à celui-ci seront supprimés.
+                    <span class="text-danger">Cette opération n'est pas réversible.</span>
+                  </p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Annuler</button>
+                  <button type="button" class="btn btn-danger btn-inline" (click)="modal.close(produit)">Supprimer</button>
+                </div>
+              </ng-template>
               <button class="btn btn-danger btn-xs btn-inline" (click)="open2(content2)"><img src='../../../Images/logo corbeille.png' class="figure-img img-fluid rounded logo" alt='#'></button>
             </div>
           </div>
@@ -136,25 +136,25 @@
         <div class="card-header">
           <div  class='d-flex justify-content-around'>
             <div *ngIf = "loginService.isLogin" style="position: absolute;">
-              <button class="btn btn-primary btn-xs btn-inline"><img src='../../../Images/logo modifier.png' class="figure-img img-fluid rounded logo" alt='#'></button>
+              <button class="btn btn-primary btn-xs btn-inline" routerLink="/modifier-produit/:id"><img src='../../../Images/logo modifier.png' class="figure-img img-fluid rounded logo" alt='#'></button>
               <ng-template #content2 let-modal>
-                  <div class="modal-header">
-                    <h4 class="modal-title" id="modal-basic-title">Suppression de produit</h4>
-                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <p><strong>Confirmer la suppression du produit: <br/><span style="color: red" class="text-primary">{{produit.name}}</span></strong></p>
-                    <p>Ce produit ainsi que les informations liées à celui-ci seront supprimés.
-                      <span class="text-danger">Cette opération n'est pas réversible.</span>
-                    </p>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Annuler</button>
-                    <button type="button" class="btn btn-danger btn-inline" (click)="modal.close(produit)">Supprimer</button>
-                  </div>
-                </ng-template>
+                <div class="modal-header">
+                  <h4 class="modal-title" id="modal-basic-title">Suppression de produit</h4>
+                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p><strong>Confirmer la suppression du produit: <br/><span style="color: red" class="text-primary">{{produit.name}}</span></strong></p>
+                  <p>Ce produit ainsi que les informations liées à celui-ci seront supprimés.
+                    <span class="text-danger">Cette opération n'est pas réversible.</span>
+                  </p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Annuler</button>
+                  <button type="button" class="btn btn-danger btn-inline" (click)="modal.close(produit)">Supprimer</button>
+                </div>
+              </ng-template>
               <button class="btn btn-danger btn-xs btn-inline" (click)="open2(content2)"><img src='../../../Images/logo corbeille.png' class="figure-img img-fluid rounded logo" alt='#'></button>
             </div>
           </div>
@@ -173,5 +173,5 @@
   </div>
 </div>
 <div class="my-1 d-flex justify-content-center">
-    <pagination-controls previousLabel="" nextLabel="" responsive="true" (pageChange)="page = $event"></pagination-controls>
+  <pagination-controls previousLabel="" nextLabel="" responsive="true" (pageChange)="page = $event"></pagination-controls>
 </div>

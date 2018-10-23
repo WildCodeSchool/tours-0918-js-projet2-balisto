@@ -27,11 +27,11 @@
       <div class="Rav">
       </div>
       <div *ngIf="!loginService.isLogin">
-        <div class="dropdown" ngbDropdown [autoClose]="'outside'">
-          <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" ngbDropdownToggle aria-haspopup="true" aria-expanded="false">
-            Connexion Admin
+        <div class="btn-group drop" ngbDropdown [autoClose]="'outside'" id="headerdrop">
+          <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" ngbDropdownToggle aria-haspopup="true" aria-expanded="false">
+              <img src='../../../Images/UserProfile.png' class="logoheader"alt="#">
           </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" ngbDropdownMenu>
+          <div x-placement="right-start" style="position: absolute; transform: translate3d(-85px, 0px, 0px); top: 0px; left: 0px; will-change: transform;" class="dropdown-menu" aria-labelledby="dropdownMenuButton" ngbDropdownMenu>
             <div class="container-fluid">
               <form>
                 <div class="form-group">

@@ -34,11 +34,18 @@ export class PagetriComponent implements OnInit {
   deleteProduit(produit: Produit) {
     const index = this.tab.findIndex( x => x.id === produit.id);
     this.tab.splice(index, 1);
+    this.saveToLocalStorage(this.tab);
   }
 
   deleteProduittri(produit: Produit) {
     const index = this.tabTri.findIndex( x => x.id === produit.id);
     this.tabTri.splice(index, 1);
+    this.saveToLocalStorage(this.tabTri);
+  }
+
+  saveToLocalStorage(produit) {
+    const data = JSON.stringify(produit);
+    localStorage.setItem('products', data);
   }
 
   getFromLocalStorage(): Produit[] {

@@ -1,3 +1,4 @@
+<div *ngIf = "loginService.isLogin">
 <div>
     <h2 class="my-4 d-flex justify-content-center">Image produit : </h2>
      <input  class="my-4" name="image" id="ch.image" class="form-control" type="url" [(ngModel)]="produit.image" placeholder="Url image produit"/>
@@ -66,4 +67,17 @@
     <a type="submit" class="m-4 btn btn-outline-secondary btn-lg btn-block" (click)="ajouter()" style="max-width: 300px;">Enregistrer</a>
     <a type="cancel" routerLink="/index" class="m-4 btn btn-outline-secondary btn-lg btn-block" style="max-width: 300px;">Annuler</a>
 </div>
+</div>
 
+<div *ngIf="!loginService.isLogin" class="ifNotLogged container" id="NotLogged">
+    <br/>
+    <p class="alert alert-danger w-100 text-center" role="alert">
+      Vous n'êtes pas autorisé à accéder à cette page. Vous devez être connecté en tant qu'administrateur.
+    </p>
+    <div class="row">
+        <button routerLink="/index" type="button" class="btn btn-primary col-12 offset-md-2 col-md-4 mt-2 mt-md-0">Revenir à la page d'acceuil</button>
+      <button routerLink="/produits/{{produit.id}}" type="button" class="btn btn-secondary col-12 offset-md-1 col-md-4">Revenir sur
+        la page Produits</button>
+        </div>
+        <br/>
+      </div>

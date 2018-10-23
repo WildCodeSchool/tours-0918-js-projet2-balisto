@@ -9,6 +9,7 @@ import { PagetriComponent } from './pagetri/pagetri.component';
 import { AdvsearchComponent } from './advsearch/advsearch.component';
 
 import { CreerProduitComponent } from './creer-produit/creer-produit.component';
+import { ModifierProduitComponent } from './modifier-produit/modifier-produit.component';
 
 const routes: Routes = [
   { path: 'index', component: IndexComposantsComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'comparateur/:id', component: ComparateurComponent },
   { path: 'search-page/resultat/:search', component: SearchPageComponent },
   { path: 'creer-produit', component: CreerProduitComponent },
+  { path: 'modifier-produit/:id', component: ModifierProduitComponent },
 ];
 
 @NgModule({
