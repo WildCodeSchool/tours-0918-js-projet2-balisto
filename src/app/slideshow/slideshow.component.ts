@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../common/login.service';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { ProduitService } from 'src/app/common/produit.service';
 
 @Component({
   selector: 'app-slideshow',
@@ -8,10 +9,10 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./slideshow.component.css']
 })
 export class SlideshowComponent implements OnInit {
-  products: { 'nom': string, 'image': string} [];
+  products: { 'nom': string, 'image': string }[];
   closeResult: string;
 
-  constructor(public loginService: LoginService, private modalService: NgbModal) { }
+  constructor(public loginService: LoginService, private modalService: NgbModal, public produitService: ProduitService) { }
 
 
   ngOnInit() {
@@ -29,25 +30,16 @@ export class SlideshowComponent implements OnInit {
     }];
 
   }
+
   open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
-  }
-
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return  `with: ${reason}`;
-    }
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result
+      .then((result) => {
+        this.produitService.saveSlideShow(this.products);
+      })
+      .catch(error => {
+        //fix me
+      });
   }
 }
 
-function urlImage() {
-  localStorage.setItem('numeroImage', 'url');
-}
+
