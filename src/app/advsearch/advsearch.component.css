@@ -3,7 +3,7 @@
 #body{
   font-family: 'Poppins';
   background: no-repeat;
-  background-image: url(Images/bienmanger.jpg);
+  background-image: url(Images/bienmanger.jpeg);
   background-size: 100%;
   min-height: 115vh;
 }
@@ -16,5 +16,4 @@
   height: 50px;
   width: 50px;
 }
-
 
