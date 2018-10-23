@@ -2,26 +2,13 @@
 <h1 class="d-flex justify-content-center">Comparateur : </h1>
 <!-- tableau -->
 
-<div>
-    <ul class="row d-flex justify-content-center">
-        <li class="mx-5 my-3">Informations nutritionnelles</li>
-        <li class="mx-5 my-3">{{produitA.name}}*</li>
-        <li class="mx-5">
-            <div ngbDropdown class="d-inline-block">
-                <button class="btn btn-outline-secondary btn-lg btn-block" id="dropdownBasic1" ngbDropdownToggle>Choisissez un produit</button>
-                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                    <button  (click)="getProduitB(produitComp.id)" *ngFor="let produitComp of tabComp" class="dropdown-item">{{produitComp.name}}</button>
-                </div>
-            </div>
-        </li>
-    </ul>
-</div>
-
 <hr>
 
-<div class="row">
-    <div class="espace">
+<div class="row d-flex justify-content-center">
+    <div>
         <ul>
+            <li class="down">Informations nutritionnelles</li>
+            <hr>
             <li>Energie</li>
             <li>Matières grasses / Lipides</li>
             <li>  dont Acides gras saturés</li>
@@ -34,29 +21,43 @@
         </ul>
     </div>
     <div>
-        <ul class="espacecentre">
-            <li>{{produitA.valeure_nutritionnelle.energy}}</li>
-            <li>{{produitA.valeure_nutritionnelle.lipides}}</li>
-            <li>{{produitA.valeure_nutritionnelle.saturated_fat}}</li>
-            <li>{{produitA.valeure_nutritionnelle.glucides}}</li>
-            <li>{{produitA.valeure_nutritionnelle.sugar}}</li>
-            <li>{{produitA.valeure_nutritionnelle.fibres_alimentaires}}</li>
-            <li>{{produitA.valeure_nutritionnelle.proteines}}</li>
-            <li>{{produitA.valeure_nutritionnelle.salt}}</li>
-            <li>{{produitA.valeure_nutritionnelle.sodium}}</li>
+        <ul class="centrer mx-5">
+            <li class="down">{{produitA.name}} *</li>
+            <hr>
+            <li>{{produitA.nutrients.energy}}</li>
+            <li>{{produitA.nutrients.lipids}}</li>
+            <li>{{produitA.nutrients.saturated}}</li>
+            <li>{{produitA.nutrients.glucides}}</li>
+            <li>{{produitA.nutrients.sugar}}</li>
+            <li>{{produitA.nutrients.fibres}}</li>
+            <li>{{produitA.nutrients.proteines}}</li>
+            <li>{{produitA.nutrients.salt}}</li>
+            <li>{{produitA.nutrients.sodium}}</li>
         </ul>
     </div>
     <div>
-        <ul class="espacefin">
-            <li>{{produitB.valeure_nutritionnelle.energy}}</li>
-            <li>{{produitB.valeure_nutritionnelle.lipides}}</li>
-            <li>{{produitB.valeure_nutritionnelle.saturated_fat}}</li>
-            <li>{{produitB.valeure_nutritionnelle.glucides}}</li>
-            <li>{{produitB.valeure_nutritionnelle.sugar}}</li>
-            <li>{{produitB.valeure_nutritionnelle.fibres_alimentaires}}</li>
-            <li>{{produitB.valeure_nutritionnelle.proteines}}</li>
-            <li>{{produitB.valeure_nutritionnelle.salt}}</li>
-            <li>{{produitB.valeure_nutritionnelle.sodium}}</li>
+        <ul class="centrer">
+            <div class="row">
+                <li>
+                    <input class="fas fa-search form-control awesomplete" list="mylist"  (keypress)="rechercheComp()" [(ngModel)]="search" type="text" >
+                    <datalist id="mylist">
+                        <option *ngFor="let produit of tab">{{produit.name}}</option>
+                    </datalist>
+                </li>
+                <li class="mx-2">
+                    <a (click)="rechercheComp()" class="btn btn-outline-secondary">Valider</a>
+                </li>
+            </div>
+          <hr>
+          <li>{{produitB.nutrients.energy}}</li>
+          <li>{{produitB.nutrients.lipids}}</li>
+          <li>{{produitB.nutrients.saturated}}</li>
+          <li>{{produitB.nutrients.glucides}}</li>
+          <li>{{produitB.nutrients.sugar}}</li>
+          <li>{{produitB.nutrients.fibres}}</li>
+          <li>{{produitB.nutrients.proteines}}</li>
+          <li>{{produitB.nutrients.salt}}</li>
+          <li>{{produitB.nutrients.sodium}}</li>
         </ul>
     </div>
 </div>
