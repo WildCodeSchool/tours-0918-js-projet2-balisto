@@ -13,11 +13,11 @@ export class PageProduitsComponent implements OnInit {
   constructor(private produitService: ProduitService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-      const id = this.activatedRoute.snapshot.paramMap.get('id');
-      this.getProduitById(id);
-}
+    const id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.getProduitById(id);
+  }
 
   getProduitById(id): void {
     this.produit = this.produitService.getProduitById(id);
-    }
+  }
 }

@@ -24,18 +24,20 @@ export class ComparateurComponent implements OnInit {
     this.search = '';
     this.produitB.nutrients = new Nutrients();
   }
+
   getProduitA(id): void {
     this.produitA = this.produitService.getProduitById(id);
   }
-   getProduitB(id): void {
+
+  getProduitB(id): void {
     this.produitB = this.produitService.getProduitById(id);
-   }
-    // recherche comparateur
-    rechercheComp() {
-      for (let i = 0; i < this.tab.length; i++) {
-        if (this.tab[i].name && this.tab[i].name.toLowerCase() === this.search.toLowerCase()) {
-          this.produitB = this.tab[i];
-          }
+  }
+  // recherche comparateur
+  rechercheComp() {
+    for (let i = 0; i < this.tab.length; i++) {
+      if (this.tab[i].name && this.tab[i].name.toLowerCase() === this.search.toLowerCase()) {
+        this.produitB = this.tab[i];
       }
+    }
   }
 }

@@ -18,6 +18,7 @@ export class LoginService {
     }
     return this.isLogin;
   }
+
   logout() {
     this.isLogin = false;
   }

@@ -1,26 +1,26 @@
 <div class='row d-flex justify-content-center'>
 
-  <div  class='d-flex justify-content-around'>
-    <div *ngIf = "loginService.isLogin" style="position: relative;">
+  <div class='d-flex justify-content-around'>
+    <div *ngIf="loginService.isLogin" style="position: relative;">
       <button routerLink="/creer-produit" class="btn btn-outline-success btn-lg btn-inline">Ajouter un produit</button>
     </div>
   </div>
 
-    <div>
-        <div ngbDropdown class="col-2 m-1 d-inline-block">
-            <button class="btn btn-outline-secondary" id="dropdownBasic1" ngbDropdownToggle>Explorer les produits par</button>
-            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                <button class="dropdown-item" (click)="tabTri=''">All</button>
-                <button class="dropdown-item" (click)="triByCategory('Boissons')">Boissons</button>
-                <button class="dropdown-item" (click)="triByCategory('Plats préparés')">Plats préparés</button>
-                <button class="dropdown-item" (click)="triByCategory('Produits laitiers')">Produits laitiers</button>
-                <button class="dropdown-item" (click)="triByCategory('Petit-déjeuners')">Petit déjeuners</button>
-                <button class="dropdown-item" (click)="triByCategory('snacks sucrés')">snacks sucrés</button>
-                <button class="dropdown-item" (click)="triByCategory('Viandes')">Viandes</button>
-            </div>
-        </div>
+  <div>
+    <div ngbDropdown class="col-2 m-1 d-inline-block">
+      <button class="btn btn-outline-secondary" id="dropdownBasic1" ngbDropdownToggle>Explorer les produits par</button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <button class="dropdown-item" (click)="tabTri=''">All</button>
+        <button class="dropdown-item" (click)="triByCategory('Boissons')">Boissons</button>
+        <button class="dropdown-item" (click)="triByCategory('Plats préparés')">Plats préparés</button>
+        <button class="dropdown-item" (click)="triByCategory('Produits laitiers')">Produits laitiers</button>
+        <button class="dropdown-item" (click)="triByCategory('Petit-déjeuners')">Petit déjeuners</button>
+        <button class="dropdown-item" (click)="triByCategory('snacks sucrés')">snacks sucrés</button>
+        <button class="dropdown-item" (click)="triByCategory('Viandes')">Viandes</button>
+      </div>
     </div>
   </div>
+</div>
 
 <div class='col-2 offset-5'>
   <h2 *ngIf='title'>{{title}}</h2>
@@ -31,9 +31,10 @@
       <div *ngIf="produit.image; then image else imageerreur"></div>
       <ng-template #image>
         <div class="card-body">
-          <div  class='d-flex justify-content-around'>
-            <div *ngIf = "loginService.isLogin" style="position: absolute;">
-              <button class="btn btn-primary btn-xs btn-inline" routerLink="/modifier-produit/{{produit.id}}"><img src='../../../Images/logo modifier.png' class="figure-img img-fluid rounded logo" alt='#'></button>
+          <div class='d-flex justify-content-around'>
+            <div *ngIf="loginService.isLogin" style="position: absolute;">
+              <button class="btn btn-primary btn-xs btn-inline" routerLink="/modifier-produit/{{produit.id}}"><img src='../../../Images/logo modifier.png'
+                  class="figure-img img-fluid rounded logo" alt='#'></button>
               <ng-template #content let-modal>
                 <div class="modal-header">
                   <h4 class="modal-title" id="modal-basic-title">Suppression de produit</h4>
@@ -42,7 +43,7 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <p><strong>Confirmer la suppression du produit: <br/><span style="color: red" class="text-primary">{{produit.name}}</span></strong></p>
+                  <p><strong>Confirmer la suppression du produit: <br /><span style="color: red" class="text-primary">{{produit.name}}</span></strong></p>
                   <p>Ce produit ainsi que les informations liées à celui-ci seront supprimés.
                     <span class="text-danger">Cette opération n'est pas réversible.</span>
                   </p>
@@ -52,18 +53,19 @@
                   <button type="button" class="btn btn-danger btn-inline" (click)="modal.close(produit)">Supprimer</button>
                 </div>
               </ng-template>
-              <button class="btn btn-danger btn-xs btn-inline" (click)="open(content)"><img src='../../../Images/logo corbeille.png' class="figure-img img-fluid rounded logo" alt='#' ></button>
+              <button class="btn btn-danger btn-xs btn-inline" (click)="open(content)"><img src='../../../Images/logo corbeille.png'
+                  class="figure-img img-fluid rounded logo" alt='#'></button>
             </div>
           </div>
-          <img class="card-img-top" src="{{ produit.image }}" alt="Card image cap Responsive image"
-          style="max-height: 250px;">
+          <img class="card-img-top" src="{{ produit.image }}" alt="Card image cap Responsive image" style="max-height: 250px;">
         </div>
       </ng-template>
       <ng-template #imageerreur>
         <div class="card-header">
-          <div  class='d-flex justify-content-around'>
-            <div *ngIf = "loginService.isLogin" style="position: absolute;">
-              <button class="btn btn-primary btn-xs btn-inline" routerLink="/modifier-produit/{{produit.id}}"><img src='../../../Images/logo modifier.png' class="figure-img img-fluid rounded logo" alt='#'></button>
+          <div class='d-flex justify-content-around'>
+            <div *ngIf="loginService.isLogin" style="position: absolute;">
+              <button class="btn btn-primary btn-xs btn-inline" routerLink="/modifier-produit/{{produit.id}}"><img src='../../../Images/logo modifier.png'
+                  class="figure-img img-fluid rounded logo" alt='#'></button>
               <ng-template #content let-modal>
                 <div class="modal-header">
                   <h4 class="modal-title" id="modal-basic-title">Suppression de produit</h4>
@@ -72,7 +74,7 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <p><strong>Confirmer la suppression du produit: <br/><span style="color: red" class="text-primary">{{produit.name}}</span></strong></p>
+                  <p><strong>Confirmer la suppression du produit: <br /><span style="color: red" class="text-primary">{{produit.name}}</span></strong></p>
                   <p>Ce produit ainsi que les informations liées à celui-ci seront supprimés.
                     <span class="text-danger">Cette opération n'est pas réversible.</span>
                   </p>
@@ -82,11 +84,12 @@
                   <button type="button" class="btn btn-danger btn-inline" (click)="modal.close(produit)">Supprimer</button>
                 </div>
               </ng-template>
-              <button class="btn btn-danger btn-xs btn-inline"(click)="open(content)"><img src='../../../Images/logo corbeille.png' class="figure-img img-fluid rounded logo" alt='#'></button>
+              <button class="btn btn-danger btn-xs btn-inline" (click)="open(content)"><img src='../../../Images/logo corbeille.png'
+                  class="figure-img img-fluid rounded logo" alt='#'></button>
             </div>
           </div>
           <img class="card-img-top" src="https://via.placeholder.com/300x400" alt="Card image cap Responsive image"
-          style="max-height: 250px;">
+            style="max-height: 250px;">
         </div>
       </ng-template>
       <div class="card-body">
@@ -103,9 +106,10 @@
       <div *ngIf="produit.image; then image else imageerreur"></div>
       <ng-template #image>
         <div class="card-header">
-          <div  class='d-flex justify-content-around'>
-            <div *ngIf = "loginService.isLogin" style="position: absolute;">
-              <button class="btn btn-primary btn-xs btn-inline" routerLink="/modifier-produit/{{produit.id}}"><img src='../../../Images/logo modifier.png' class="figure-img img-fluid rounded logo" alt='#'></button>
+          <div class='d-flex justify-content-around'>
+            <div *ngIf="loginService.isLogin" style="position: absolute;">
+              <button class="btn btn-primary btn-xs btn-inline" routerLink="/modifier-produit/{{produit.id}}"><img src='../../../Images/logo modifier.png'
+                  class="figure-img img-fluid rounded logo" alt='#'></button>
               <ng-template #content2 let-modal>
                 <div class="modal-header">
                   <h4 class="modal-title" id="modal-basic-title">Suppression de produit</h4>
@@ -114,7 +118,7 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <p><strong>Confirmer la suppression du produit: <br/><span style="color: red" class="text-primary">{{produit.name}}</span></strong></p>
+                  <p><strong>Confirmer la suppression du produit: <br /><span style="color: red" class="text-primary">{{produit.name}}</span></strong></p>
                   <p>Ce produit ainsi que les informations liées à celui-ci seront supprimés.
                     <span class="text-danger">Cette opération n'est pas réversible.</span>
                   </p>
@@ -124,18 +128,19 @@
                   <button type="button" class="btn btn-danger btn-inline" (click)="modal.close(produit)">Supprimer</button>
                 </div>
               </ng-template>
-              <button class="btn btn-danger btn-xs btn-inline" (click)="open2(content2)"><img src='../../../Images/logo corbeille.png' class="figure-img img-fluid rounded logo" alt='#'></button>
+              <button class="btn btn-danger btn-xs btn-inline" (click)="open2(content2)"><img src='../../../Images/logo corbeille.png'
+                  class="figure-img img-fluid rounded logo" alt='#'></button>
             </div>
           </div>
-          <img class="card-img-top" src="{{ produit.image }}" alt="Card image cap Responsive image"
-          style="max-height: 250px;">
+          <img class="card-img-top" src="{{ produit.image }}" alt="Card image cap Responsive image" style="max-height: 250px;">
         </div>
       </ng-template>
       <ng-template #imageerreur>
         <div class="card-header">
-          <div  class='d-flex justify-content-around'>
-            <div *ngIf = "loginService.isLogin" style="position: absolute;">
-              <button class="btn btn-primary btn-xs btn-inline" routerLink="/modifier-produit/:id"><img src='../../../Images/logo modifier.png' class="figure-img img-fluid rounded logo" alt='#'></button>
+          <div class='d-flex justify-content-around'>
+            <div *ngIf="loginService.isLogin" style="position: absolute;">
+              <button class="btn btn-primary btn-xs btn-inline" routerLink="/modifier-produit/:id"><img src='../../../Images/logo modifier.png'
+                  class="figure-img img-fluid rounded logo" alt='#'></button>
               <ng-template #content2 let-modal>
                 <div class="modal-header">
                   <h4 class="modal-title" id="modal-basic-title">Suppression de produit</h4>
@@ -144,7 +149,7 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <p><strong>Confirmer la suppression du produit: <br/><span style="color: red" class="text-primary">{{produit.name}}</span></strong></p>
+                  <p><strong>Confirmer la suppression du produit: <br /><span style="color: red" class="text-primary">{{produit.name}}</span></strong></p>
                   <p>Ce produit ainsi que les informations liées à celui-ci seront supprimés.
                     <span class="text-danger">Cette opération n'est pas réversible.</span>
                   </p>
@@ -154,11 +159,12 @@
                   <button type="button" class="btn btn-danger btn-inline" (click)="modal.close(produit)">Supprimer</button>
                 </div>
               </ng-template>
-              <button class="btn btn-danger btn-xs btn-inline" (click)="open2(content2)"><img src='../../../Images/logo corbeille.png' class="figure-img img-fluid rounded logo" alt='#'></button>
+              <button class="btn btn-danger btn-xs btn-inline" (click)="open2(content2)"><img src='../../../Images/logo corbeille.png'
+                  class="figure-img img-fluid rounded logo" alt='#'></button>
             </div>
           </div>
           <img class="card-img-top" src="https://via.placeholder.com/300x400" alt="Card image cap Responsive image"
-          style="max-height: 250px;">
+            style="max-height: 250px;">
         </div>
       </ng-template>
       <div class="card-body">
