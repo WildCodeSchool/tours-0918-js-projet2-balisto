@@ -4,7 +4,7 @@
     <h5>Recherche de produits</h5>
     <form>
       <input type="text" class="form-control" name='stxt' [(ngModel)]="searchtxt" placeholder="Votre recherche">
-      <button class="btn btn-dark btnR" (click)="pouet = !pouet" (click)="triReg(searchtxt)">Go !</button>
+      <button class="btn btn-success btnR" (click)="pouet = !pouet" (click)="triReg(searchtxt)">Go !</button>
     </form>
   </div>
   <div class='container-fluid'>
@@ -290,8 +290,8 @@
         </div>
       </div>
       <div>
-        <button class='btn btn-dark btnR' (click)="triFinal('tabFinal')">Go !</button>
-        <button class='btn btn-danger btnR' type='reset' (click)="tabFinal = []">Reset</button>
+        <button class='btn btn-success btnR' (click)="triFinal('tabFinal')">Go !</button>
+        <button class='btn btn-dark btnR' type='reset' (click)="tabFinal = []">Reset</button>
       </div>
     </form>
   </div>
@@ -314,8 +314,8 @@
           <h5 class="card-title">{{produit.name}}</h5>
         </div>
         <div class="card-footer">
-          <a routerLink="/Produits/{{produit.id}}" class="mx-2 btn btn-outline-secondary btn-lg btn-block">Voir</a>
-          <a routerLink="/Comparateur/{{produit.id}}" class="mx-2 btn btn-outline-secondary btn-lg btn-block">Comparer</a>
+          <a routerLink="/produits/{{produit.id}}" class="mx-2 btn btn-outline-secondary btn-lg btn-block">Voir</a>
+          <a routerLink="/comparateur/{{produit.id}}" class="mx-2 btn btn-outline-secondary btn-lg btn-block">Comparer</a>
         </div>
       </div>
     </div>

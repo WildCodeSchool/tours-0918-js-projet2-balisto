@@ -1,69 +1,71 @@
-<!--comparateur-->
-<h1 class="d-flex justify-content-center">Comparateur : </h1>
-<!-- tableau -->
+<div id='body'>
+  <!--comparateur-->
+  <h1 class="d-flex justify-content-center">Comparateur : </h1>
+  <!-- tableau -->
 
-<hr>
+  <hr>
 
-<div class="row d-flex justify-content-center">
+  <div class="row d-flex justify-content-center">
     <div>
-        <ul>
-            <li class="down">Informations nutritionnelles</li>
-            <hr>
-            <li>Energie</li>
-            <li>Matières grasses / Lipides</li>
-            <li>  dont Acides gras saturés</li>
-            <li>Glucides</li>
-            <li>  dont Sucres</li>
-            <li>Fibres alimentaires</li>
-            <li>Protéines</li>
-            <li>Sel</li>
-            <li>  Sodium</li>
-        </ul>
+      <ul>
+        <li class="down">Informations nutritionnelles</li>
+        <hr>
+        <li>Energie</li>
+        <li>Matières grasses / Lipides</li>
+        <li> dont Acides gras saturés</li>
+        <li>Glucides</li>
+        <li> dont Sucres</li>
+        <li>Fibres alimentaires</li>
+        <li>Protéines</li>
+        <li>Sel</li>
+        <li> Sodium</li>
+      </ul>
     </div>
     <div>
-        <ul class="centrer mx-5">
-            <li class="down">{{produitA.name}} *</li>
-            <hr>
-            <li>{{produitA.nutrients.energy}}</li>
-            <li>{{produitA.nutrients.lipids}}</li>
-            <li>{{produitA.nutrients.saturated}}</li>
-            <li>{{produitA.nutrients.glucides}}</li>
-            <li>{{produitA.nutrients.sugar}}</li>
-            <li>{{produitA.nutrients.fibres}}</li>
-            <li>{{produitA.nutrients.proteines}}</li>
-            <li>{{produitA.nutrients.salt}}</li>
-            <li>{{produitA.nutrients.sodium}}</li>
-        </ul>
+      <ul class="centrer mx-5">
+        <li class="down">{{produitA.name}} *</li>
+        <hr>
+        <li>{{produitA.nutrients.energy}}</li>
+        <li>{{produitA.nutrients.lipids}}</li>
+        <li>{{produitA.nutrients.saturated}}</li>
+        <li>{{produitA.nutrients.glucides}}</li>
+        <li>{{produitA.nutrients.sugar}}</li>
+        <li>{{produitA.nutrients.fibres}}</li>
+        <li>{{produitA.nutrients.proteines}}</li>
+        <li>{{produitA.nutrients.salt}}</li>
+        <li>{{produitA.nutrients.sodium}}</li>
+      </ul>
     </div>
     <div>
-        <ul class="centrer">
-            <div class="row">
-                <li>
-                    <input class="fas fa-search form-control awesomplete" list="mylist"  (keypress)="rechercheComp()" [(ngModel)]="search" type="text" >
-                    <datalist id="mylist">
-                        <option *ngFor="let produit of tab">{{produit.name}}</option>
-                    </datalist>
-                </li>
-                <li class="mx-2">
-                    <a (click)="rechercheComp()" class="btn btn-outline-secondary">Valider</a>
-                </li>
-            </div>
-          <hr>
-          <li>{{produitB.nutrients.energy}}</li>
-          <li>{{produitB.nutrients.lipids}}</li>
-          <li>{{produitB.nutrients.saturated}}</li>
-          <li>{{produitB.nutrients.glucides}}</li>
-          <li>{{produitB.nutrients.sugar}}</li>
-          <li>{{produitB.nutrients.fibres}}</li>
-          <li>{{produitB.nutrients.proteines}}</li>
-          <li>{{produitB.nutrients.salt}}</li>
-          <li>{{produitB.nutrients.sodium}}</li>
-        </ul>
+      <ul class="centrer">
+        <div class="row">
+          <li>
+            <input class="fas fa-search form-control awesomplete" list="mylist" (keypress)="rechercheComp()"
+              [(ngModel)]="search" type="text">
+            <datalist id="mylist">
+              <option *ngFor="let produit of tab">{{produit.name}}</option>
+            </datalist>
+          </li>
+          <li class="mx-2">
+            <a (click)="rechercheComp()" class="btn btn-outline-secondary">Valider</a>
+          </li>
+        </div>
+        <hr>
+        <li>{{produitB.nutrients.energy}}</li>
+        <li>{{produitB.nutrients.lipids}}</li>
+        <li>{{produitB.nutrients.saturated}}</li>
+        <li>{{produitB.nutrients.glucides}}</li>
+        <li>{{produitB.nutrients.sugar}}</li>
+        <li>{{produitB.nutrients.fibres}}</li>
+        <li>{{produitB.nutrients.proteines}}</li>
+        <li>{{produitB.nutrients.salt}}</li>
+        <li>{{produitB.nutrients.sodium}}</li>
+      </ul>
     </div>
-</div>
+  </div>
 
-<p class="d-flex justify-content-center">* Tel que vendu pour 100 g / 100 ml</p>
-<div class="d-flex justify-content-center">
+  <p class="d-flex justify-content-center">* Tel que vendu pour 100 g / 100 ml</p>
+  <div class="d-flex justify-content-center">
     <img src="http://www.mangerbouger.fr/var/inpes_site/storage/images/les-9-reperes/les-9-reperes-a-la-loupe/fruits-et-legumes/42065-1-fre-FR/Fruits-et-Legumes.jpg">
+  </div>
 </div>
-
