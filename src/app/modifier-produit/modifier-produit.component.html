@@ -82,11 +82,11 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Annuler</button>
-        <button type="button" class="btn btn-success btn-inline" (click)="modal.close(produit)">oui,Enregistrer</button>
+        <button type="submit" class="btn btn-success btn-inline" (click)="modal.close(update())">oui,Enregistrer</button>
       </div>
     </ng-template>
-    <a type="submit" class="m-4 btn btn-outline-secondary btn-lg btn-block" (click)="open(content)" style="max-width: 300px;">Enregistrer</a>
-    <a type="cancel" routerLink="/index" class="m-4 btn btn-outline-secondary btn-lg btn-block" style="max-width: 300px;">Annuler</a>
+    <button type="button" class="m-4 btn btn-outline-secondary btn-lg btn-block" (click)="open(content)" style="max-width: 300px;">Enregistrer</button>
+    <button type="cancel" routerLink="/index" class="m-4 btn btn-outline-secondary btn-lg btn-block" style="max-width: 300px;">Annuler</button>
   </div>
 </div>
 

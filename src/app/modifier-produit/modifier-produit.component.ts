@@ -38,14 +38,12 @@ export class ModifierProduitComponent implements OnInit {
     return produits;
   }
 
-  getProduitById(id): void {
-    this.produit = this.produitService.getProduitById(id);
+getProduitById(id): void {
+  this.produit = Object.assign({}, this.produitService.getProduitById(id));
   }
 
   open(content) {
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
-      this.update();
-    }, (reason) => {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
