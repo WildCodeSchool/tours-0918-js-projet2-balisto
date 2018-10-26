@@ -59,7 +59,7 @@ export class ProduitService {
   }
 
   // iteration sur tableau avec id
-  getProduitById(id: string) {
+  getProduitById(id) {
     return this.tab.find(produit => produit.id === id);
   }
   triByCategory(categories): Produit[] {

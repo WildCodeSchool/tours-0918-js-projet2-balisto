@@ -9,37 +9,30 @@ import { ProduitService } from 'src/app/common/produit.service';
   styleUrls: ['./slideshow.component.css']
 })
 export class SlideshowComponent implements OnInit {
-  products: { 'nom': string, 'image': string }[];
+  product: any;
+  products: any;
   closeResult: string;
+  search: any;
 
   constructor(public loginService: LoginService, private modalService: NgbModal, public produitService: ProduitService) { }
 
 
   ngOnInit() {
-    this.products = [{
-      nom: 'Balisto',
-      image: `https://static.openfoodfacts.org/images/products/500/015/941/9291/front_fr.26.full.jpg`,
-    },
-    {
-      nom: 'Balisto raisins et noisettes',
-      image: `https://static.openfoodfacts.org/images/products/500/015/941/8546/front_fr.6.full.jpg`,
-    },
-    {
-      nom: 'Balisto fruits des bois',
-      image: `https://static.openfoodfacts.org/images/products/500/015/941/8003/front_fr.22.full.jpg`,
-    }];
+    this.product = this.getcarou(1);
+
 
   }
 
   open(content) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result
       .then((result) => {
-        this.produitService.saveSlideShow(this.products);
+        this.produitService.saveSlideShow(this.product);
       })
       .catch(error => {
-        //fix me
       });
   }
-}
-
+getcarou(id) {
+  this.product = this.produitService.getBySearch(this.search);
+  console.log(this.product);
+  }
 

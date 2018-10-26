@@ -1,7 +1,7 @@
 <div class="height: 80% width:80%" style="margin-top:2em; margin-bottom:2em">
 
   <ngb-carousel #carousel="ngbCarousel" *ngIf="products">
-    <ng-template ngbSlide *ngFor="let product of products">
+    <ng-template ngbSlide >
       <div class='d-flex justify-content-around'>
         <div *ngIf="loginService.isLogin" style="position: absolute;">
           <ng-template #content let-modal>
@@ -13,7 +13,7 @@
             </div>
             <div class="modal-body">
               <form>
-                <div class="form-group" *ngFor="let product of products">
+                <div class="form-group" >
                   <div class="input-group">
                     <div class="col-8">
                       <p>Image</p>

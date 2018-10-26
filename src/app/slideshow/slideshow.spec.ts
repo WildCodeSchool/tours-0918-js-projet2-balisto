@@ -24,3 +24,4 @@ describe('SlideshowComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
