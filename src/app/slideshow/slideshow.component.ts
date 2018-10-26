@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../common/login.service';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { ProduitService } from 'src/app/common/produit.service';
+import { Produit } from '../common/produit';
 
 @Component({
   selector: 'app-slideshow',
@@ -18,7 +19,7 @@ export class SlideshowComponent implements OnInit {
 
 
   ngOnInit() {
-    this.product = this.getcarou(1);
+    this.product = this.getProduitById(1);
 
 
   }
@@ -31,8 +32,16 @@ export class SlideshowComponent implements OnInit {
       .catch(error => {
       });
   }
-getcarou(id) {
-  this.product = this.produitService.getBySearch(this.search);
-  console.log(this.product);
+
+
+  getFromLocalStorage(): Produit[] {
+    const stringData = localStorage.getItem('produit');
+    const produits: Produit[] = JSON.parse(stringData);
+
+    return produits;
   }
 
+getProduitById(id): void {
+  this.product = Object.assign({}, this.produitService.getProduitById(id));
+  console.log(this.product);
+  }}
