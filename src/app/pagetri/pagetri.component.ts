@@ -32,13 +32,13 @@ export class PagetriComponent implements OnInit {
   }
 
   deleteProduit(produit: Produit) {
-    const index = this.tab.findIndex( x => x.id === produit.id);
+    const index = this.tab.findIndex(x => x.id === produit.id);
     this.tab.splice(index, 1);
     this.saveToLocalStorage(this.tab);
   }
 
   deleteProduittri(produit: Produit) {
-    const index = this.tabTri.findIndex( x => x.id === produit.id);
+    const index = this.tabTri.findIndex(x => x.id === produit.id);
     this.tabTri.splice(index, 1);
     this.saveToLocalStorage(this.tabTri);
   }
@@ -56,14 +56,14 @@ export class PagetriComponent implements OnInit {
   }
 
   open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.deleteProduittri(result);
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
   open2(content2) {
-    this.modalService.open(content2, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+    this.modalService.open(content2, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.deleteProduit(result);
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
@@ -76,7 +76,7 @@ export class PagetriComponent implements OnInit {
     } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
       return 'by clicking on a backdrop';
     } else {
-      return  `with: ${reason}`;
+      return `with: ${reason}`;
     }
   }
 

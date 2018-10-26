@@ -20,7 +20,7 @@ export class AdvsearchComponent implements OnInit {
   pouet: boolean;
   searchtxt: String;
 
-  constructor(private servicegalerie: ProduitService) { }
+  constructor(private service: ProduitService) { }
 
   ngOnInit() {
     this.tabM = [];
@@ -31,23 +31,23 @@ export class AdvsearchComponent implements OnInit {
   }
 
   triByMarques(marques) {
-    this.tabM = this.servicegalerie.triByMarques(marques);
+    this.tabM = this.service.triByMarques(marques);
   }
 
   triByNutri(nutriscore) {
-    this.tabNutri = this.servicegalerie.triByNutri(nutriscore);
+    this.tabNutri = this.service.triByNutri(nutriscore);
   }
 
   triByPays(pays) {
-    this.tabPays = this.servicegalerie.triByPays(pays);
+    this.tabPays = this.service.triByPays(pays);
   }
 
   triByCondi(conditionnement) {
-    this.tabCondi = this.servicegalerie.triByCondi(conditionnement);
+    this.tabCondi = this.service.triByCondi(conditionnement);
   }
 
   triByAller(allergenes) {
-    this.tabAller = this.servicegalerie.triByAller(allergenes);
+    this.tabAller = this.service.triByAller(allergenes);
   }
 
   triFinal(tabFinal) {
@@ -55,6 +55,6 @@ export class AdvsearchComponent implements OnInit {
   }
 
   triReg(str) {
-    this.tabFinal = this.servicegalerie.triReg(str);
+    this.tabFinal = this.service.triReg(str);
   }
 }

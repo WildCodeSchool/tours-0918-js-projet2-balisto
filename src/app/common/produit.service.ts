@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Produit } from './produit';
 import { Nutrients } from './nutrients';
 import products from './tableau_produits';
+import productsStub from './tableau_produits';
 
 
 @Injectable({
@@ -10,13 +11,14 @@ import products from './tableau_produits';
 export class ProduitService {
   // déclaration du tableau produits de type Produit
   tab: Produit[];
-  produit: Produit[];
+  produit: any;
+  caroussel: any;
 
   constructor() {
     // Si la clé n'éxiste "produits" pas dans le local storage
     if (!localStorage.products) {
       // Initialisation du local storage et du tableau produits
-      this.tab = products.map((x) => {
+      this.tab = productsStub.map((x) => {
         const produit = new Produit();
         produit.id = x['id'];
         produit.name = x['product_name'];
@@ -39,7 +41,7 @@ export class ProduitService {
         produit.nutrients.saturated = x.nutritional_value.saturated_fat;
         produit.nutrients.salt = x.nutritional_value.salt;
         produit.nutrients.energy = x.nutritional_value.energy;
-        produit.nutrients.glucides =  x.nutritional_value.glucides;
+        produit.nutrients.glucides = x.nutritional_value.glucides;
         produit.nutrients.fibres = x.nutritional_value.fibres_alimentaires;
         produit.nutrients.proteines = x.nutritional_value.proteines;
         produit.nutrients.sodium = x.nutritional_value.sodium;
@@ -56,10 +58,28 @@ export class ProduitService {
     }
   }
 
+  /**
+   * Save products displayed in slideshow
+   * @param products Prodcuts to save
+   */
+  saveSlideShow(products) {
+    // convert object to string
+    const data = JSON.stringify(products);
+    // save string to local storage
+    localStorage.setItem('image', data);
+  }
+
+  /**
+   * Stringify and save data to local storage
+   * @param produit Data to save
+   */
   saveToLocalStorage(produit) {
+    // convert object to string
     const data = JSON.stringify(produit);
+    // save string to local storage
     localStorage.setItem('products', data);
   }
+  
   // retourne le tableau des produits
   get(): Produit[] {
     return this.tab;
@@ -174,7 +194,7 @@ export class ProduitService {
     const index = this.produit.indexOf(element);
     this.produit[index] = element;
     this.saveToLocalStorage(this.produit);
-}
+  }
 }
 
 

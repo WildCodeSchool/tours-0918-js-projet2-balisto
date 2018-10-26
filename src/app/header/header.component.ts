@@ -12,7 +12,6 @@ export class HeaderComponent implements OnInit {
   result;
   search: any;
 
-
   constructor(private service: LoginService, public router: Router, public loginService: LoginService) { }
 
   ngOnInit() {
@@ -30,8 +29,8 @@ export class HeaderComponent implements OnInit {
     } else {
       return false;
     }
-
   }
+
   logout() {
     this.result = this.service.logout();
 
@@ -39,9 +38,6 @@ export class HeaderComponent implements OnInit {
       this.router.navigate(['/index']);
     }
   }
-
-
-
-  }
+}
 
 

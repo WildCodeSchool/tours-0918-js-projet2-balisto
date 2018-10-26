@@ -11,7 +11,7 @@ import { LoginService } from '../common/login.service';
 })
 export class CreerProduitComponent implements OnInit {
    // produit à créer
-  produit: Produit = new Produit();
+  produit: Produit;
 
   constructor(private produitService: ProduitService, public loginService: LoginService) { }
 
@@ -20,7 +20,7 @@ export class CreerProduitComponent implements OnInit {
     this.produit.nutrients = new Nutrients();
   }
 
-        /**
+  /**
    * Ajout d'un élément à la produit list
    */
   ajouter() {
@@ -28,7 +28,5 @@ export class CreerProduitComponent implements OnInit {
     this.produit = new Produit();
     this.produit.nutrients = new Nutrients();
   }
-
-
 
 }
