@@ -5,6 +5,7 @@
         <span>Image produit :</span>
       </ng-template>
       <ng-template ngbPanelContent>
+        <img src="{{produit.image}}">
         <input name="image" id="ch.image" class="form-control" type="url" [(ngModel)]="produit.image" placeholder="Url image produit" />
       </ng-template>
     </ngb-panel>
@@ -22,12 +23,12 @@
       </ng-template>
       <ng-template ngbPanelContent>
         <input name="quantite" id="ch.quantite" class="form-control" type="text" [(ngModel)]="produit.quantite"
-          placeholder="quantite" />
+        placeholder="quantite" />
         <input name="conditionnement" id="ch.conditionnement" class="form-control" type="text" [(ngModel)]="produit.conditionnement"
-          placeholder="Conditionnement" />
+        placeholder="Conditionnement" />
         <input name="marques" id="ch.marques" class="form-control" type="text" [(ngModel)]="produit.marque" placeholder="Marque" />
         <input name="categories" id="ch.categories" class="form-control" type="text" [(ngModel)]="produit.categories"
-          placeholder="Categorie" />
+        placeholder="Categorie" />
         <input name="labels" id="ch.label" class="form-control" type="text" [(ngModel)]="produit.label" placeholder="label" />
         <input name="pays" id="ch.pays" class="form-control" type="text" [(ngModel)]="produit.pays" placeholder="Pays" />
       </ng-template>
@@ -38,9 +39,9 @@
       </ng-template>
       <ng-template ngbPanelContent>
         <input name="ingredients" id="ch.ingredients" class="form-control" type="text" [(ngModel)]="produit.ingredients"
-          placeholder="Ingredients" />
+        placeholder="Ingredients" />
         <input name="allergenes" id="ch.allergenes" class="form-control" type="text" [(ngModel)]="produit.allergenes"
-          placeholder="Allergenes" />
+        placeholder="Allergenes" />
         <input name="nova" id="ch.nova" class="form-control" type="number" [(ngModel)]="produit.nova" placeholder="Nova" />
       </ng-template>
     </ngb-panel>
@@ -50,25 +51,25 @@
       </ng-template>
       <ng-template ngbPanelContent>
         <input name="nutriscore" id="ch.nutriscore" class="form-control" type="text" [(ngModel)]="produit.nutriscore"
-          placeholder="Nutriscore" />
+        placeholder="Nutriscore" />
         <input name="nutenergy" id="ch.energy" class="form-control" type="text" [(ngModel)]="produit.nutrients.energy"
-          placeholder="Energy" />
+        placeholder="Energy" />
         <input name="nutlipides" id="ch.lipides" class="form-control" type="text" [(ngModel)]="produit.nutrients.lipids"
-          placeholder="Lipids" />
+        placeholder="Lipids" />
         <input name="nutacides" id="ch.acides" class="form-control" type="text" [(ngModel)]="produit.nutrients.saturated"
-          placeholder="Acides gras saturés" />
+        placeholder="Acides gras saturés" />
         <input name="nutglucides" id="ch.glucides" class="form-control" type="text" [(ngModel)]="produit.nutrients.glucides"
-          placeholder="Glucides" />
+        placeholder="Glucides" />
         <input name="nutsucre" id="ch.sucre" class="form-control" type="text" [(ngModel)]="produit.nutrients.sugar"
-          placeholder="Sucre" />
+        placeholder="Sucre" />
         <input name="nutfibres" id="ch.fibres" class="form-control" type="text" [(ngModel)]="produit.nutrients.fibres"
-          placeholder="Fibres" />
+        placeholder="Fibres" />
         <input name="nutproteines" id="ch.proteines" class="form-control" type="text" [(ngModel)]="produit.nutrients.proteines"
-          placeholder="Proteines" />
+        placeholder="Proteines" />
         <input name="nutsel" id="ch.sel" class="form-control" type="text" [(ngModel)]="produit.nutrients.salt"
-          placeholder="sel" />
+        placeholder="sel" />
         <input name="nutsodium" id="ch.sodium" class="form-control" type="text" [(ngModel)]="produit.nutrients.sodium"
-          placeholder="Sodium" />
+        placeholder="Sodium" />
       </ng-template>
     </ngb-panel>
   </ngb-accordion>
@@ -87,9 +88,9 @@
   <div class="row">
     <button routerLink="/defaut" type="button" class="btn btn-primary col-12 offset-md-2 col-md-4 mt-2 mt-md-0">Revenir
       à la page d'acceuil</button>
-    <button routerLink="/produits/{{produit.id}}" type="button" class="btn btn-secondary col-12 offset-md-1 col-md-4">Revenir
-      sur
-      la page Produits</button>
-  </div>
-  <br />
-</div>
+      <button routerLink="/produits/{{produit.id}}" type="button" class="btn btn-secondary col-12 offset-md-1 col-md-4">Revenir
+        sur
+        la page Produits</button>
+      </div>
+      <br />
+    </div>
