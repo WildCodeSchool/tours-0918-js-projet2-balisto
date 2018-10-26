@@ -51,15 +51,15 @@
         </li>
       </div>
       <hr>
-      <li>{{produitB.nutrients.energy}}</li>
-      <li>{{produitB.nutrients.lipids}}</li>
-      <li>{{produitB.nutrients.saturated}}</li>
-      <li>{{produitB.nutrients.glucides}}</li>
-      <li>{{produitB.nutrients.sugar}}</li>
-      <li>{{produitB.nutrients.fibres}}</li>
-      <li>{{produitB.nutrients.proteines}}</li>
-      <li>{{produitB.nutrients.salt}}</li>
-      <li>{{produitB.nutrients.sodium}}</li>
+      <li *ngIf="produitB">{{produitB.nutrients.energy}}</li>
+      <li *ngIf="produitB">{{produitB.nutrients.lipids}}</li>
+      <li *ngIf="produitB">{{produitB.nutrients.saturated}}</li>
+      <li *ngIf="produitB">{{produitB.nutrients.glucides}}</li>
+      <li *ngIf="produitB">{{produitB.nutrients.sugar}}</li>
+      <li *ngIf="produitB">{{produitB.nutrients.fibres}}</li>
+      <li *ngIf="produitB">{{produitB.nutrients.proteines}}</li>
+      <li *ngIf="produitB">{{produitB.nutrients.salt}}</li>
+      <li *ngIf="produitB">{{produitB.nutrients.sodium}}</li>
     </ul>
   </div>
 </div>

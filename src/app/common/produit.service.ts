@@ -60,11 +60,11 @@ export class ProduitService {
 
   /**
    * Save products displayed in slideshow
-   * @param products Prodcuts to save
+   * @param tab Prodcuts to save
    */
-  saveSlideShow(products) {
+  saveSlideShow(tab) {
     // convert object to string
-    const data = JSON.stringify(products);
+    const data = JSON.stringify(tab);
     // save string to local storage
     localStorage.setItem('image', data);
   }
@@ -79,7 +79,7 @@ export class ProduitService {
     // save string to local storage
     localStorage.setItem('products', data);
   }
-  
+
   // retourne le tableau des produits
   get(): Produit[] {
     return this.tab;
@@ -99,7 +99,7 @@ export class ProduitService {
     });
     return tabTri;
   }
-
+  // tableau avec marque
   triByMarques(marques): Produit[] {
     const tabM = this.tab.filter(produit => {
       if (produit.marque && produit.marque.includes(marques)) {
@@ -108,7 +108,7 @@ export class ProduitService {
     });
     return tabM;
   }
-
+  // tableau avec nutriment
   triByNutri(nutriscore): Produit[] {
     const tabNutri = this.tab.filter(produit => {
       if (produit.nutriscore && produit.nutriscore.includes(nutriscore)) {
@@ -117,7 +117,7 @@ export class ProduitService {
     });
     return tabNutri;
   }
-
+  // tableau avec pays
   triByPays(pays): Produit[] {
     const tabPays = this.tab.filter(produit => {
       if (produit.pays && produit.pays.includes(pays)) {
@@ -126,7 +126,7 @@ export class ProduitService {
     });
     return tabPays;
   }
-
+  // tableau avec conditionnement
   triByCondi(conditionnement): Produit[] {
     const tabCondi = this.tab.filter(produit => {
       if (produit.conditionnement && produit.conditionnement.includes(conditionnement)) {
@@ -135,7 +135,7 @@ export class ProduitService {
     });
     return tabCondi;
   }
-
+  // tableau avec allergenes
   triByAller(allergenes): Produit[] {
     const tabAller = this.tab.filter(produit => {
       if (produit.allergenes && produit.allergenes.includes(allergenes)) {
@@ -144,7 +144,7 @@ export class ProduitService {
     });
     return tabAller;
   }
-
+  // tableau avec resultat final
   triReg(str) {
     const regex = new RegExp(str, 'i');
     const tabFinal = this.tab.filter(produit => {
@@ -189,12 +189,21 @@ export class ProduitService {
     this.tab.push(produit);
     this.saveToLocalStorage(this.tab);
   }
-
+  // modifier produit
   update(element) {
     const index = this.produit.indexOf(element);
     this.produit[index] = element;
     this.saveToLocalStorage(this.produit);
   }
+  // recherche comparateur
+    rechercheComp(search): Produit {
+      for (let i = 0; i < this.tab.length; i++) {
+        if (this.tab[i].name && this.tab[i].name.toLowerCase() === search.toLowerCase()) {
+          this.produit = this.tab[i];
+        }
+      }
+      return this.produit;
+    }
 }
 
 

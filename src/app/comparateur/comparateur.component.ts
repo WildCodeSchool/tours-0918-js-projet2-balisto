@@ -33,11 +33,7 @@ export class ComparateurComponent implements OnInit {
     this.produitB = this.produitService.getProduitById(id);
   }
   // recherche comparateur
-  rechercheComp() {
-    for (let i = 0; i < this.tab.length; i++) {
-      if (this.tab[i].name && this.tab[i].name.toLowerCase() === this.search.toLowerCase()) {
-        this.produitB = this.tab[i];
-      }
-    }
+  rechercheComp(): void {
+    this.produitB = this.produitService.rechercheComp(this.search);
   }
 }
