@@ -79,7 +79,7 @@ export class ProduitService {
     // save string to local storage
     localStorage.setItem('products', data);
   }
-  
+
   // retourne le tableau des produits
   get(): Produit[] {
     return this.tab;
@@ -191,10 +191,10 @@ export class ProduitService {
   }
 
   update(element) {
-    const index = this.produit.indexOf(element);
-    this.produit[index] = element;
-    this.saveToLocalStorage(this.produit);
-  }
+    const index = this.tab.findIndex(product => product.id === element.id);
+    this.tab[index] = element;
+    this.saveToLocalStorage(this.tab);
+}
 }
 
 
