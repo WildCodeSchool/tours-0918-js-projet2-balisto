@@ -14,12 +14,15 @@ export class SlideshowComponent implements OnInit {
   products: any;
   closeResult: string;
   search: any;
+  tab: any;
 
-  constructor(public loginService: LoginService, private modalService: NgbModal, public produitService: ProduitService) { }
+  constructor(public loginService: LoginService, private modalService: NgbModal, public produitservice: ProduitService) { }
 
 
   ngOnInit() {
-    this.product = this.getProduitById(1);
+    this.product = this.getProduitById('21');
+    console.log(this.product);
+
 
 
   }
@@ -27,21 +30,13 @@ export class SlideshowComponent implements OnInit {
   open(content) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result
       .then((result) => {
-        this.produitService.saveSlideShow(this.product);
-      })
-      .catch(error => {
+        this.produitservice.saveSlideShow(this.product);
       });
   }
 
 
-  getFromLocalStorage(): Produit[] {
-    const stringData = localStorage.getItem('produit');
-    const produits: Produit[] = JSON.parse(stringData);
 
-    return produits;
+  getProduitById(id) {
+    this.product = this.produitservice.getProduitById(id);
   }
-
-getProduitById(id): void {
-  this.product = Object.assign({}, this.produitService.getProduitById(id));
-  console.log(this.product);
-  }}
+}
