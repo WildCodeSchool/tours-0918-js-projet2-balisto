@@ -5,13 +5,13 @@
         <span>Image produit :</span>
       </ng-template>
       <ng-template ngbPanelContent>
-        <img src="{{produit.image}}">
+        <img class="m-2 rounded mx-auto d-block" src="{{produit.image}}" style="max-height: 500px; max-width: 300px;">
         <input name="image" id="ch.image" class="form-control" type="url" [(ngModel)]="produit.image" placeholder="Url image produit" />
       </ng-template>
     </ngb-panel>
     <ngb-panel>
       <ng-template ngbPanelTitle>
-        <span class="my-1 d-flex justify-content-center">Nom produit :</span>
+        <span>Nom produit :</span>
       </ng-template>
       <ng-template ngbPanelContent>
         <input name="nom" id="ch.nom" class="form-control" type="text" [(ngModel)]="produit.name" placeholder="Nom produit" />
