@@ -12,8 +12,7 @@ import { CreerProduitComponent } from './creer-produit/creer-produit.component';
 import { ModifierProduitComponent } from './modifier-produit/modifier-produit.component';
 
 const routes: Routes = [
-  { path: 'defaut', component: IndexComposantsComponent },
-  { path: '', redirectTo: '/defaut', pathMatch: 'full' },
+  { path: '', component: IndexComposantsComponent },
   { path: 'search-page/resultat/:search', component: SearchPageComponent },
   { path: 'advsearch', component: AdvsearchComponent},
   { path: 'produits/:id', component: PageProduitsComponent },
