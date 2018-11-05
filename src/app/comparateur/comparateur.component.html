@@ -1,118 +1,70 @@
-<!--comparateur-->
-<h1 class="d-flex justify-content-center">Comparateur : </h1>
-<!-- tableau -->
-<hr>
-<div class="d-flex justify-content-center">
-  <div class="row">
-    <table class=" col-12 col-sm-6 col-lg-4 col-xl-3 m-4 d-flex justify-content-center">
-        <tr class="m-4 d-flex justify-content">
-            <th>Informations nutritionnelles</th>
-        </tr>
-        <tr>
-            <td class="table-active">Energie</td>
-        </tr>
-        <tr>
-            <td class="table-active">Matières grasses / Lipides</td>
-        </tr>
-        <tr>
-            <td class="table-active">  dont Acides gras saturés</td>
-        </tr>
-        <tr>
-            <td class="table-active">Glucides</td>
-        </tr>
-        <tr>
-            <td class="table-active">  dont Sucres</td>
-        </tr>
-        <tr>
-            <td class="table-active">Fibres alimentaires</td>
-        </tr>
-        <tr>
-            <td class="table-active">Protéines</td>
-        </tr>
-        <tr>
-            <td class="table-active">Sel</td>
-        </tr>
-        <tr>
-            <td class="table-active">  Sodium</td>
-        </tr>
-    </table>
+<div id='body'>
+  <!--comparateur-->
+  <h1 class="d-flex justify-content-center">Comparateur : </h1>
+  <!-- tableau -->
 
-    <table class=" col-12 col-sm-6 col-lg-4 col-xl-3 m-4 d-flex justify-content-center">
-        <tr class="m-4 d-flex justify-content-center">
-            <th>{{produit.name}}</th>
-        </tr>
-        <tr class="d-flex justify-content-center">
-            <td>{{produit.valeure_nutritionnelle.energy}}</td>
-        </tr>
-        <tr class="d-flex justify-content-center">
-            <td>{{produit.valeure_nutritionnelle.lipides}}</td>
-        </tr>
-        <tr class="d-flex justify-content-center">
-            <td>{{produit.valeure_nutritionnelle.saturated_fat}}</td>
-        </tr>
-        <tr class="d-flex justify-content-center">
-            <td>{{produit.valeure_nutritionnelle.glucides}}</td>
-        </tr>
-        <tr class="d-flex justify-content-center">
-            <td>{{produit.valeure_nutritionnelle.sugar}}</td>
-        </tr>
-        <tr class="d-flex justify-content-center">
-            <td>{{produit.valeure_nutritionnelle.fibres_alimentaires}}</td>
-        </tr>
-        <tr class="d-flex justify-content-center">
-            <td>{{produit.valeure_nutritionnelle.proteines}}</td>
-        </tr>
-        <tr class="d-flex justify-content-center">
-            <td>{{produit.valeure_nutritionnelle.salt}}</td>
-        </tr>
-        <tr class="d-flex justify-content-center">
-            <td>{{produit.valeure_nutritionnelle.sodium}}</td>
-        </tr>
-        <tr class="d-flex justify-content-center">
-            <td></td>
-        </tr>
-    </table>
+  <hr>
 
-    <table class=" col-12 col-sm-6 col-lg-4 col-xl-3 m-4 d-flex justify-content-center">
-        <tr class="m-4 d-flex justify-content-center">
-            <th>
-                <div ngbDropdown class="d-inline-block">
-                    <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Choisissez un produit</button>
-                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                          <button  (click)="getProduitByName(produit.name)" *ngFor="let produit of tabComp" class="dropdown-item">{{produit.name}}</button>
-                    </div>
-                </div>
-            </th>
-        </tr>
-
-        <tr class="d-flex justify-content-center">
-          <td>{{produit.valeure_nutritionnelle.energy}}</td>
-        </tr>
-        <tr class="d-flex justify-content-center">
-            <td>{{produit.valeure_nutritionnelle.lipides}}</td>
-        </tr>
-        <tr class="d-flex justify-content-center">
-            <td>{{produit.valeure_nutritionnelle.saturated_fat}}</td>
-        </tr>
-        <tr class="d-flex justify-content-center">
-            <td>{{produit.valeure_nutritionnelle.glucides}}</td>
-        </tr>
-        <tr class="d-flex justify-content-center">
-            <td>{{produit.valeure_nutritionnelle.sugar}}</td>
-        </tr>
-        <tr class="d-flex justify-content-center">
-            <td>{{produit.valeure_nutritionnelle.fibres_alimentaires}}</td>
-        </tr>
-        <tr class="d-flex justify-content-center">
-            <td>{{produit.valeure_nutritionnelle.proteines}}</td>
-        </tr>
-        <tr class="d-flex justify-content-center">
-            <td>{{produit.valeure_nutritionnelle.salt}}</td>
-        </tr>
-        <tr class="d-flex justify-content-center">
-            <td>{{produit.valeure_nutritionnelle.sodium}}</td>
-        </tr>
-      </table>
-    </div>
+<div class="row d-flex justify-content-center">
+  <div>
+    <ul>
+      <li class="down">Informations nutritionnelles</li>
+      <hr>
+      <li>Energie</li>
+      <li>Matières grasses / Lipides</li>
+      <li> dont Acides gras saturés</li>
+      <li>Glucides</li>
+      <li> dont Sucres</li>
+      <li>Fibres alimentaires</li>
+      <li>Protéines</li>
+      <li>Sel</li>
+      <li> Sodium</li>
+    </ul>
+  </div>
+  <div>
+    <ul class="centrer mx-5">
+      <li class="down">{{produitA.name}} *</li>
+      <hr>
+      <li>{{produitA.nutrients.energy}}</li>
+      <li>{{produitA.nutrients.lipids}}</li>
+      <li>{{produitA.nutrients.saturated}}</li>
+      <li>{{produitA.nutrients.glucides}}</li>
+      <li>{{produitA.nutrients.sugar}}</li>
+      <li>{{produitA.nutrients.fibres}}</li>
+      <li>{{produitA.nutrients.proteines}}</li>
+      <li>{{produitA.nutrients.salt}}</li>
+      <li>{{produitA.nutrients.sodium}}</li>
+    </ul>
+  </div>
+  <div>
+    <ul class="centrer">
+      <div class="row">
+        <li>
+          <input class="fas fa-search form-control awesomplete" list="mylist" (keypress)="rechercheComp()" [(ngModel)]="search"
+            type="text">
+          <datalist id="mylist">
+            <option *ngFor="let produit of tab">{{produit.name}}</option>
+          </datalist>
+        </li>
+        <li class="mx-2">
+          <a (click)="rechercheComp()" class="btn btn-outline-secondary">Valider</a>
+        </li>
+      </div>
+      <hr>
+      <li *ngIf="produitB">{{produitB.nutrients.energy}}</li>
+      <li *ngIf="produitB">{{produitB.nutrients.lipids}}</li>
+      <li *ngIf="produitB">{{produitB.nutrients.saturated}}</li>
+      <li *ngIf="produitB">{{produitB.nutrients.glucides}}</li>
+      <li *ngIf="produitB">{{produitB.nutrients.sugar}}</li>
+      <li *ngIf="produitB">{{produitB.nutrients.fibres}}</li>
+      <li *ngIf="produitB">{{produitB.nutrients.proteines}}</li>
+      <li *ngIf="produitB">{{produitB.nutrients.salt}}</li>
+      <li *ngIf="produitB">{{produitB.nutrients.sodium}}</li>
+    </ul>
+  </div>
 </div>
 
+<p class="d-flex justify-content-center">* Tel que vendu pour 100 g / 100 ml</p>
+<div class="d-flex justify-content-center">
+  <img src="http://www.mangerbouger.fr/var/inpes_site/storage/images/les-9-reperes/les-9-reperes-a-la-loupe/fruits-et-legumes/42065-1-fre-FR/Fruits-et-Legumes.jpg">
+</div>

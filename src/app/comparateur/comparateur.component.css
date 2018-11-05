@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+ul {
+  list-style:none;
+  }
+.centrer {
+  text-align: center;
+}
+.down {
+  padding-bottom: 14px;
+  font-weight: bold;
+}
+
+#body {
+  font-family: 'Poppins';
+}
+

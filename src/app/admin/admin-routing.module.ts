@@ -4,13 +4,11 @@ import { AdminComponent } from './admin/admin.component';
 import { ManageGalerieComponent } from './manage-galerie/manage-galerie.component';
 import { ManageCarouselComponent } from './manage-carousel/manage-carousel.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-import { AuthGuard } from '../auth/auth.guard';
 
 const adminRoutes: Routes = [
   {
     path: 'admin',
     component: AdminComponent,
-    canActivate: [AuthGuard],
     children: [
       {
         path: '',

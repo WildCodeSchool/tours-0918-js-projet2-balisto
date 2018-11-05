@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Produit } from './produit';
+import { Nutrients } from './nutrients';
 import products from './tableau_produits';
-import { toUnicode } from 'punycode';
+import productsStub from './tableau_produits';
 
 
 @Injectable({
@@ -11,12 +12,13 @@ export class ProduitService {
   // déclaration du tableau produits de type Produit
   tab: Produit[];
   produit: any;
+  caroussel: any;
 
   constructor() {
     // Si la clé n'éxiste "produits" pas dans le local storage
-    if (!localStorage.tab) {
+    if (!localStorage.products) {
       // Initialisation du local storage et du tableau produits
-      this.tab = products.map((x) => {
+      this.tab = productsStub.map((x) => {
         const produit = new Produit();
         produit.id = x['id'];
         produit.name = x['product_name'];
@@ -31,23 +33,53 @@ export class ProduitService {
         produit.allergenes = x['allergenes'];
         produit.nova = x['nova'];
         produit.nutriscore = x['nutriscore'];
-        produit.valeure_nutritionnelle = x['nutritional_value'];
+
+        produit.nutrients = new Nutrients();
+
+        produit.nutrients.lipids = x.nutritional_value.lipides;
+        produit.nutrients.sugar = x.nutritional_value.sugar;
+        produit.nutrients.saturated = x.nutritional_value.saturated_fat;
+        produit.nutrients.salt = x.nutritional_value.salt;
+        produit.nutrients.energy = x.nutritional_value.energy;
+        produit.nutrients.glucides = x.nutritional_value.glucides;
+        produit.nutrients.fibres = x.nutritional_value.fibres_alimentaires;
+        produit.nutrients.proteines = x.nutritional_value.proteines;
+        produit.nutrients.sodium = x.nutritional_value.sodium;
+
         return produit;
       });
-      this.saveToLocalStorage([this.tab]);
+      this.saveToLocalStorage(this.tab);
     } else {
       // Si la clé "produits" existe récupération des donnée en conversion
       // en objet javascript (json)
-      const data = JSON.parse(localStorage.tab);
+      const data = JSON.parse(localStorage.products);
       // converte data to Produit model
       this.tab = data;
     }
   }
 
-  saveToLocalStorage(produit) {
-    const data = JSON.stringify(produit);
-    localStorage.setItem('produits', data);
+  /**
+   * Save products displayed in slideshow
+   * @param tab Prodcuts to save
+   */
+  saveSlideShow(tab) {
+    // convert object to string
+    const data = JSON.stringify(tab);
+    // save string to local storage
+    localStorage.setItem('image', data);
   }
+
+  /**
+   * Stringify and save data to local storage
+   * @param produit Data to save
+   */
+  saveToLocalStorage(produit) {
+    // convert object to string
+    const data = JSON.stringify(produit);
+    // save string to local storage
+    localStorage.setItem('products', data);
+  }
+
   // retourne le tableau des produits
   get(): Produit[] {
     return this.tab;
@@ -67,10 +99,70 @@ export class ProduitService {
     });
     return tabTri;
   }
-
-// tableau avec comparateur
-  getProduitByName(name: string) {
-    return this.tab.find(produit => produit.name === name);
+  // tableau avec marque
+  triByMarques(marques): Produit[] {
+    const tabM = this.tab.filter(produit => {
+      if (produit.marque && produit.marque.includes(marques)) {
+        return produit;
+      }
+    });
+    return tabM;
+  }
+  // tableau avec nutriment
+  triByNutri(nutriscore): Produit[] {
+    const tabNutri = this.tab.filter(produit => {
+      if (produit.nutriscore && produit.nutriscore.includes(nutriscore)) {
+        return produit;
+      }
+    });
+    return tabNutri;
+  }
+  // tableau avec pays
+  triByPays(pays): Produit[] {
+    const tabPays = this.tab.filter(produit => {
+      if (produit.pays && produit.pays.includes(pays)) {
+        return produit;
+      }
+    });
+    return tabPays;
+  }
+  // tableau avec conditionnement
+  triByCondi(conditionnement): Produit[] {
+    const tabCondi = this.tab.filter(produit => {
+      if (produit.conditionnement && produit.conditionnement.includes(conditionnement)) {
+        return produit;
+      }
+    });
+    return tabCondi;
+  }
+  // tableau avec allergenes
+  triByAller(allergenes): Produit[] {
+    const tabAller = this.tab.filter(produit => {
+      if (produit.allergenes && produit.allergenes.includes(allergenes)) {
+        return produit;
+      }
+    });
+    return tabAller;
+  }
+  // tableau avec resultat final
+  triReg(str) {
+    const regex = new RegExp(str, 'i');
+    const tabFinal = this.tab.filter(produit => {
+      if (produit.name.match(regex)) {
+        return produit;
+      } else if (produit.marque && produit.marque.match(regex)) {
+        return produit;
+      } else if (produit.ingredients && produit.ingredients.match(regex)) {
+        return produit;
+      } else if (produit.categories && produit.categories.join().match(regex)) {
+        return produit;
+      } else if (produit.allergenes && produit.allergenes.join().match(regex)) {
+        return produit;
+      } else if (produit.pays && produit.pays.match(regex)) {
+        return produit;
+      }
+    });
+    return tabFinal;
   }
 
   // tableau search
@@ -97,4 +189,23 @@ export class ProduitService {
     this.tab.push(produit);
     this.saveToLocalStorage(this.tab);
   }
+  // modifier produit
+  update(element) {
+    const index = this.tab.findIndex(product => product.id === element.id);
+    this.tab[index] = element;
+    this.saveToLocalStorage(this.tab);
 }
+  // recherche comparateur
+    rechercheComp(search): Produit {
+      for (let i = 0; i < this.tab.length; i++) {
+        if (this.tab[i].name && this.tab[i].name.toLowerCase() === search.toLowerCase()) {
+          this.produit = this.tab[i];
+        }
+      }
+      return this.produit;
+    }
+
+}
+
+
+

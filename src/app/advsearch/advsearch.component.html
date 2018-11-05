@@ -1,0 +1,326 @@
+<div id='body'>
+  <div class='container-fluid'>
+    <!-- Search produits-->
+    <h5>Recherche de produits</h5>
+    <form>
+      <input type="text" class="form-control" name='stxt' [(ngModel)]="searchtxt" placeholder="Votre recherche">
+      <button class="btn btn-success btnR" (click)="pouet = !pouet" (click)="triReg(searchtxt)">Go !</button>
+    </form>
+  </div>
+  <div class='container-fluid'>
+    <form [hidden]='pouet'>
+      <div class='row'>
+        <div class='col-5'>
+          <h5>Marques</h5>
+          <div class='row'>
+            <div class="form-check marques">
+              <input class="form-check-input" type="radio" (click)="triByMarques('Auchan')" name="brand" id="auchan"
+                value="brand1">
+              <label class="form-check-label" for="auchan">
+                Auchan
+              </label>
+            </div>
+            <div class="form-check marques">
+              <input class="form-check-input" type="radio" (click)="triByMarques('La Belle-Iloise')" name="brand" id="labelleiloise"
+                value="brand1">
+              <label class="form-check-label" for="labelleiloise">
+                La Belle-Iloise
+              </label>
+            </div>
+            <div class="form-check marques">
+              <input class="form-check-input" type="radio" (click)="triByMarques('Picard')" name="brand" id="picard"
+                value="brand1">
+              <label class="form-check-label" for="picard">
+                Picard
+              </label>
+            </div>
+            <div class="form-check marques">
+              <input class="form-check-input" type="radio" (click)="triByMarques('Leader Price')" name="brand" id="leaderprice"
+                value="brand1">
+              <label class="form-check-label" for="leaderprice">
+                Leader Price
+              </label>
+            </div>
+            <div class="form-check marques">
+              <input class="form-check-input" type="radio" (click)="triByMarques('Lutti')" name="brand" id="lutti"
+                value="brand1">
+              <label class="form-check-label" for="lutti">
+                Lutti
+              </label>
+            </div>
+          </div>
+          <div class='row'>
+            <div class="form-check marques">
+              <input class="form-check-input" type="radio" (click)="triByMarques('Coca-Cola')" name="brand" id="cocacola"
+                value="brand1">
+              <label class="form-check-label" for="cocacola">
+                Coca-Cola
+              </label>
+            </div>
+            <div class="form-check marques">
+              <input class="form-check-input" type="radio" (click)="triByMarques('Chipso')" name="brand" id="chipso"
+                value="brand1">
+              <label class="form-check-label" for="chipso">
+                Chipso
+              </label>
+            </div>
+            <div class="form-check marques">
+              <input class="form-check-input" type="radio" (click)="triByMarques('Made Good')" name="brand" id="madegood"
+                value="brand1">
+              <label class="form-check-label" for="madegood">
+                Made Good
+              </label>
+            </div>
+            <div class="form-check marques">
+              <input class="form-check-input" type="radio" (click)="triByMarques('Ferrero')" name="brand" id="ferrero"
+                value="brand1">
+              <label class="form-check-label" for="ferrero">
+                Ferrero
+              </label>
+            </div>
+          </div>
+          <div class='row'>
+            <div class="form-check marques">
+              <input class="form-check-input" type="radio" (click)="triByMarques('Il était un fruit')" name="brand" id="iletaitunfruit"
+                value="brand1">
+              <label class="form-check-label" for="iletaitunfruit">
+                Il était un fruit
+              </label>
+            </div>
+            <div class="form-check marques">
+              <input class="form-check-input" type="radio" (click)="triByMarques('Bonval')" name="brand" id="bonval"
+                value="brand1">
+              <label class="form-check-label" for="bonval">
+                Bonval
+              </label>
+            </div>
+            <div class="form-check marques">
+              <input class="form-check-input" type="radio" (click)="triByMarques('Mix')" name="brand" id="mix" value="brand1">
+              <label class="form-check-label" for="mix">
+                Mix
+              </label>
+            </div>
+            <div class="form-check marques">
+              <input class="form-check-input" type="radio" (click)="triByMarques('Badoit')" name="brand" id="badoit"
+                value="brand1">
+              <label class="form-check-label" for="badoit">
+                Badoit
+              </label>
+            </div>
+            <div class="form-check marques">
+              <input class="form-check-input" type="radio" (click)="triByMarques('Tropicana')" name="brand" id="tropicana"
+                value="brand1">
+              <label class="form-check-label" for="tropicana">
+                Tropicana
+              </label>
+            </div>
+          </div>
+          <div class='row'>
+            <div class="form-check marques">
+              <input class="form-check-input" type="radio" (click)="triByMarques('Kellogg\'s')" name="brand" id="kelloggs"
+                value="brand1">
+              <label class="form-check-label" for="kelloggs">
+                Kellogg's
+              </label>
+            </div>
+            <div class="form-check marques">
+              <input class="form-check-input" type="radio" (click)="triByMarques('Notre Jardin')" name="brand" id="notrejardin"
+                value="brand1">
+              <label class="form-check-label" for="notrejardin">
+                Notre Jardin
+              </label>
+            </div>
+            <div class="form-check marques">
+              <input class="form-check-input" type="radio" (click)="triByMarques('Férial')" name="brand" id="ferial"
+                value="brand1">
+              <label class="form-check-label" for="ferial">
+                Férial
+              </label>
+            </div>
+            <div class="form-check marques">
+              <input class="form-check-input" type="radio" (click)="triByMarques('Balisto')" name="brand" id="balisto"
+                value="brand1">
+              <label class="form-check-label" for="balisto">
+                Balisto
+              </label>
+            </div>
+            <div class="form-check marques">
+              <input class="form-check-input" type="radio" (click)="triByMarques('Saint Alby')" name="brand" id="saintalby"
+                value="brand1">
+              <label class="form-check-label" for="saintalby">
+                Saint Alby
+              </label>
+            </div>
+          </div>
+          <div class='row'>
+            <div class="form-check marques">
+              <input class="form-check-input" type="radio" (click)="triByMarques('May Tea')" name="brand" id="maytea"
+                value="brand1">
+              <label class="form-check-label" for="maytea">
+                May Tea
+              </label>
+            </div>
+            <div class="form-check marques">
+              <input class="form-check-input" type="radio" (click)="triByMarques('Vico')" name="brand" id="vico" value="brand1">
+              <label class="form-check-label" for="vico">
+                Vico
+              </label>
+            </div>
+            <div class="form-check marques">
+              <input class="form-check-input" type="radio" (click)="triByMarques('épi d\'or')" name="brand" id="epidor"
+                value="brand1">
+              <label class="form-check-label" for="epidor">
+                épi d'or
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class='col-2'>
+          <!-- Nutriscore -->
+
+          <h5>Note nutrionnelle</h5>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" (click)="triByNutri('A')" name="nutri" id="A" value="nutri1">
+            <label class="form-check-label" for="A">
+              A
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" (click)="triByNutri('B')" name="nutri" id="B" value="nutri2">
+            <label class="form-check-label" for="B">
+              B
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" (click)="triByNutri('C')" name="nutri" id="C" value="nutri3">
+            <label class="form-check-label" for="C">
+              C
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" (click)="triByNutri('D')" name="nutri" id="D" value="nutri4">
+            <label class="form-check-label" for="D">
+              D
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" (click)="triByNutri('E')" name="nutri" id="E" value="nutri5">
+            <label class="form-check-label" for="E">
+              E
+            </label>
+          </div>
+        </div>
+        <div class='col-2'>
+          <h5>Pays de vente</h5>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" (click)="triByPays('France')" name="pays" id="france" value="pays1">
+            <label for="france"> <img src="Images/drapeau-france-5075-cm.jpg" class='drap'></label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" (click)="triByPays('UE')" name="pays" id="ue" value="pays2">
+            <label for='ue'> <img src="Images/drapeau-europe-5075-cm.jpg" class='drap'></label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" (click)="triByPays('Allemagne')" name="pays" id="allemagne"
+              value="pays3">
+            <label for='allemagne'><img src="Images/drapeau-allemagne-5075-cm.jpg" class='drap'></label>
+          </div>
+        </div>
+        <div class='col-2'>
+          <!-- Plus de critères -->
+          <h5>Allergenes</h5>
+          <div class='row'>
+            <div class="form-check aller">
+              <input class="form-check-input" type="radio" (click)="triByAller('Gluten')" name="allergenes" id="gluten"
+                value="aller1">
+              <label class="form-check-label" for="gluten">
+                Gluten
+              </label>
+            </div>
+            <div class="form-check aller">
+              <input class="form-check-input" type="radio" (click)="triByAller('Lait')" name="allergenes" id="lait"
+                value="aller2">
+              <label class="form-check-label" for="lait">
+                Lait
+              </label>
+            </div>
+            <div class="form-check aller">
+              <input class="form-check-input" type="radio" (click)="triByAller('Poisson')" name="allergenes" id="poisson"
+                value="aller3">
+              <label class="form-check-label" for="poisson">
+                Poisson
+              </label>
+            </div>
+            <div class="form-check aller">
+              <input class="form-check-input" type="radio" (click)="triByAller('Fruits à coque')" name="allergenes" id="fruits à coque"
+                value="aller4">
+              <label class="form-check-label" for="fruits à coque">
+                Fruits à coque
+              </label>
+            </div>
+            <div class="form-check aller">
+              <input class="form-check-input" type="radio" (click)="triByAller('Soja')" name="allergenes" id="soja"
+                value="aller5">
+              <label class="form-check-label" for="soja">
+                Soja
+              </label>
+            </div>
+            <div class="form-check aller">
+              <input class="form-check-input" type="radio" (click)="triByAller('Œufs')" name="allergenes" id="oeufs"
+                value="aller6">
+              <label class="form-check-label" for="oeufs">
+                Œufs
+              </label>
+            </div>
+            <div class="form-check aller">
+              <input class="form-check-input" type="radio" (click)="triByAller('Moutarde')" name="allergenes" id="moutarde"
+                value="aller7">
+              <label class="form-check-label" for="moutarde">
+                Moutarde
+              </label>
+            </div>
+            <div class="form-check aller">
+              <input class="form-check-input" type="radio" (click)="triByAller('Orange')" name="allergenes" id="orange"
+                value="aller8">
+              <label class="form-check-label" for="orange">
+                Orange
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <button class='btn btn-success btnR' (click)="triFinal('tabFinal')">Go !</button>
+        <button class='btn btn-dark btnR' type='reset' (click)="tabFinal = []">Reset</button>
+      </div>
+    </form>
+  </div>
+  <div class='container-fuild'>
+    <div *ngIf="tabFinal!==[]" class='row justify-content-center'>
+      <div class="card m-1 col-12 col-sm-6 col-lg-4 col-xl-3" style="max-width: 270px;" *ngFor="let produit of tabFinal | paginate:{itemsPerPage:6, currentPage: page}">
+        <div *ngIf="produit.image; then image else imageerreur"></div>
+        <ng-template #image>
+          <div class="card-header">
+            <img class="card-img-top" src="{{ produit.image }}" alt="Card image cap Responsive image" style="max-height: 250px;">
+          </div>
+        </ng-template>
+        <ng-template #imageerreur>
+          <div class="card-header">
+            <img class="card-img-top" src="https://via.placeholder.com/300x400" alt="Card image cap Responsive image"
+              style="max-height: 250px;">
+          </div>
+        </ng-template>
+        <div class="card-body">
+          <h5 class="card-title">{{produit.name}}</h5>
+        </div>
+        <div class="card-footer">
+          <a routerLink="/produits/{{produit.id}}" class="mx-2 btn btn-outline-secondary btn-lg btn-block">Voir</a>
+          <a routerLink="/comparateur/{{produit.id}}" class="mx-2 btn btn-outline-secondary btn-lg btn-block">Comparer</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="my-1 d-flex justify-content-center">
+    <pagination-controls previousLabel="" nextLabel="" responsive="true" (pageChange)="page = $event"></pagination-controls>
+  </div>
+</div>

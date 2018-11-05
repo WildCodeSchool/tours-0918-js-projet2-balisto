@@ -1,17 +1,17 @@
-<div *ngIf="loginService.isLogin" class="container-fluid" id="divAjouter">
+<div *ngIf="loginService.isLogin" class="container-fluid" id="divModifier">
   <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
     <ngb-panel>
       <ng-template ngbPanelTitle>
         <span>Image produit :</span>
       </ng-template>
       <ng-template ngbPanelContent>
-        <img class="m-2 rounded mx-auto d-block" src="{{produit.image}}" style="max-height: 500px; max-width: 300px;">
+        <img class="m-2 rounded mx-auto d-block" src="{{produit.image}}">
         <input name="image" id="ch.image" class="form-control" type="url" [(ngModel)]="produit.image" placeholder="Url image produit" />
       </ng-template>
     </ngb-panel>
     <ngb-panel>
       <ng-template ngbPanelTitle>
-        <span>Nom produit :</span>
+        <span class="my-1 d-flex justify-content-center">Nom produit :</span>
       </ng-template>
       <ng-template ngbPanelContent>
         <input name="nom" id="ch.nom" class="form-control" type="text" [(ngModel)]="produit.name" placeholder="Nom produit" />
@@ -74,23 +74,41 @@
     </ngb-panel>
   </ngb-accordion>
 
-  <div class="col-sm m-2 d-flex justify-content-center">
-    <a type="submit" class="m-4 btn btn-outline-secondary btn-block" (click)="ajouter()">Enregistrer</a>
-    <a type="reset" routerLink="/defaut" class="m-4 btn btn-outline-secondary btn-block">Annuler</a>
-  </div>
-</div>
+  <hr>
 
-<div *ngIf="!loginService.isLogin" class="ifNotLogged container" id="NotLogged">
-  <br />
-  <p class="alert alert-danger w-100 text-center" role="alert">
-    Vous n'êtes pas autorisé à accéder à cette page. Vous devez être connecté en tant qu'administrateur.
-  </p>
-  <div class="row">
-    <button routerLink="/defaut" type="button" class="btn btn-primary col-12 offset-md-2 col-md-4 mt-2 mt-md-0">Revenir
-      à la page d'acceuil</button>
-      <button routerLink="/produits/{{produit.id}}" type="button" class="btn btn-secondary col-12 offset-md-1 col-md-4">Revenir
-        sur
-        la page Produits</button>
+  <div class="col-sm m-2 d-flex justify-content-center">
+    <ng-template #content let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Modification(s) Terminée(s)</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-      <br />
+      <div class="modal-body">
+        <p><strong>Êtes-vous sûr de vouloir sauvegarder La fiche produit: <br /><span style="color: green" class="text-primary">{{produit.name}}</span>
+          ?</strong></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Annuler</button>
+          <button type="submit" class="btn btn-success btn-inline" (click)="modal.close(update())">oui,Enregistrer</button>
+        </div>
+      </ng-template>
+      <button type="button" class="m-4 btn btn-outline-secondary btn-lg btn-block" (click)="open(content)" style="max-width: 300px;">Enregistrer</button>
+      <button type="cancel" routerLink="/index" class="m-4 btn btn-outline-secondary btn-lg btn-block" style="max-width: 300px;">Annuler</button>
     </div>
+  </div>
+
+  <div *ngIf="!loginService.isLogin" class="ifNotLogged container" id="NotLogged">
+    <br />
+    <p class="alert alert-danger w-100 text-center" role="alert">
+      Vous n'êtes pas autorisé à accéder à cette page. Vous devez être connecté en tant qu'administrateur.
+    </p>
+    <div class="row">
+      <button routerLink="/defaut" type="button" class="btn btn-primary col-12 offset-md-2 col-md-4 mt-2 mt-md-0">Revenir
+        à la page d'acceuil</button>
+        <button routerLink="/produits/{{produit.id}}" type="button" class="btn btn-secondary col-12 offset-md-1 col-md-4">Revenir
+          sur
+          la page Produits</button>
+        </div>
+        <br />
+      </div>

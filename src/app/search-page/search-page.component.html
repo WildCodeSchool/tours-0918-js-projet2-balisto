@@ -1,10 +1,9 @@
-<div class="container">
-  --> {{loginService.isLogin}}
-  <div class="row">
+<div id='body'>
+  <div class="row d-flex justify-content-center">
     <div class="card m-1 col-12 col-sm-6 col-lg-4 col-xl-3" style="max-width: 270px;" *ngFor="let produit of resultat| paginate:{itemsPerPage:8, currentPage: page}">
       <div *ngIf="produit.image; then image else imageerreur"></div>
       <ng-template #image>
-        <div class="card-body">
+        <div class="card-header">
           <div class='d-flex justify-content-around'>
             <div *ngIf="loginService.isLogin" style="position: absolute;">
               <button class="btn btn-primary btn-xs btn-inline"><img src='../../../Images/logo modifier.png' class="figure-img img-fluid rounded logo"
@@ -17,7 +16,7 @@
         </div>
       </ng-template>
       <ng-template #imageerreur>
-        <div class="card-body">
+        <div class="card-header">
           <div class='d-flex justify-content-around'>
             <div *ngIf="loginService.isLogin" style="position: absolute;">
               <button class="btn btn-primary btn-xs btn-inline"><img src='../../../Images/logo modifier.png' class="figure-img img-fluid rounded logo"
@@ -30,17 +29,17 @@
           </div>
         </div>
       </ng-template>
-      <div class="card-header">
+      <div class="card-body">
         <h5 class="card-title">{{produit.name}}</h5>
       </div>
-      <div class="card-body">
-        <a routerLink="/produits/{{produit.id}}" class="mx-2 btn btn-outline-primary btn-lg btn-block">Voir</a>
-        <a routerLink="/comparateur/{{produit.id}}" class="mx-2 btn btn-outline-primary btn-lg btn-block">Comparer</a>
+      <div class="card-footer">
+        <a routerLink="/produits/{{produit.id}}" class="mx-2 btn btn-outline-secondary btn-lg btn-block">Voir</a>
+        <a routerLink="/comparateur/{{produit.id}}" class="mx-2 btn btn-outline-secondary btn-lg btn-block">Comparer</a>
       </div>
     </div>
   </div>
-</div>
 
-<div class="my-4 d-flex justify-content-center">
-  <pagination-controls (pageChange)="page = $event"></pagination-controls>
+  <div class="my-4 d-flex justify-content-center">
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+  </div>
 </div>

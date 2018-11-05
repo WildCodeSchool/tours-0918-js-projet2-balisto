@@ -28,20 +28,23 @@
           <div class="modal-body">
             <div id="email">
               <h6>Votre Email</h6>
-              <input type="text" [(ngModel)]="media.filename" id="iemail" />
+              <input type="text" [(ngModel)]="media.email" #email="ngModel" id="iemail" required email />
+              <small *ngIf="email.invalid">Email requis au format : robert@randomfournisseur.outuveux</small>
             </div>
             <div id="objet">
               <h6>Votre objet</h6>
-              <input type="text" [(ngModel)]="media.filename" id="iobjet" />
+              <input type="text" [(ngModel)]="media.obj" id="iobjet" #objet="ngModel" required />
+              <small *ngIf="objet.invalid">Veuillez préciser l'objet de votre message</small>
             </div>
             <div id="message">
               <h6>Votre message</h6>
-              <textarea rows="3"></textarea>
+              <textarea rows="3" [(ngModel)]="media.msg" #msg="ngModel" required></textarea>
+              <small *ngIf="msg.invalid">Allez-y, lachez-vous !</small>
             </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" (click)="modal.dismiss('erreur modal dismiss')">Close</button>
-            <button type="button" class="btn btn-primary" (click)="modal.close(mediaInput)">Save changes</button>
+            <button type="button" class="btn btn-primary" (click)="modal.close(mediaInput)" (click)="envoi()">Send</button>
           </div>
         </div>
       </ng-template>
@@ -51,8 +54,13 @@
             <p>Suivez-nous sur nos réseaux sociaux !</p>
           </figcaption>
           <div class='d-flex justify-content-around'>
-            <a href='#'> <img src='../../../Images/logo facebook.png' class="logo" alt='#'> </a> <a href="#"> <img src='../../../Images/logo twitter.png'
-                class="logo" alt='#'> </a> <a href='#'><img src='../../../Images/logo instagram.png' class="logo" alt='#'>
+            <a href='https://fr-fr.facebook.com/wildcodeschool/' target="_blank"> <img src='../../../Images/logo facebook.png' class="logo"
+                alt='#'>
+            </a>
+            <a href="https://twitter.com/wildcodeschool" target="_blank"> <img src='../../../Images/logo twitter.png' class="logo" alt='#'>
+            </a>
+            <a href='https://www.instagram.com/wildcodeschool/?hl=fr' target="_blank"><img src='../../../Images/logo instagram.png'
+                class="logo" alt='#'>
             </a>
           </div>
         </figure>
@@ -61,7 +69,8 @@
     <div class='row d-flex justify-content-around'>
       <div>
         <p>Codé par Johann, Mustapha, Killian & Pierre-Hugo | WCS Septembre 2018 |
-          <a href='#'>Condition générale d'utilisation</a>
+          <a href='https://fr.wikipedia.org/wiki/Troll_(Internet)
+          ' target="_blank">Condition générale d'utilisation</a>
         </p>
       </div>
     </div>
