@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
 import { IndexComposantsComponent } from './index-composants/index-composants.component';
 import { PageProduitsComponent } from './page-produits/page-produits.component';
 import { ComparateurComponent } from './comparateur/comparateur.component';
 import { SearchPageComponent } from './search-page/search-page.component';
 import { PagetriComponent } from './pagetri/pagetri.component';
 import { AdvsearchComponent } from './advsearch/advsearch.component';
-
 import { CreerProduitComponent } from './creer-produit/creer-produit.component';
 import { ModifierProduitComponent } from './modifier-produit/modifier-produit.component';
 
