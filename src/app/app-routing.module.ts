@@ -10,6 +10,7 @@ import { AdvsearchComponent } from './advsearch/advsearch.component';
 
 import { CreerProduitComponent } from './creer-produit/creer-produit.component';
 import { ModifierProduitComponent } from './modifier-produit/modifier-produit.component';
+import { MessagerieComponent } from './messagerie/messagerie.component';
 
 const routes: Routes = [
   { path: 'defaut', component: IndexComposantsComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'search-page/resultat/:search', component: SearchPageComponent },
   { path: 'creer-produit', component: CreerProduitComponent },
   { path: 'modifier-produit/:id', component: ModifierProduitComponent },
+  { path: 'messagerie', component: MessagerieComponent},
 ];
 
 @NgModule({

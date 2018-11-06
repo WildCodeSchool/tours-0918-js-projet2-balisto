@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { Media } from '../Models/media';
+import { MessagerieService } from '../common/messagerie.service';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -7,15 +9,19 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 })
 export class FooterComponent implements OnInit {
   closeResult: string;
-
   media: any = {};
+
+  message: Media;
+
   formCache1: boolean;
   formCache2: boolean;
   formCache3: boolean;
 
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal, private service: MessagerieService) { }
 
   ngOnInit() {
+    this.message = new Media();
+
     this.formCache1 = false;
     this.formCache2 = false;
     this.formCache3 = false;
@@ -40,9 +46,12 @@ export class FooterComponent implements OnInit {
   }
 
   envoi() {
-    const form = [this.media.email, this.media.obj, this.media.msg];
-    const formS = JSON.stringify(form);
-    localStorage.setItem('formContact', formS);
+    // const form = [this.media.email, this.media.obj, this.media.msg];
+    // const formS = JSON.stringify(form);
+    // localStorage.setItem('formContact', formS);
+    this.service.add(this.media);
+   // this.service.add(this.message);
+   // this.message = new Media();
   }
 
 }

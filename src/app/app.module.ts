@@ -19,6 +19,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AdvsearchComponent } from './advsearch/advsearch.component';
 import { CreerProduitComponent } from './creer-produit/creer-produit.component';
 import { ModifierProduitComponent } from './modifier-produit/modifier-produit.component';
+import { MessagerieComponent } from './messagerie/messagerie.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ModifierProduitComponent } from './modifier-produit/modifier-produit.co
     AdvsearchComponent,
     CreerProduitComponent,
     ModifierProduitComponent,
+    MessagerieComponent
   ],
   imports: [
     CommonModule,
