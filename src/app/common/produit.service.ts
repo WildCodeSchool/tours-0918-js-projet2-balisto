@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Produit } from './produit';
 import { Nutrients } from './nutrients';
-import products from './tableau_produits';
 import productsStub from './tableau_produits';
 
 

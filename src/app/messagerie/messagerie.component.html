@@ -1,0 +1,33 @@
+<div *ngIf="loginService.isLogin" class='container-fluid'>
+  <h1>Bienvenue sur votre messagerie !</h1>
+  <div class="row col-12">
+    <div class="card col-8 offset-2" *ngFor="let message of messages">
+      <div class="card-header" style="text-align: center">
+        Nouveau message de <span id="mail" style="color:darkblue"><b>{{ message.email }}</b></span>
+      </div>
+      <hr>
+      <div class="card-body">
+        <span style="color: darkslategray; text-align: start">Objet:</span>
+        <h5 class="card-title" style="text-align: center"><span style="color: midnightblue">{{ message.obj }}</span></h5>
+        <hr>
+        <div style="color: darkslategray; text-align: start">Message:</div>
+        <br/>
+        <p class="card-text">{{ message.msg }}</p>
+        <img class="trash" (click)="delete(message)" src="/Images/logo corbeille.png" role="button">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!loginService.isLogin" class="ifNotLogged container" id="NotLogged">
+  <br />
+  <p class="alert alert-danger w-100 text-center" role="alert">
+    Vous n'êtes pas autorisé à accéder à cette page. Vous devez être connecté en tant qu'administrateur.
+  </p>
+  <div class="row">
+    <button routerLink="" type="button" class="btn btn-primary col-6 offset-md-3 ">Revenir
+      à la page d'acceuil</button>
+      </div>
+      <br />
+    </div>
+

@@ -11,7 +11,6 @@ import { HeaderComponent } from './header/header.component';
 import { SlideshowComponent } from './slideshow/slideshow.component';
 import { FooterComponent } from './footer/footer.component';
 import { PagetriComponent} from './pagetri/pagetri.component';
-import { AdminModule } from './admin/admin.module';
 import { SearchPageComponent } from './search-page/search-page.component';
 import { PageProduitsComponent } from './page-produits/page-produits.component';
 import { ComparateurComponent } from './comparateur/comparateur.component';
@@ -19,6 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AdvsearchComponent } from './advsearch/advsearch.component';
 import { CreerProduitComponent } from './creer-produit/creer-produit.component';
 import { ModifierProduitComponent } from './modifier-produit/modifier-produit.component';
+import { MessagerieComponent } from './messagerie/messagerie.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +34,7 @@ import { ModifierProduitComponent } from './modifier-produit/modifier-produit.co
     AdvsearchComponent,
     CreerProduitComponent,
     ModifierProduitComponent,
+    MessagerieComponent
   ],
   imports: [
     CommonModule,
@@ -43,7 +44,6 @@ import { ModifierProduitComponent } from './modifier-produit/modifier-produit.co
     ReactiveFormsModule,
     NgxPaginationModule,
     AppRoutingModule,
-    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]

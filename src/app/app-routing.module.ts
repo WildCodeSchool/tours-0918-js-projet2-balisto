@@ -1,19 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
 import { IndexComposantsComponent } from './index-composants/index-composants.component';
 import { PageProduitsComponent } from './page-produits/page-produits.component';
 import { ComparateurComponent } from './comparateur/comparateur.component';
 import { SearchPageComponent } from './search-page/search-page.component';
 import { PagetriComponent } from './pagetri/pagetri.component';
 import { AdvsearchComponent } from './advsearch/advsearch.component';
-
 import { CreerProduitComponent } from './creer-produit/creer-produit.component';
 import { ModifierProduitComponent } from './modifier-produit/modifier-produit.component';
+import { MessagerieComponent } from './messagerie/messagerie.component';
 
 const routes: Routes = [
-  { path: 'defaut', component: IndexComposantsComponent },
-  { path: '', redirectTo: '/defaut', pathMatch: 'full' },
+  { path: '', component: IndexComposantsComponent },
   { path: 'search-page/resultat/:search', component: SearchPageComponent },
   { path: 'advsearch', component: AdvsearchComponent},
   { path: 'produits/:id', component: PageProduitsComponent },
@@ -21,6 +19,7 @@ const routes: Routes = [
   { path: 'search-page/resultat/:search', component: SearchPageComponent },
   { path: 'creer-produit', component: CreerProduitComponent },
   { path: 'modifier-produit/:id', component: ModifierProduitComponent },
+  { path: 'messagerie', component: MessagerieComponent},
 ];
 
 @NgModule({

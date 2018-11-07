@@ -1,0 +1,48 @@
+.container-fluid{
+  padding-top: 115px;
+  width: auto;
+  min-height: 100vh;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  padding-bottom: 5%;
+}
+
+
+.trash{
+  width: 5%;
+  height: auto;
+  cursor: pointer;
+  margin-left: 98%;
+}
+
+.card{
+  margin-top: 3%;
+  top: -10%;
+}
+
+
+h1{
+  text-align: center;
+}
+
+#NotLogged {
+  margin-bottom: 25%;
+  margin-top: 5%;
+}
+
+
+@media screen and (max-width: 850px) {
+  .container-fluid{
+    padding-top: 20%;
+  }
+  .trash{
+    width:8%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .container-fluid{
+    padding-top: 30%;
+  }
+}

@@ -15,7 +15,6 @@ export class ModifierProduitComponent implements OnInit {
   produit: Produit;
   tab: Produit[];
   produits: Produit[];
-  closeResult: string;
 
   // tslint:disable-next-line:max-line-length
   constructor(private produitService: ProduitService, private activatedRoute: ActivatedRoute, private modalService: NgbModal, public loginService: LoginService) { }
@@ -27,10 +26,12 @@ export class ModifierProduitComponent implements OnInit {
     this.getProduitById(id);
   }
 
+// Pour mettre à jour un produit (le modifier)
   update() {
     this.produitService.update(this.produit);
   }
 
+// Récupérer les données du localStorage
   getFromLocalStorage(): Produit[] {
     const stringData = localStorage.getItem('produit');
     const produits: Produit[] = JSON.parse(stringData);
@@ -38,23 +39,13 @@ export class ModifierProduitComponent implements OnInit {
     return produits;
   }
 
+// Récupérer l'id d'un produit
 getProduitById(id): void {
   this.produit = Object.assign({}, this.produitService.getProduitById(id));
   }
 
+// Ouverture des modals
   open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
-  }
-
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'});
   }
 }

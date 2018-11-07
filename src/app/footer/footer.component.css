@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins');
-
 
 .logo{
 height: 50px;
@@ -44,6 +42,5 @@ textarea
 }
 
 .modal-content {
-  background-image: url(Images/paris-manger-bonne-adresse-food-paris-paris-bonne-food-manger-à-paris-adresse-ou-manger-a-paris-paris-bien-manger-blog-14.jpg);
-
+  background-image: url(Images/fondfooter.jpeg);
 }

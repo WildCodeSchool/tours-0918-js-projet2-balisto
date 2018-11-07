@@ -12,17 +12,17 @@ export class HeaderComponent implements OnInit {
   result;
   search: any;
 
-  constructor(private service: LoginService, public router: Router, public loginService: LoginService) { }
+  constructor(public router: Router, public loginService: LoginService) { }
 
   ngOnInit() {
   }
-
+// Envois de la requete de recherche
   send() {
     this.router.navigate(['resultat', this.search]);
   }
-
+// Fonction de connexion Admin
   login() {
-    this.result = this.service.login(this.password);
+    this.result = this.loginService.login(this.password);
 
     if (this.result) {
       this.router.navigate(['/index']);
@@ -30,9 +30,9 @@ export class HeaderComponent implements OnInit {
       return false;
     }
   }
-
+// Fonction de deconnexion Admin
   logout() {
-    this.result = this.service.logout();
+    this.result = this.loginService.logout();
 
     if (this.result) {
       this.router.navigate(['/index']);

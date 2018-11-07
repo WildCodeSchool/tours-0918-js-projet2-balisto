@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins');
 
 #body{
   font-family: 'Poppins';
   background: no-repeat;
-  background-image: url(Images/bienmanger.jpeg);
+  background-image: url(Images/bienmanger.jpg);
   background-size: 100%;
   min-height: 115vh;
 }
