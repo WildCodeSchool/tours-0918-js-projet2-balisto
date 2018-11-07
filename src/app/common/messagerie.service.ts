@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Media } from '../Models/media';
-import message from './message';
 
 @Injectable({
   providedIn: 'root'

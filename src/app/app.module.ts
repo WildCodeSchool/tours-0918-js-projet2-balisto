@@ -11,7 +11,6 @@ import { HeaderComponent } from './header/header.component';
 import { SlideshowComponent } from './slideshow/slideshow.component';
 import { FooterComponent } from './footer/footer.component';
 import { PagetriComponent} from './pagetri/pagetri.component';
-import { AdminModule } from './admin/admin.module';
 import { SearchPageComponent } from './search-page/search-page.component';
 import { PageProduitsComponent } from './page-produits/page-produits.component';
 import { ComparateurComponent } from './comparateur/comparateur.component';
@@ -45,7 +44,6 @@ import { MessagerieComponent } from './messagerie/messagerie.component';
     ReactiveFormsModule,
     NgxPaginationModule,
     AppRoutingModule,
-    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]
