@@ -26,17 +26,17 @@ export class SlideshowComponent implements OnInit {
     },
     {
     nom: 'Balisto fruits des bois',
+    // tslint:disable-next-line:max-line-length
     image: `https://i1.wp.com/www.usmagazine.com/wp-content/uploads/2018/02/doritos1.jpg?crop=0px%2C999px%2C1219px%2C690px&resize=1200%2C675&ssl=1`
     }];
     }
-
+// Ouverture de modals
   open(content) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result
       .then((result) => {
         this.produitService.saveSlideShow(this.products);
       })
       .catch(error => {
-        // fix me
       });
   }
 }

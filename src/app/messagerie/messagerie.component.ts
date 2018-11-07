@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Media } from '../Models/media';
-import { ActivatedRoute } from '@angular/router';
+import { Media } from '../common/media';
 
 import { MessagerieService } from '../common/messagerie.service';
 import { LoginService } from '../common/login.service';
@@ -12,15 +11,15 @@ import { LoginService } from '../common/login.service';
 })
 export class MessagerieComponent implements OnInit {
   messages: Media[];
-  msgg: Media;
 
 
-  constructor(private activatedRoute: ActivatedRoute, private service: MessagerieService, public loginService: LoginService) { }
+  constructor(private service: MessagerieService, public loginService: LoginService) { }
 
   ngOnInit() {
     this.messages = this.service.messages;
   }
 
+// Pour supprimer un message
   delete(messagerie: Media) {
     this.service.delete(messagerie);
   }

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-import { Media } from '../Models/media';
+import { Media } from '../common/media';
 import { MessagerieService } from '../common/messagerie.service';
 @Component({
   selector: 'app-footer',
@@ -44,14 +44,9 @@ export class FooterComponent implements OnInit {
       return  `with: ${reason}`;
     }
   }
-
+// Envoi le message ecris sur contact us dans un tableau "Media"
   envoi() {
-    // const form = [this.media.email, this.media.obj, this.media.msg];
-    // const formS = JSON.stringify(form);
-    // localStorage.setItem('formContact', formS);
     this.service.add(this.media);
-   // this.service.add(this.message);
-   // this.message = new Media();
   }
 
 }

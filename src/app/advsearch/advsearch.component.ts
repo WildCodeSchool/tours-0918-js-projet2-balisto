@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProduitService } from '../common/produit.service';
 import { Produit } from '../common/produit';
-import products from 'src/app/common/tableau_produits';
 
 @Component({
   selector: 'app-advsearch',
